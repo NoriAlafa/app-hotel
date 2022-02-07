@@ -34,6 +34,13 @@ $routes->setAutoRoute(true);
 $routes->get('/dashboard', 'Home::index');
 $routes->get('/', 'Hotel::lamanDepan');
 
+//auth
+$routes->get('/register', 'Auth::index');
+$routes->get('/login', 'Auth::login');
+$routes->post('/cek_login','Auth::cek_login');
+$routes->post('/daftar','Auth::register');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
