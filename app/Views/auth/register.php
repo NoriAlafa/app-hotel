@@ -48,6 +48,7 @@
 
               <div class="card-body">
                 <form method="POST" action="/daftar">
+                <?= csrf_field(); ?>
                   <div class="form-group">
                     <label >Nama</label>
                     <input id="nama" type="text" class="form-control" name="nama">

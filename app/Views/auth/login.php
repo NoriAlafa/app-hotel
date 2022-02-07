@@ -50,6 +50,7 @@
 
               <div class="card-body">
                 <form method="POST" action="/cek_login" class="needs-validation" novalidate="">
+                <?= csrf_field(); ?>
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" id="email" tabindex="1" required autofocus>

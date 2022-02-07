@@ -29,8 +29,8 @@ class Auth extends BaseController
                 //jika username sudah ada di table dan harus diisi
                 'rules' => 'required|min_length[4]',
                 'errors' => [
-                'required' => 'Nama harus diisi',
-                'min_length' => 'Nama kurang lebih memiliki panjang 4 karakter'
+                    'required' => 'Nama harus diisi',
+                    'min_length' => 'Nama kurang lebih memiliki panjang 4 karakter'
                 ]
             ],
             'email' =>[
