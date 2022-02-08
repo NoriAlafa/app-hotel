@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 07:23 AM
+-- Generation Time: Feb 08, 2022 at 06:42 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -88,6 +88,26 @@ CREATE TABLE `tb_reservasion` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_role`
+--
+
+CREATE TABLE `tb_role` (
+  `id` int(11) NOT NULL,
+  `role` varchar(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_role`
+--
+
+INSERT INTO `tb_role` (`id`, `role`) VALUES
+(1, 'user'),
+(2, 'admin'),
+(3, 'resepsionis');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_user`
 --
 
@@ -95,9 +115,21 @@ CREATE TABLE `tb_user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `nik` varchar(16) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `nik` int(11) NOT NULL
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_user`
+--
+
+INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `created_at`, `updated_at`) VALUES
+(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'alfaoken', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -126,6 +158,12 @@ ALTER TABLE `tb_kamar`
 --
 ALTER TABLE `tb_reservasion`
   ADD PRIMARY KEY (`id_reservasion`);
+
+--
+-- Indexes for table `tb_role`
+--
+ALTER TABLE `tb_role`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_user`
@@ -162,10 +200,16 @@ ALTER TABLE `tb_reservasion`
   MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tb_role`
+--
+ALTER TABLE `tb_role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

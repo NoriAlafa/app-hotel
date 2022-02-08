@@ -101,7 +101,7 @@
                             </a>
                           </td>
                           <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
+                          <td><div class="badge badge-primary">Lunas</div></td>
                         </tr>
                         <tr>
                           <td>
@@ -129,7 +129,7 @@
                             </a>
                           </td>
                           <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
+                          <td><div class="badge badge-primary">Lunas</div></td>
                         </tr>
                         <tr>
                           <td>
@@ -157,7 +157,7 @@
                             </a>
                           </td>
                           <td>2018-01-20</td>
-                          <td><div class="badge badge-primary">Published</div></td>
+                          <td><div class="badge badge-primary">Lunas</div></td>
                         </tr>
                         <tr>
                           <td>
@@ -185,7 +185,7 @@
                             </a>
                           </td>
                           <td>2018-01-20</td>
-                          <td><div class="badge badge-danger">Draft</div></td>
+                          <td><div class="badge badge-danger">Check Out</div></td>
                         </tr>
                         <tr>
                           <td>
