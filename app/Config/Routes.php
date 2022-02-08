@@ -39,6 +39,10 @@ $routes->get('/kamar', 'Hotel::lamanKamar');
 
 //admin
 $routes->get('/createRoom', 'Hotel::buatKamar');
+
+//resepsionis
+$routes->get('/konfirmasiRoom', 'Hotel::konfirKamar');
+
 //auth
 $routes->get('/register', 'Auth::index');
 $routes->get('/login', 'Auth::login');

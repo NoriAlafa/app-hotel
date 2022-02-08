@@ -20,4 +20,11 @@ class Hotel extends BaseController
         // ini nanti diisi database kamar
         return view('admin/buat_kamar' ,$data);
     }
+
+    public function konfirKamar()
+    {
+        $data['judul'] = "Konfirmasi Orderan kamar";
+        // ini nanti diisi database kamar
+        return view('resepsionis/konfirmasi' ,$data);
+    }
 }
