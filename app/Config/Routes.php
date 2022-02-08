@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/dashboard', 'Home::index');
 $routes->get('/', 'Hotel::lamanDepan');
+$routes->get('/kamar', 'Hotel::lamanKamar');
 
 //auth
 $routes->get('/register', 'Auth::index');

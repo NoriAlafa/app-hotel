@@ -8,4 +8,9 @@ class Hotel extends BaseController
     {
         return view('user/laman_depan');
     }
+
+    public function lamanKamar()
+    {
+        return view('user/room_detail');
+    }
 }

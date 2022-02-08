@@ -3,82 +3,70 @@
 <head>
 	<meta charset="utf-8">
 	<title>404 Page Not Found</title>
-
+	<link rel="stylesheet" href="<?=base_url('css/bootstrap.min.css')?>">
 	<style>
-		div.logo {
-			height: 200px;
-			width: 155px;
-			display: inline-block;
-			opacity: 0.08;
-			position: absolute;
-			top: 2rem;
-			left: 50%;
-			margin-left: -73px;
-		}
-		body {
-			height: 100%;
-			background: #fafafa;
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-			color: #777;
-			font-weight: 300;
-		}
-		h1 {
-			font-weight: lighter;
-			letter-spacing: 0.8;
-			font-size: 3rem;
-			margin-top: 0;
-			margin-bottom: 0;
-			color: #222;
-		}
-		.wrap {
-			max-width: 1024px;
-			margin: 5rem auto;
-			padding: 2rem;
-			background: #fff;
-			text-align: center;
-			border: 1px solid #efefef;
-			border-radius: 0.5rem;
-			position: relative;
-		}
-		pre {
-			white-space: normal;
-			margin-top: 1.5rem;
-		}
-		code {
-			background: #fafafa;
-			border: 1px solid #efefef;
-			padding: 0.5rem 1rem;
-			border-radius: 5px;
-			display: block;
-		}
-		p {
-			margin-top: 1.5rem;
-		}
-		.footer {
-			margin-top: 2rem;
-			border-top: 1px solid #efefef;
-			padding: 1em 2em 0 2em;
-			font-size: 85%;
-			color: #999;
-		}
 		a:active,
 		a:link,
 		a:visited {
 			color: #dd4814;
 		}
+		/*======================
+    	404 page
+		=======================*/
+		.page_404{ 
+			padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+		}
+		.page_404  img{ 
+			width:100%;
+		}
+		.four_zero_four_bg{
+			background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+			height: 400px;
+			background-position: center;
+		}
+ 
+ 
+		.four_zero_four_bg h1{
+			font-size:80px;
+		}
+ 
+  		.four_zero_four_bg h3{
+       		font-size:80px;
+        }
+       
+        .link_404{      
+			color: #fff!important;
+			padding: 10px 20px;
+			background: #39ac31;
+			margin: 20px 0;
+			display: inline-block;
+		}
+  		.contant_box_404{ 
+			  margin-top:-50px;
+		}
 	</style>
 </head>
 <body>
-	<div class="wrap">
-		<h1>404 - File Not Found</h1>
-
-		<p>
-			<?php if (! empty($message) && $message !== '(null)') : ?>
-				<?= nl2br(esc($message)) ?>
-			<?php else : ?>
-				Sorry! Cannot seem to find the page you were looking for.
-			<?php endif ?>
-		</p>
-	</div>
+<section class="page_404">
+  <div class="container">
+    <div class="row"> 
+    	<div class="col-sm-12 text-center">
+    		<div class="col-sm-10 col-sm-offset-1  text-center">
+    			<div class="four_zero_four_bg">
+      				<h1 class="text-center">404</h1>
+    			</div> 
+   	 			<div class="contant_box_404">
+    				<h3 class="h2">
+    					Look like you're lost
+    				</h3>
+					<p>the page you are looking for not avaible!</p>
+    				<a href="/" class="link_404">Go to Home</a>
+				</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</section>
+<script src="<?=base_url('js/bootstrap.min.js')?>"></script>
 </body>
 </html>
