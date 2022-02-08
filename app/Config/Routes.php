@@ -31,10 +31,14 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//user
 $routes->get('/dashboard', 'Home::index');
 $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
 
+//admin
+$routes->get('/createRoom', 'Hotel::buatKamar');
 //auth
 $routes->get('/register', 'Auth::index');
 $routes->get('/login', 'Auth::login');
