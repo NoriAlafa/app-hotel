@@ -121,4 +121,11 @@ class Auth extends BaseController
             return redirect()->back()->withInput();
         } 
     }
+
+    public function logout() {
+        //hapus session
+        session()->destroy();
+        return redirect()->to('/login');
+    }
+    
 }

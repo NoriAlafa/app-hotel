@@ -33,22 +33,28 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 //user
-$routes->get('/dashboard', 'Home::index');
 $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
-$routes->get('/profile', 'Hotel::profile');
 
-//admin
-$routes->get('/createRoom', 'Admin::buatKamar');
-$routes->get('/dataHotel', 'Admin::tampilHotel');
-$routes->post('/saveBuat', 'Admin::buatHotel');
 
-//resepsionis
-$routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');
+$routes->group('', ['filter' => 'auth'], function($routes){
+    //user
+    $routes->get('/profile', 'Hotel::profile');
+
+    //admin
+    $routes->get('/createRoom', 'Admin::buatKamar');
+    $routes->get('/dataHotel', 'Admin::tampilHotel');
+    $routes->post('/saveBuat', 'Admin::buatHotel');
+    $routes->get('/dashboard', 'Home::index');
+
+    //resepsionis
+    $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');
+});
 
 //auth
 $routes->get('/register', 'Auth::index');
 $routes->get('/login', 'Auth::login');
+$routes->get('/logout', 'Auth::logout');
 $routes->post('/cek_login','Auth::cek_login');
 $routes->post('/daftar','Auth::register');
 

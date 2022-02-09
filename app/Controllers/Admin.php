@@ -26,6 +26,37 @@ class Admin extends BaseController{
 
     public function buatHotel(){
         $validation = $this->validate([
+            'nama_kamar'    =>[
+                'rules' =>'required|min_length[4]',
+                'errors'=>[
+                    'required' =>'Nama Kamar Tidak Boleh Kosong',
+                    'min_length'=>'Nama Kamar Terlalu Pendek'
+                ]
+            ],
+            'deskripsi'    =>[
+                'rules' =>'required',
+                'errors'=>[
+                    'required' =>'Deskripsi Tidak Boleh Kosong'
+                ]
+            ],
+            'tipe_kamar'    =>[
+                'rules' =>'',
+                'errors'=>[
+
+                ]
+            ],
+            'harga_kamar'    =>[
+                'rules' =>'',
+                'errors'=>[
+
+                ]
+            ],
+            'fasilitas'    =>[
+                'rules' =>'',
+                'errors'=>[
+
+                ]
+            ],
             'gambar'    =>[
                 'rules' =>'',
                 'errors'=>[
@@ -37,8 +68,10 @@ class Admin extends BaseController{
         if(!$validasi){
             session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
+        }else{
+            //ini nanti dibuat untuk gambar
         }
-        
+
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
