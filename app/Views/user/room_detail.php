@@ -104,7 +104,7 @@
         </div>
         <div class="row justify-content-center">
         <div class="col-md-6">
-    				<form action="#" class="booking-form">
+    				<form action="/invoice" class="booking-form">
 	        		<div class="row">
 	        			<div class="col-md-3 d-flex">
 	        				<div class="form-group p-4 align-self-stretch d-flex align-items-end">

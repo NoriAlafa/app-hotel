@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 //user
 $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
+$routes->get('/kontak', 'Hotel::kontak');
+$routes->get('/invoice', 'Hotel::payment');
 
 
 $routes->group('', ['filter' => 'auth'], function($routes){

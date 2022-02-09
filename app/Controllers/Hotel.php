@@ -24,6 +24,16 @@ class Hotel extends BaseController
         return view('user/room_detail');
     }
 
+    public function kontak()
+    {
+        return view('user/contact');
+    }
+
+    public function payment()
+    {
+        return view('user/pembayaran');
+    }
+
     public function profile()
     {
         $data['profile'] =$this->userModel->findAll();
