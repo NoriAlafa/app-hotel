@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="<?=base_url('css/bootstrap-datepicker.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/jquery.timepicker.css')?>">
-
+	
     
     <link rel="stylesheet" href="<?=base_url('css/flaticon.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/icomoon.css')?>">
@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Deluxe</a>
+	      <a class="navbar-brand" href="<?=base_url('/')?>">Deluxe</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -44,6 +44,7 @@
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 	          <li class="nav-item"><a href="<?=base_url('/login')?>" class="nav-link">Login</a></li>
+	          <li class="nav-item"><a href="<?=base_url('/profile')?>" class="nav-link">Profile</a></li>
 	        </ul>
 	      </div>
 	    </div>

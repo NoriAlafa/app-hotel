@@ -36,10 +36,12 @@ $routes->setAutoRoute(true);
 $routes->get('/dashboard', 'Home::index');
 $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
+$routes->get('/profile', 'Hotel::profile');
 
 //admin
 $routes->get('/createRoom', 'Admin::buatKamar');
 $routes->get('/dataHotel', 'Admin::tampilHotel');
+$routes->post('/saveBuat', 'Admin::buatHotel');
 
 //resepsionis
 $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');

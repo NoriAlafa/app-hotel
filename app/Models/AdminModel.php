@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class AdminModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_user';
-    protected $primaryKey       = 'id_user';
+    protected $table            = 'tb_admin';
+    protected $primaryKey       = 'id_admin';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user','nama','email' ,'nik' , 'password' ,'role_id' ,'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_admin','username' , 'password' ,'role' ,'created_at' , 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;

@@ -10,6 +10,7 @@ class Auth extends BaseController
         helper('url');
         $this->userModel = new \App\Models\UserModel();
     }
+
     public function index()
     {
         $data['judul'] = "Register";
@@ -78,7 +79,8 @@ class Auth extends BaseController
             'email' => $this->request->getPost('email'),
             'nik' => $this->request->getPost('nik'),
             //enkripsi password dengan bycript
-            'password' => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT)            
+            'password' => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
+            'role_id' => 1            
         ];
 
         //memasukan data dalam database
