@@ -61,13 +61,13 @@
 
                   <div class="form-group">
                     <label >NIK KTP</label>
-                    <input id="nik" type="text" class="form-control" name="nik">
+                    <input id="nik" type="text" class="form-control" name="nik" placeholder="Panjang NIK Harus sesuai 16 Karakter">
                   </div>
 
                   <div class="row">
                     <div class="form-group col-6">
                       <label class="d-block">Password</label>
-                      <input id="password" type="password" class="form-control pwstrength"  name="password">
+                      <input id="password" type="password" class="form-control pwstrength"  name="password" placeholder="Password minimal 8 karakter">
                     </div>
                     <div class="form-group col-6">
                       <label class="d-block">Password Confirmation</label>

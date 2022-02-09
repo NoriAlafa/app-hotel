@@ -79,8 +79,7 @@ class Auth extends BaseController
             'email' => $this->request->getPost('email'),
             'nik' => $this->request->getPost('nik'),
             //enkripsi password dengan bycript
-            'password' => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
-            'role_id' => 1            
+            'password' => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT)           
         ];
 
         //memasukan data dalam database
