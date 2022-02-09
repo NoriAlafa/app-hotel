@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 class Hotel extends BaseController
 {
+    
+
     public function lamanDepan()
     {
         return view('user/laman_depan');
@@ -14,17 +16,5 @@ class Hotel extends BaseController
         return view('user/room_detail');
     }
 
-    public function buatKamar()
-    {
-        $data['judul'] = "Buat kamar";
-        // ini nanti diisi database kamar
-        return view('admin/buat_kamar' ,$data);
-    }
-
-    public function konfirKamar()
-    {
-        $data['judul'] = "Konfirmasi Orderan kamar";
-        // ini nanti diisi database kamar
-        return view('resepsionis/konfirmasi' ,$data);
-    }
+    
 }

@@ -38,10 +38,11 @@ $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
 
 //admin
-$routes->get('/createRoom', 'Hotel::buatKamar');
+$routes->get('/createRoom', 'Admin::buatKamar');
+$routes->get('/dataHotel', 'Admin::tampilHotel');
 
 //resepsionis
-$routes->get('/konfirmasiRoom', 'Hotel::konfirKamar');
+$routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');
 
 //auth
 $routes->get('/register', 'Auth::index');
