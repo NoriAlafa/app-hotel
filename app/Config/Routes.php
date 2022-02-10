@@ -48,6 +48,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/dataHotel', 'Admin::tampilHotel');
     $routes->post('/saveBuat', 'Admin::buatHotel');
     $routes->get('/dashboard', 'Home::index');
+    $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
 
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');

@@ -14,7 +14,7 @@ class KamarModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user','nama_kamar','deskripsi' ,'tipe_kamar' , 'harga' ,'status' ,'fasilitas' ,'gambar' ,'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_user','nama_kamar','deskripsi' ,'tipe_kamar' , 'harga_kamar' ,'status' ,'fasilitas' ,'gambar' ,'created_at' , 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
