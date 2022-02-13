@@ -83,18 +83,5 @@
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>
   <script src="<?=base_url('assets/js/custom.js')?>"></script>
-  <script>
-    function previewImg(){
-      const gambar = document.querySelector('#gambar');
-      const imgPreview = document.querySelector('.img-preview');
-      const fileGambar = new FileReader();
-
-      fileGambar.readAsDataURL(gambar.files[0]);
-
-      fileGambar.onload = function(e){
-        imgPreview.src = e.target.result;
-      }
-    }
-  </script>
 </body>
 </html>

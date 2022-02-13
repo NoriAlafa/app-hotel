@@ -72,22 +72,13 @@ class Admin extends BaseController{
             return redirect()->back()->withInput();
         }
 
-        $fileGambar = $this->request->getFile('gambar');
-
-        // // generate nama file random
-        $namaGambar = $fileGambar->getRandomName();
-        //save lokasi file
-        $fileGambar->move('images' , $namaGambar);
-        
-
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'status'            => 'tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
-            'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $namaGambar
+            'fasilitas'         => $this->request->getPost('fasilitas')
         ];
         
         $this->kamarModel->insert($data);
@@ -103,36 +94,6 @@ class Admin extends BaseController{
     }
 
     public function update(){
-        $validation = $this->validate([
-            'gambar'    =>[
-                'rules' =>'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-                'errors'=>[
-                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
-                    'is_image'=>'Yang Anda Pilih Bukan Gambar',
-                    'mime_in' =>'Yang Anda Pilih Bukan Gambar'
-                ]
-            ],
-        ]);
-
-        if(!$validation){
-            session()->setFlashdata('error', $this->validator->listErrors());
-            return redirect()->back()->withInput();
-        }
-
-        $fileGambar = $this->request->getFile('gambar');
-
-        //cek gambar apakah berubah atau tidak
-        if($fileGambar->getError()){
-            $namaGambar = $this->request->getVar('gambarLama');
-        }else{
-            //generate nama file 
-            $namaGambar = $fileGambar->getRandomName();
-            //upload gambar
-            $fileGambar->move('images' , $namaGambar);
-            //hapus file lama
-            unlink('images/' . $this->request->getVar('gambarLama'));
-        }
-
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
@@ -140,7 +101,6 @@ class Admin extends BaseController{
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status'            => $this->request->getPost('status'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $namaGambar
         ];
 
         $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
