@@ -62,8 +62,7 @@ class Admin extends BaseController{
                 'errors'=>[
                     'uploaded'=>'Gambar Belum Dipilih',
                     'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
-                    'is_image'=>'Yang Anda Pilih Bukan Gambar',
-                    'mime_in' =>'Yang Anda Pilih Bukan Gambar'
+                    'is_image'=>'Yang Anda Pilih Bukan Gambar'
                 ]
             ],
         ]);
@@ -116,7 +115,7 @@ class Admin extends BaseController{
         ]);
 
         if(!$validation){
-            session()->setFlashdata('error', $this->validator->getErrors());
+            session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
         }
 
@@ -138,11 +137,12 @@ class Admin extends BaseController{
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
-            'status'            => $this->request->getPost('status'),
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
+            'status'            => $this->request->getPost('status'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
             'gambar'            => $namaGambar
         ];
+
         $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
         return redirect()->to('/dataHotel');
     }
