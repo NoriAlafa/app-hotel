@@ -107,12 +107,12 @@ class Admin extends BaseController{
         $file = $this->request->getFile('gambar');
         if($file->isValid() && !$file->hasMoved()){
             $gambarLama = $kamarGambar['gambar'];
-            if(file_exists("images/".$gambarLama)){
-                unlink("images/" . $gambarLama);
+            if(file_exists('images/'.$gambarLama)){
+                unlink('images/' . $gambarLama);
             }
 
             $imageName = $file->getRandomName();
-            $file->move("images/",$imageName);
+            $file->move('images/',$imageName);
         }else{
             $imageName = $gambarLama;
         }
@@ -127,7 +127,7 @@ class Admin extends BaseController{
             'gambar'            => $imageName
         ];
 
-        $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
+        $this->kamarModel->update($id,$data);
         return redirect()->to('/dataHotel');
     }
 
