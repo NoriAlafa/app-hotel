@@ -10,7 +10,6 @@
             <th>Harga Kamar</th>
             <th>Status</th>
             <th>Fasilitas</th>
-            <th>Gambar</th>
             <th>Dibuat</th>
             <th>Diupdate</th>
             <th>Aksi</th>
