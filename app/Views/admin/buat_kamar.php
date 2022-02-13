@@ -75,13 +75,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Gambar</label>
                       <div class="col-sm-12 col-md-7">
-                          <input type="file" name="gambar" id="gambar" class="form-control" onchange="previewImg()">
-                      </div>
-                    </div>
-                    <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Preview</label>
-                      <div class="col-sm-12 col-md-7">
-                        <img src="<?=base_url('images/default.jpg')?>" class="img-preview" style="height:250px; width:250px;">
+                          <input type="file" name="gambar" id="gambar" class="form-control" >
                       </div>
                     </div>
                     <div class="form-group row mb-4">

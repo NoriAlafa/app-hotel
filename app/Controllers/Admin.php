@@ -72,13 +72,20 @@ class Admin extends BaseController{
             return redirect()->back()->withInput();
         }
 
+        $file = $this->request->getFile('gambar');
+        if($file->isValid() && !$file->hasMoved()){
+            $imageName = $file->getRandomName();
+            $file->move('images/' , $imageName);
+        }
+
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'status'            => 'tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
-            'fasilitas'         => $this->request->getPost('fasilitas')
+            'fasilitas'         => $this->request->getPost('fasilitas'),
+            'gambar'            =>$imageName
         ];
         
         $this->kamarModel->insert($data);
@@ -94,6 +101,22 @@ class Admin extends BaseController{
     }
 
     public function update(){
+        $gambarLama = $this->kamarModel;
+        $kamarGambar = $gambarLama->findAll();
+
+        $file = $this->request->getFile('gambar');
+        if($file->isValid() && !$file->hasMoved()){
+            $gambarLama = $kamarGambar['gambar'];
+            if(file_exists("images/".$gambarLama)){
+                unlink("images/" . $gambarLama);
+            }
+
+            $imageName = $file->getRandomName();
+            $file->move("images/",$imageName);
+        }else{
+            $imageName = $gambarLama;
+        }
+
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
@@ -101,6 +124,7 @@ class Admin extends BaseController{
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status'            => $this->request->getPost('status'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
+            'gambar'            => $imageName
         ];
 
         $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
