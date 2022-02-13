@@ -100,9 +100,9 @@ class Admin extends BaseController{
         return view('admin/edit_kamar',$data);
     }
 
-    public function update(){
+    public function update($id){
         $gambarLama = $this->kamarModel;
-        $kamarGambar = $gambarLama->findAll();
+        $kamarGambar = $gambarLama->find($id);
 
         $file = $this->request->getFile('gambar');
         if($file->isValid() && !$file->hasMoved()){

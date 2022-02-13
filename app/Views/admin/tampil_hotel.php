@@ -24,7 +24,7 @@
               <td><?=$kmr['harga_kamar']?></td>
               <td><?=$kmr['status']?></td>
               <td><?=$kmr['fasilitas']?></td>
-              <td><img src="<?="images/" . $kmr['gambar']?>" style="height:100px;"></td>
+              <td><img src="<?="images/" . $kmr['gambar']?>" style="height:200px;"></td>
               <td><?=$kmr['created_at']?></td>
               <td><?=$kmr['updated_at']?></td>
               <td><a href="/kamar/<?=$kmr['id_kamar']?>/edit">EDIT</a>|<a href="/kamar/<?=$kmr['id_kamar']?>/delete" onclick="return confirm('Apakah Anda Yakin')">DELETE</a></td>

@@ -31,10 +31,10 @@
             <p class="section-lead">
               On this page you can create a new post and fill in all fields.
             </p>
-          <form action="/editKamar" method="post" enctype="multipart/form-data">
+          <?php foreach($kamar as $kmr):?>
+          <form action="/editKamar/<?=$kmr['id_kamar']?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
-            <input type="hidden" name="_method" value="put">
-            <?php foreach($kamar as $kmr):?>
+            
             <div class="row">
               <div class="col-12">
                 <div class="card">
