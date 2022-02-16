@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\KamarModel;
 
 class Admin extends BaseController{
     protected $kamarModel;
@@ -101,18 +102,18 @@ class Admin extends BaseController{
     }
 
     public function update($id){
-        $gambarLama = $this->kamarModel;
+        $gambarLama = new KamarModel();
         $kamarGambar = $gambarLama->find($id);
 
         $file = $this->request->getFile('gambar');
         if($file->isValid() && !$file->hasMoved()){
             $gambarLama = $kamarGambar['gambar'];
-            if(file_exists('images/'.$gambarLama)){
-                unlink('images/' . $gambarLama);
+            if(file_exists("images/".$gambarLama)){
+                unlink("images/" . $gambarLama);
             }
 
             $imageName = $file->getRandomName();
-            $file->move('images/',$imageName);
+            $file->move("images/",$imageName);
         }else{
             $imageName = $gambarLama;
         }
@@ -127,14 +128,21 @@ class Admin extends BaseController{
             'gambar'            => $imageName
         ];
 
-        $this->kamarModel->update($id,$data);
+        $gambarLama->update($id,$data);
         return redirect()->to('/dataHotel');
     }
 
     public function delete($id){
-        $kamar = $this->kamarModel->find($id);
-        unlink('images/' . $kamar['gambar']);
-        $this->kamarModel->delete($id);
+        $gambarKamar = new kamarModel();
+        $data = $this->kamarModel->find($id);
+        $imageFile = $data['gambar'];
+
+        if(file_exists("images/".$imageFile)){
+
+            unlink("images/" . $imageFile);
+        }
+        
+        $gambarKamar->delete($id);
         return redirect()->to('/dataHotel');
     }
 }
