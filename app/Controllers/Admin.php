@@ -73,11 +73,6 @@ class Admin extends BaseController{
             return redirect()->back()->withInput();
         }
 
-        $file = $this->request->getFile('gambar');
-        if($file->isValid() && !$file->hasMoved()){
-            $imageName = $file->getRandomName();
-            $file->move('images/' , $imageName);
-        }
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
@@ -86,7 +81,7 @@ class Admin extends BaseController{
             'status'            => 'tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            =>$imageName
+            'gambar'            => $this->request->getFile('gambar')
         ];
         
         $this->kamarModel->insert($data);
@@ -101,23 +96,7 @@ class Admin extends BaseController{
         return view('admin/edit_kamar',$data);
     }
 
-    public function update($id){
-        $gambarLama = new KamarModel();
-        $kamarGambar = $gambarLama->find($id);
-
-        $file = $this->request->getFile('gambar');
-        if($file->isValid() && !$file->hasMoved()){
-            $gambarLama = $kamarGambar['gambar'];
-            if(file_exists("images/".$gambarLama)){
-                unlink("images/" . $gambarLama);
-            }
-
-            $imageName = $file->getRandomName();
-            $file->move("images/",$imageName);
-        }else{
-            $imageName = $gambarLama;
-        }
-
+    public function update(){
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
@@ -125,24 +104,15 @@ class Admin extends BaseController{
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status'            => $this->request->getPost('status'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $imageName
+            'gambar'            => $this->request->getFile('gambar')
         ];
 
-        $gambarLama->update($id,$data);
+        $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
         return redirect()->to('/dataHotel');
     }
 
     public function delete($id){
-        $gambarKamar = new kamarModel();
-        $data = $this->kamarModel->find($id);
-        $imageFile = $data['gambar'];
-
-        if(file_exists("images/".$imageFile)){
-
-            unlink("images/" . $imageFile);
-        }
-        
-        $gambarKamar->delete($id);
+        $this->kamarModel->delete($id);
         return redirect()->to('/dataHotel');
     }
 }

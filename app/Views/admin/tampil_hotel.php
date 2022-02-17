@@ -24,10 +24,10 @@
               <td><?=$kmr['harga_kamar']?></td>
               <td><?=$kmr['status']?></td>
               <td><?=$kmr['fasilitas']?></td>
-              <td><img src="<?=base_url("images/" . $kmr['gambar'])?>" style="height:100px;"></td>
+              <td><img src="<?=$kmr['gambar']?>" style="height:100px;"></td>
               <td><?=$kmr['created_at']?></td>
               <td><?=$kmr['updated_at']?></td>
-              <td><a href="/kamar/<?=$kmr['id_kamar']?>/edit">EDIT</a>|<a href="/kamar/<?=$kmr['id_kamar']?>/delete" onclick="return confirm('Apakah Anda Yakin')">DELETE</a></td>
+              <td><a href="/kamar/<?=$kmr['id_kamar']?>/edit">EDIT</a>|<a href="/kamar/<?=$kmr['id_kamar']?>/delete" class="tombol-hapus">DELETE</a></td>
           </tr>
           <?php endforeach?>
       </table>

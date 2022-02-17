@@ -73,12 +73,14 @@
   <!-- JS Libraies -->
   <script src="<?=base_url('assets/modules/jquery.sparkline.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/chart.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/sweetalert/sweetalert.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/owlcarousel2/dist/owl.carousel.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/summernote/summernote-bs4.js')?>"></script>
   <script src="<?=base_url('assets/modules/chocolat/dist/js/jquery.chocolat.min.js')?>"></script>
 
   <!-- Page Specific JS File -->
   <script src="<?=base_url('assets/js/page/index.js')?>"></script>
+  <script src="<?=base_url('assets/js/page/modules-sweetalert.js')?>"></script>
   
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>
