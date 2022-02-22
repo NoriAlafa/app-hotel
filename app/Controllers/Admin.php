@@ -1,14 +1,29 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\KamarModel;
 
 class Admin extends BaseController{
     protected $kamarModel;
+    protected $userModel;
 
     public function __construct(){
         helper('url');
-        $this->kamarModel = new \App\Models\KamarModel();  
+        $this->kamarModel = new \App\Models\KamarModel(); 
+        $this->userModel = new \App\Models\UserModel(); 
+    }
+
+    public function index()
+    {
+        $dataAllKamar = $this->kamarModel->get()->resultID->num_rows;
+        $dataStatusAda   = $this->kamarModel->get()->resultID->num_rows;
+        $dataAllUser  = $this->userModel->get()->resultID->num_rows;
+        $data = [
+            'viewKamar' => $dataAllKamar,
+            'userCard'  => $this->userModel,
+            'viewUser'  => $dataAllUser,
+            'statusAda'    => $dataStatusAda
+        ];
+        return view('admin/index_admin' , $data);
     }
     
     public function buatKamar(){
