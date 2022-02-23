@@ -14,14 +14,16 @@ class Admin extends BaseController{
 
     public function index()
     {
-        $dataAllKamar = $this->kamarModel->get()->resultID->num_rows;
-        $dataStatusAda   = $this->kamarModel->get()->resultID->num_rows;
-        $dataAllUser  = $this->userModel->get()->resultID->num_rows;
+        $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
+        $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
+        $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
+        $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
-            'viewKamar' => $dataAllKamar,
-            'userCard'  => $this->userModel,
-            'viewUser'  => $dataAllUser,
-            'statusAda'    => $dataStatusAda
+            'viewKamar'         => $dataAllKamar,
+            'userCard'          => $this->userModel,
+            'viewUser'          => $dataAllUser,
+            'statusAda'         => $dataStatusAda,
+            'statusKosong'      => $dataStatusTdk
         ];
         return view('admin/index_admin' , $data);
     }
@@ -45,8 +47,8 @@ class Admin extends BaseController{
             'nama_kamar'    =>[
                 'rules' =>'required|min_length[4]',
                 'errors'=>[
-                    'required' =>'Nama Kamar Tidak Boleh Kosong',
-                    'min_length'=>'Nama Kamar Terlalu Pendek'
+                    'required'      =>'Nama Kamar Tidak Boleh Kosong',
+                    'min_length'    =>'Nama Kamar Terlalu Pendek'
                 ]
             ],
             'deskripsi'    =>[

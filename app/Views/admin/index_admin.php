@@ -30,7 +30,7 @@
                     <h4>Total Orders</h4>
                   </div>
                   <div class="card-body">
-                  <?=$viewKamar?>
+                    59
                   </div>
                 </div>
               </div>
@@ -49,14 +49,14 @@
                     </div>
                     <div class="card-stats-item">
                       <div class="card-stats-item-count">
-                      <?=$statusAda?>
+                      <?=$statusKosong?>
                       </div>
                       <div class="card-stats-item-label">Kosong</div>
                     </div>
                   </div>
                 </div>
                 <div class="card-icon shadow-primary bg-primary">
-                  <i class="fas fa-archive"></i>
+                  <i class="fas fa-bed"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
