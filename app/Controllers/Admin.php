@@ -17,6 +17,7 @@ class Admin extends BaseController{
     public function index()
     {
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
+        $dataOrder          = $this->resepsionisModel->findAll(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
         $dataPending        = $this->resepsionisModel->where('status' , 'belum')->countAllResults();
@@ -25,6 +26,7 @@ class Admin extends BaseController{
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
             'viewKamar'         => $dataAllKamar,
+            'dataOrder'         => $dataOrder,
             'userCard'          => $this->userModel,
             'dataPending'       => $dataPending,
             'dataBayar'         => $dataBayar,

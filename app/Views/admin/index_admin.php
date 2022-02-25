@@ -94,6 +94,67 @@
                 </div>
               </div>
             </div>
-</div>
+        </div>
+
+        <div class="row">
+        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Detail Pemesanan</h4>
+                  <div class="card-header-action">
+                    <a href="#" class="btn btn-primary">View All</a>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table table-striped mb-0">
+                      <thead>
+                        <tr>
+                          <th>Hotel</th>
+                          <th>Pemesan</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>                         
+                        <tr>
+                          <td>
+                            OYO KEDIRI
+                          </td>
+                          <td>
+                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                          </td>
+                          <td>
+                             Pending
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Ichikiwir
+                          </td>
+                          <td>
+                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                          </td>
+                          <td>
+                            Dibayar
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            Wer-Ewer
+                          </td>
+                          <td>
+                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                          </td>
+                          <td>
+                            CheckOut
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
           
 <?=$this->endSection()?>
