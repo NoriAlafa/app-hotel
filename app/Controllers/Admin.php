@@ -5,11 +5,13 @@ namespace App\Controllers;
 class Admin extends BaseController{
     protected $kamarModel;
     protected $userModel;
+    protected $resepsionisModel;
 
     public function __construct(){
         helper('url');
         $this->kamarModel = new \App\Models\KamarModel(); 
         $this->userModel = new \App\Models\UserModel(); 
+        $this->resepsionisModel = new \App\Models\ReservationModel(); 
     }
 
     public function index()
@@ -17,10 +19,16 @@ class Admin extends BaseController{
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
+        $dataPending        = $this->resepsionisModel->where('status' , 'belum')->countAllResults();
+        $dataBayar          = $this->resepsionisModel->where('status' , 'sudah')->countAllResults();
+        $dataOut            = $this->resepsionisModel->where('status' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
             'viewKamar'         => $dataAllKamar,
             'userCard'          => $this->userModel,
+            'dataPending'       => $dataPending,
+            'dataBayar'         => $dataBayar,
+            'dataOut'           => $dataOut,
             'viewUser'          => $dataAllUser,
             'statusAda'         => $dataStatusAda,
             'statusKosong'      => $dataStatusTdk

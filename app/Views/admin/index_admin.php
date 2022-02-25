@@ -9,15 +9,15 @@
                   </div>
                   <div class="card-stats-items">
                   <div class="card-stats-item">
-                      <div class="card-stats-item-count">23</div>
+                      <div class="card-stats-item-count"><?=$dataPending?></div>
                       <div class="card-stats-item-label">Dibooking</div>
                     </div>
                     <div class="card-stats-item">
-                      <div class="card-stats-item-count">24</div>
+                      <div class="card-stats-item-count"><?=$dataBayar?></div>
                       <div class="card-stats-item-label">Dibayar</div>
                     </div>
                     <div class="card-stats-item">
-                      <div class="card-stats-item-count">12</div>
+                      <div class="card-stats-item-count"><?=$dataOut?></div>
                       <div class="card-stats-item-label">CheckOut</div>
                     </div>
                   </div>
@@ -30,7 +30,10 @@
                     <h4>Total Orders</h4>
                   </div>
                   <div class="card-body">
-                    59
+                    <?php
+                      $order = $dataPending + $dataBayar;
+                      echo $order;
+                    ?>
                   </div>
                 </div>
               </div>
