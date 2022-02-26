@@ -2,22 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Models\KamarModel;
+use App\Models\UserModel;
+use App\Models\ReservationModel;
+
 class Admin extends BaseController{
-    protected $kamarModel;
-    protected $userModel;
-    protected $resepsionisModel;
 
     public function __construct(){
         helper('url');
-        $this->kamarModel = new \App\Models\KamarModel(); 
-        $this->userModel = new \App\Models\UserModel(); 
-        $this->resepsionisModel = new \App\Models\ReservationModel(); 
+        $this->kamarModel       = new KamarModel(); 
+        $this->userModel        = new UserModel(); 
+        $this->resepsionisModel = new ReservationModel(); 
     }
 
     public function index()
     {
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataOrder          = $this->resepsionisModel->findAll(); 
+        $dataPesan          = $this->resepsionisModel->reservasi(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
         $dataPending        = $this->resepsionisModel->where('status' , 'belum')->countAllResults();
@@ -26,8 +28,8 @@ class Admin extends BaseController{
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
             'viewKamar'         => $dataAllKamar,
+            'dataPesan'         => $dataPesan,
             'dataOrder'         => $dataOrder,
-            'userCard'          => $this->userModel,
             'dataPending'       => $dataPending,
             'dataBayar'         => $dataBayar,
             'dataOut'           => $dataOut,

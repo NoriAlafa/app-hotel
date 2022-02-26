@@ -14,27 +14,17 @@ class ReservationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_admin','id_user' ,'id_kamar','tgl_check_in','tgl_check_out' ,'pembayaran' , 'status' , 'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_reservasion','id_user' ,'id_kamar','tgl_check_in','tgl_check_out' ,'pembayaran' , 'status' , 'created_at' , 'updated_at'];
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    public function reservasi(){
+        return $this->db->table('tb_reservasion')
+        ->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
+        ->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user')
+        ->get()->getResultArray();
+    }
 }

@@ -110,45 +110,31 @@
                     <table class="table table-striped mb-0">
                       <thead>
                         <tr>
-                          <th>Hotel</th>
-                          <th>Pemesan</th>
+                          <th>ID</th>
+                          <th>ID USER</th>
+                          <th>ID KAMAR</th>
+                          <th>Tanggal Check In</th>
+                          <th>Tanggal Check Out</th>
+                          <th>Pembayaran</th>
                           <th>Status</th>
+                          <th>Created At</th>
+                          <th>Updated At</th>
                         </tr>
                       </thead>
                       <tbody>                         
+                        <?php $no = 1; foreach($dataPesan as $row):?>
                         <tr>
-                          <td>
-                            OYO KEDIRI
-                          </td>
-                          <td>
-                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                          </td>
-                          <td>
-                             Pending
-                          </td>
+                          <td><?=$no++?></td>
+                          <td><?=$row['id_user']?></td>
+                          <td><?=$row['id_kamar']?></td>
+                          <td><?=$row['tgl_check_in']?></td>
+                          <td><?=$row['tgl_check_out']?></td>
+                          <td><?=$row['pembayaran']?></td>
+                          <td><?=$row['status']?></td>
+                          <td><?=$row['created_at']?></td>
+                          <td><?=$row['updated_at']?></td>
                         </tr>
-                        <tr>
-                          <td>
-                            Ichikiwir
-                          </td>
-                          <td>
-                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                          </td>
-                          <td>
-                            Dibayar
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            Wer-Ewer
-                          </td>
-                          <td>
-                            <a href="#" class="font-weight-600"><img src="<?=base_url('assets/img/avatar/avatar-1.png')?>" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
-                          </td>
-                          <td>
-                            CheckOut
-                          </td>
-                        </tr>
+                        <?php endforeach;?>
                       </tbody>
                     </table>
                   </div>
