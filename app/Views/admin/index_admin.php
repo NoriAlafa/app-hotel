@@ -127,10 +127,10 @@
                           <td><?=$row['tgl_check_in']?></td>
                           <td><?=$row['tgl_check_out']?></td>
                           <td>
-                              <?php if($row['status_rev'] == 'belum'):?>
+                              <?php if($row['status_rev'] == 'booking'):?>
                                 <span class="badge badge-warning" style="width:80px;"><?=$row['status_rev']?></span>
                               <?php endif;?>
-                              <?php if($row['status_rev'] == 'sudah'):?>
+                              <?php if($row['status_rev'] == 'bayar'):?>
                                 <span class="badge badge-success" style="width:80px;"><?=$row['status_rev']?></span>
                               <?php endif;?>
                               <?php if($row['status_rev'] == 'out'):?>
@@ -140,11 +140,11 @@
                           <td>Rp <?=number_format($row['harga_kamar'])?></td>
                           <td>
                               <?php if($row['status'] == 'Tersedia'):?>
-                                <span class="badge badge-info"><?=$row['status']?></span>
+                                <span class="badge badge-info" style="width:80px;"><?=$row['status']?></span>
                               <?php endif;?>
 
                               <?php if($row['status'] == 'Kosong'):?>
-                                <span class="badge badge-secondary"><?=$row['status']?></span>
+                                <span class="badge badge-secondary"style="width:80px;"><?=$row['status']?></span>
                               <?php endif;?>
                           </td>
                           <td><?=$row['nama_kamar']?></td>

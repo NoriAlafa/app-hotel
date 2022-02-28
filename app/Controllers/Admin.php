@@ -21,8 +21,8 @@ class Admin extends BaseController{
         $dataPesan          = $this->resepModel->reservasi(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
-        $dataPending        = $this->resepModel->where('status_rev' , 'belum')->countAllResults();
-        $dataBayar          = $this->resepModel->where('status_rev' , 'sudah')->countAllResults();
+        $dataPending        = $this->resepModel->where('status_rev' , 'booking')->countAllResults();
+        $dataBayar          = $this->resepModel->where('status_rev' , 'bayar')->countAllResults();
         $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
@@ -100,6 +100,9 @@ class Admin extends BaseController{
             return redirect()->back()->withInput();
         }
 
+        $gambar = $this->request->getFile('gambar');
+        $gambar->move('images/');
+        $fileGambar = $gambar->getName();
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
@@ -108,7 +111,7 @@ class Admin extends BaseController{
             'status'            => 'tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $this->request->getFile('gambar')
+            'gambar'            => $fileGambar
         ];
         
         $this->kamarModel->insert($data);

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2022 at 11:46 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Feb 28, 2022 at 07:03 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,6 +69,16 @@ CREATE TABLE `tb_kamar` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_kamar`
+--
+
+INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status`, `fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
+(1, 'OYO KEDIRI', 'OYO KEREN', 'VIP', 3500000, 'Tersedia', 'free wifi , club , dinner', 'https://bisniswisata.co.id/wp-content/uploads/2019/10/OYO-malaysia.jpg', '2022-02-28 04:04:23', '2022-02-28 04:04:23'),
+(2, 'Keren Hotel', 'oke oke oke', 'biasa', 3500000, 'Tersedia', 'Free Wifi', 'https://cdn-cms.pgimgs.com/static/2021/10/15-Dekorasi-Desain-Kamar-Anak-Perempuan.png', '2022-02-28 05:57:07', '2022-02-28 05:57:07'),
+(3, 'Hotel Keren', 'Yes', 'VIP', 450000, 'Tersedia', 'yes', 'https://cdn.popmama.com/content-images/post/20210526/headerjpg-483db8b30c0450a3a503d292bf1a48ea_600xauto.jpg', '2022-02-28 05:59:10', '2022-02-28 05:59:10'),
+(4, 'Hotel Fira', 'adalah gwej', 'VIP', 3500000, 'Kosong', 'bar caffe', 'https://ik.imagekit.io/tk6ir0e7mng/uploads/2021/07/1627119407550.jpeg', '2022-02-28 06:16:32', '2022-02-28 06:16:32');
+
 -- --------------------------------------------------------
 
 --
@@ -82,10 +92,20 @@ CREATE TABLE `tb_reservasion` (
   `tgl_check_in` datetime NOT NULL,
   `tgl_check_out` datetime NOT NULL,
   `pembayaran` int(11) NOT NULL,
-  `status` enum('sudah','belum','out') NOT NULL,
+  `status_rev` enum('booking','bayar','out') NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_reservasion`
+--
+
+INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_check_in`, `tgl_check_out`, `pembayaran`, `status_rev`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, '2022-02-28 04:05:36', '2022-02-28 04:05:36', 300000, 'out', '2022-02-28 04:05:36', '2022-02-28 04:05:36'),
+(2, 6, 2, '2022-02-28 05:56:17', '2022-02-28 05:56:17', 400000, 'booking', '2022-02-28 05:56:17', '2022-02-28 05:56:17'),
+(3, 7, 3, '2022-02-28 05:56:17', '2022-02-28 05:56:17', 500000, 'bayar', '2022-02-28 05:56:17', '2022-02-28 05:56:17'),
+(4, 8, 4, '2022-02-28 06:17:37', '2022-02-28 06:17:37', 400000, 'out', '2022-02-28 06:17:37', '2022-02-28 06:17:37');
 
 -- --------------------------------------------------------
 
@@ -194,13 +214,13 @@ ALTER TABLE `tb_fasilitas`
 -- AUTO_INCREMENT for table `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`
 --
 ALTER TABLE `tb_reservasion`
-  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_role`
