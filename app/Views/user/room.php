@@ -32,14 +32,13 @@
     
        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Deluxe</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-              <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+              <li class="nav-item active"><a href="<?=base_url('/')?>" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="<?=base_url('/kamarhotel')?>" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
@@ -89,6 +88,21 @@
     			</div>
 				<?php endforeach?>
     		</div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="paginate-room">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
     	</div>
     </section>
 
