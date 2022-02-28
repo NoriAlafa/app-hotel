@@ -31,7 +31,7 @@
                   </div>
                   <div class="card-body">
                     <?php
-                      $order = $dataPending + $dataBayar;
+                      $order = $dataPending + $dataBayar + $dataOut;
                       echo $order;
                     ?>
                   </div>
@@ -111,28 +111,24 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>ID USER</th>
-                          <th>ID KAMAR</th>
-                          <th>Tanggal Check In</th>
-                          <th>Tanggal Check Out</th>
+                          <th>Check In</th>
+                          <th>Check Out</th>
                           <th>Pembayaran</th>
                           <th>Status</th>
-                          <th>Created At</th>
-                          <th>Updated At</th>
+                          <th>Kamar</th>
+                          <th>Pemesan</th>
                         </tr>
                       </thead>
                       <tbody>                         
-                        <?php $no = 1; foreach($dataPesan as $row):?>
+                        <?php foreach($dataRev as $row => $value):?>
                         <tr>
-                          <td><?=$no++?></td>
-                          <td><?=$row['id_user']?></td>
-                          <td><?=$row['id_kamar']?></td>
-                          <td><?=$row['tgl_check_in']?></td>
-                          <td><?=$row['tgl_check_out']?></td>
-                          <td><?=$row['pembayaran']?></td>
-                          <td><?=$row['status']?></td>
-                          <td><?=$row['created_at']?></td>
-                          <td><?=$row['updated_at']?></td>
+                          <td><?=$value->id_reservasion?></td>
+                          <td><?=$value->tgl_check_in?></td>
+                          <td><?=$value->tgl_check_out?></td>
+                          <td><?=$value->pembayaran?></td>
+                          <td><?=$value->status?></td>
+                          <td><?=$value->nama_kamar?></td>
+                          <td><?=$value->nama?></td>
                         </tr>
                         <?php endforeach;?>
                       </tbody>

@@ -65,7 +65,8 @@
                 <li><a class="nav-link" href="modules-vector-map.html">Vector Map</a></li>
                 <li><a class="nav-link" href="modules-weather-icon.html">Weather Icon</a></li>
               </ul>
-            </li> 
+            </li>
+            <li class="menu-header">LogOut</li> 
             <li><a class="nav-link" href="<?=base_url('/logout')?>"><i class="far fa-square"></i> <span>Logout</span></a></li>       
         </aside>
     

@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class ReservationModel extends Model
 {
-    protected $DBGroup          = 'default';
     protected $table            = 'tb_reservasion';
     protected $primaryKey       = 'id_reservasion';
     protected $useAutoIncrement = true;
@@ -22,9 +21,9 @@ class ReservationModel extends Model
     protected $updatedField  = 'updated_at';
 
     public function reservasi(){
-        return $this->db->table('tb_reservasion')
-        ->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
-        ->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user')
-        ->get()->getResultArray();
+        $builder = $this->db->table('tb_reservasion');
+        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
+        $query = $builder->get();
+        return $query->getResult();
     }
 }

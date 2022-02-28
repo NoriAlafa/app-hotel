@@ -12,24 +12,22 @@ class Admin extends BaseController{
         helper('url');
         $this->kamarModel       = new KamarModel(); 
         $this->userModel        = new UserModel(); 
-        $this->resepsionisModel = new ReservationModel(); 
+        $this->resepModel       = new ReservationModel(); 
     }
 
     public function index()
     {
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
-        $dataOrder          = $this->resepsionisModel->findAll(); 
-        $dataPesan          = $this->resepsionisModel->reservasi(); 
+        $dataPesan          = $this->resepModel->reservasi(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
-        $dataPending        = $this->resepsionisModel->where('status' , 'belum')->countAllResults();
-        $dataBayar          = $this->resepsionisModel->where('status' , 'sudah')->countAllResults();
-        $dataOut            = $this->resepsionisModel->where('status' , 'out')->countAllResults();
+        $dataPending        = $this->resepModel->where('status' , 'belum')->countAllResults();
+        $dataBayar          = $this->resepModel->where('status' , 'sudah')->countAllResults();
+        $dataOut            = $this->resepModel->where('status' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
             'viewKamar'         => $dataAllKamar,
-            'dataPesan'         => $dataPesan,
-            'dataOrder'         => $dataOrder,
+            'dataRev'           => $dataPesan,
             'dataPending'       => $dataPending,
             'dataBayar'         => $dataBayar,
             'dataOut'           => $dataOut,
