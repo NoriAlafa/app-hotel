@@ -113,8 +113,9 @@
                           <th>ID</th>
                           <th>Check In</th>
                           <th>Check Out</th>
+                          <th>Info Bayar</th>
                           <th>Pembayaran</th>
-                          <th>Status</th>
+                          <th>Status Kamar</th>
                           <th>Kamar</th>
                           <th>Pemesan</th>
                         </tr>
@@ -125,8 +126,27 @@
                           <td><?=$row['id_reservasion']?></td>
                           <td><?=$row['tgl_check_in']?></td>
                           <td><?=$row['tgl_check_out']?></td>
-                          <td><?=$row['pembayaran']?></td>
-                          <td><?=$row['status']?></td>
+                          <td>
+                              <?php if($row['status_rev'] == 'belum'):?>
+                                <span class="badge badge-warning" style="width:80px;"><?=$row['status_rev']?></span>
+                              <?php endif;?>
+                              <?php if($row['status_rev'] == 'sudah'):?>
+                                <span class="badge badge-success" style="width:80px;"><?=$row['status_rev']?></span>
+                              <?php endif;?>
+                              <?php if($row['status_rev'] == 'out'):?>
+                                <span class="badge badge-danger" style="width:80px;"><?=$row['status_rev']?></span>
+                              <?php endif;?>
+                          </td>
+                          <td>Rp <?=number_format($row['harga_kamar'])?></td>
+                          <td>
+                              <?php if($row['status'] == 'Tersedia'):?>
+                                <span class="badge badge-info"><?=$row['status']?></span>
+                              <?php endif;?>
+
+                              <?php if($row['status'] == 'Kosong'):?>
+                                <span class="badge badge-secondary"><?=$row['status']?></span>
+                              <?php endif;?>
+                          </td>
                           <td><?=$row['nama_kamar']?></td>
                           <td><?=$row['nama']?></td>
                         </tr>

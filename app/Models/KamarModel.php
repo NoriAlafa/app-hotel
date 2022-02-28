@@ -22,6 +22,12 @@ class KamarModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-  
+    /*fasilitas diroom hotel
+      ini nanti ditampilkan di dalam room php
+      dijoin dengan table fasilitas
+    */
+    public function fasilitas(){
+        $this->db->table('tb_kamar')->join();
+    }
 
 }

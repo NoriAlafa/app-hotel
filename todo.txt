@@ -1,2 +1,4 @@
-1.Tabel admin crud hotel
-2.Otentikasi sidebar admin dan resepsionis
+1.join belum kelar
+2.pagination dinamis
+3.resepsionis konfirmasi
+4.crud image

@@ -21,9 +21,9 @@ class Admin extends BaseController{
         $dataPesan          = $this->resepModel->reservasi(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
-        $dataPending        = $this->resepModel->where('status' , 'belum')->countAllResults();
-        $dataBayar          = $this->resepModel->where('status' , 'sudah')->countAllResults();
-        $dataOut            = $this->resepModel->where('status' , 'out')->countAllResults();
+        $dataPending        = $this->resepModel->where('status_rev' , 'belum')->countAllResults();
+        $dataBayar          = $this->resepModel->where('status_rev' , 'sudah')->countAllResults();
+        $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
             'viewKamar'         => $dataAllKamar,
