@@ -39,7 +39,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="rooms.html" class="nav-link">Rooms</a></li>
+	          <li class="nav-item"><a href="<?=base_url('/kamarhotel')?>" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="<?=base_url('/kontak')?>" class="nav-link">Contact</a></li>
@@ -173,32 +173,7 @@
       </div>
     </section>
 
-    <section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Hotel</h2>
-          </div>
-        </div>    		
-    		<div class="row">
-				<?php foreach ($kamar as $kmr):?>
-    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-    				<div class="room">
-    					<a href="rooms.html" class="img d-flex justify-content-center align-items-center">
-						<img src="<?=$kmr['gambar']?>" style="height:233px;">
-    					</a>
-    					<div class="text p-3 text-center">
-    						<h3 class="mb-3"><a href="rooms.html"><?=$kmr['nama_kamar']?></a></h3>
-    						<p><span class="price mr-2"><b>Rp.</b><?=$kmr['harga_kamar']?></span> <span class="per">per night</span></p>
-    						<hr>
-    						<p class="pt-1"><a href="<?=base_url('/kamar')?>" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
-    					</div>
-    				</div>
-    			</div>
-				<?php endforeach?>
-    		</div>
-    	</div>
-    </section>
+    
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
     	<div class="container">

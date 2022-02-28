@@ -120,15 +120,15 @@
                         </tr>
                       </thead>
                       <tbody>                         
-                        <?php foreach($dataRev as $row => $value):?>
+                        <?php foreach($dataRev as $row):?>
                         <tr>
-                          <td><?=$value->id_reservasion?></td>
-                          <td><?=$value->tgl_check_in?></td>
-                          <td><?=$value->tgl_check_out?></td>
-                          <td><?=$value->pembayaran?></td>
-                          <td><?=$value->status?></td>
-                          <td><?=$value->nama_kamar?></td>
-                          <td><?=$value->nama?></td>
+                          <td><?=$row['id_reservasion']?></td>
+                          <td><?=$row['tgl_check_in']?></td>
+                          <td><?=$row['tgl_check_out']?></td>
+                          <td><?=$row['pembayaran']?></td>
+                          <td><?=$row['status']?></td>
+                          <td><?=$row['nama_kamar']?></td>
+                          <td><?=$row['nama']?></td>
                         </tr>
                         <?php endforeach;?>
                       </tbody>

@@ -21,9 +21,9 @@ class ReservationModel extends Model
     protected $updatedField  = 'updated_at';
 
     public function reservasi(){
-        $builder = $this->db->table('tb_reservasion');
-        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
+        $builder = $this->db->table('tb_reservasion')
+        ->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
         $query = $builder->get();
-        return $query->getResult();
+        return $query->getResultArray();
     }
 }

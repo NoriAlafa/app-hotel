@@ -2,15 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+use App\Models\KamarModel;
 class Hotel extends BaseController
 {
-    protected $userModel;
-    protected $kamarModel;
 
     public function __construct(){
         helper('url');
-        $this->userModel = new \App\Models\UserModel();
-        $this->kamarModel = new \App\Models\KamarModel();
+        $this->userModel = new UserModel();
+        $this->kamarModel = new KamarModel();
     }
 
     public function lamanDepan()
@@ -22,6 +22,12 @@ class Hotel extends BaseController
     public function lamanKamar()
     {
         return view('user/room_detail');
+    }
+
+    public function hotelKamar(){
+        $data['judul'] = 'Kamar';
+        $data['kamar'] = $this->kamarModel->findAll();
+        return view('user/room' , $data);
     }
 
     public function kontak()
