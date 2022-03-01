@@ -118,6 +118,7 @@ class Admin extends BaseController{
             'gambar'            => $fileGambar
         ];
         
+        session()->setFlashdata('success' , "Berhasil Ditambah");
         $this->kamarModel->insert($data);
         return redirect()->to('/dataHotel');
     }
@@ -134,6 +135,7 @@ class Admin extends BaseController{
         $gambar = $this->request->getFile('gambar');
         $gambar->move('images/');
         $fileGambar = $gambar->getName();
+        
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
@@ -149,6 +151,11 @@ class Admin extends BaseController{
     }
 
     public function delete($id){
+        $gambar = $this->kamarModel->find($id);
+        $fileGambar = $gambar['gambar'];
+        if(file_exists("images/" . $fileGambar)){
+            unlink("images/" . $fileGambar);
+        }
         $this->kamarModel->delete($id);
         return redirect()->to('/dataHotel');
     }

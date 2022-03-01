@@ -1,5 +1,15 @@
 "use strict";
 
+const flashData = $('.flash-data').data('flashdata');
+
+if(flashData){
+  swal({
+    title:'Berhasil' ,
+    text:'Data.....' + flashData,
+    icon:'success'
+  });
+}
+
 $("#swal-1").click(function() {
 	swal('Hello');
 });
