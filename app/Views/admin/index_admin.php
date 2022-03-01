@@ -1,6 +1,7 @@
 <?=$this->extend('template/layout')?>
 
 <?=$this->section('content')?>
+          <div class="flash-data-login" data-flashdata="<?=session()->getFlashdata('success')?>"></div>
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12">
               <div class="card card-statistic-2">
@@ -90,69 +91,6 @@
                   </div>
                   <div class="card-body">
                     <?= $viewUser;?>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="row">
-        <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>Detail Pemesanan</h4>
-                  <div class="card-header-action">
-                    <a href="#" class="btn btn-primary">View All</a>
-                  </div>
-                </div>
-                <div class="card-body p-0">
-                  <div class="table-responsive">
-                    <table class="table table-striped mb-0">
-                      <thead>
-                        <tr>
-                          <th>ID</th>
-                          <th>Check In</th>
-                          <th>Check Out</th>
-                          <th>Info Bayar</th>
-                          <th>Pembayaran</th>
-                          <th>Status Kamar</th>
-                          <th>Kamar</th>
-                          <th>Pemesan</th>
-                        </tr>
-                      </thead>
-                      <tbody>                         
-                        <?php foreach($dataRev as $row):?>
-                        <tr>
-                          <td><?=$row['id_reservasion']?></td>
-                          <td><?=$row['tgl_check_in']?></td>
-                          <td><?=$row['tgl_check_out']?></td>
-                          <td>
-                              <?php if($row['status_rev'] == 'booking'):?>
-                                <span class="badge badge-warning" style="width:80px;"><?=$row['status_rev']?></span>
-                              <?php endif;?>
-                              <?php if($row['status_rev'] == 'bayar'):?>
-                                <span class="badge badge-success" style="width:80px;"><?=$row['status_rev']?></span>
-                              <?php endif;?>
-                              <?php if($row['status_rev'] == 'out'):?>
-                                <span class="badge badge-danger" style="width:80px;"><?=$row['status_rev']?></span>
-                              <?php endif;?>
-                          </td>
-                          <td>Rp <?=number_format($row['harga_kamar'])?></td>
-                          <td>
-                              <?php if($row['status'] == 'Tersedia'):?>
-                                <span class="badge badge-info" style="width:80px;"><?=$row['status']?></span>
-                              <?php endif;?>
-
-                              <?php if($row['status'] == 'Kosong'):?>
-                                <span class="badge badge-secondary"style="width:80px;"><?=$row['status']?></span>
-                              <?php endif;?>
-                          </td>
-                          <td><?=$row['nama_kamar']?></td>
-                          <td><?=$row['nama']?></td>
-                        </tr>
-                        <?php endforeach;?>
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>

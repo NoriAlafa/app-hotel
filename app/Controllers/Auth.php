@@ -107,7 +107,7 @@ class Auth extends BaseController
                 'role'  => $dataUser['role_id'],
                 'logged_in' =>true
                 ]);
-
+                session()->setFlashdata('success',"Berhasil Login");
                 return redirect()->to('/dashboard');
             }
             
@@ -121,6 +121,7 @@ class Auth extends BaseController
             session()->setFlashdata('error', 'Email tidak ditemukan');
             return redirect()->back()->withInput();
         } 
+        
     }
 
     public function logout() {

@@ -1,6 +1,7 @@
 "use strict";
 
 const flashData = $('.flash-data').data('flashdata');
+const flashDataLog = $('.flash-data-login').data('flashdata');
 
 if(flashData){
   swal({
@@ -9,6 +10,15 @@ if(flashData){
     icon:'success'
   });
 }
+
+if(flashDataLog){
+  swal({
+    title:'Berhasil' ,
+    text:'Yeay    ' + flashDataLog,
+    icon:'success'
+  });
+}
+
 
 $("#swal-1").click(function() {
 	swal('Hello');
