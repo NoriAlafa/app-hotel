@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="<?=base_url('assets/modules/summernote/summernote-bs4.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/datatables.min.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')?>">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
@@ -81,6 +84,11 @@
   <!-- Page Specific JS File -->
   <script src="<?=base_url('assets/js/page/index.js')?>"></script>
   <script src="<?=base_url('assets/js/page/modules-sweetalert.js')?>"></script>
+  <script src="<?=base_url('assets/modules/datatables/datatables.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/jquery-ui/jquery-ui.min.js')?>"></script>
+  <script src="<?=base_url('assets/js/page/modules-datatables.js')?>"></script>
   
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>

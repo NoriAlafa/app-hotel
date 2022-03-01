@@ -17,6 +17,10 @@ class Admin extends BaseController{
 
     public function index()
     {
+        // if(session()->get('role_id') != 2 || session()->get('role_id') != 3){
+        //     return redirect()->to('/');
+        // }
+
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataPesan          = $this->resepModel->reservasi(); 
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
@@ -127,6 +131,9 @@ class Admin extends BaseController{
     }
 
     public function update(){
+        $gambar = $this->request->getFile('gambar');
+        $gambar->move('images/');
+        $fileGambar = $gambar->getName();
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
@@ -134,7 +141,7 @@ class Admin extends BaseController{
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status'            => $this->request->getPost('status'),
             'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $this->request->getFile('gambar')
+            'gambar'            => $fileGambar
         ];
 
         $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);

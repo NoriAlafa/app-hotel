@@ -75,11 +75,12 @@ class Auth extends BaseController
 
         //Jika data sesuai lakukan penyimpanan data
         $data=[
-            'nama' => $this->request->getPost('nama'),
-            'email' => $this->request->getPost('email'),
-            'nik' => $this->request->getPost('nik'),
+            'nama'      => $this->request->getPost('nama'),
+            'email'     => $this->request->getPost('email'),
+            'nik'       => $this->request->getPost('nik'),
             //enkripsi password dengan bycript
-            'password' => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT)           
+            'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
+            'role_id'   =>1           
         ];
 
         //memasukan data dalam database
@@ -103,6 +104,7 @@ class Auth extends BaseController
                 //masukan session untuk username dan status login
                 session()->set([
                 'email' => $username,
+                'role'  => $dataUser['role_id'],
                 'logged_in' =>true
                 ]);
 
@@ -112,7 +114,7 @@ class Auth extends BaseController
             else { 
                 //jika salah
                 //kembali ke login dan berikan pesan error
-                session()->setFlashdata('error', 'Email & Password Salah');
+                session()->setFlashdata('error', 'Password Salah');
                 return redirect()->back()->withInput();
             }
         }else{
