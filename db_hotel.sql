@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2022 at 07:03 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Mar 01, 2022 at 03:06 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -74,10 +74,8 @@ CREATE TABLE `tb_kamar` (
 --
 
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status`, `fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
-(1, 'OYO KEDIRI', 'OYO KEREN', 'VIP', 3500000, 'Tersedia', 'free wifi , club , dinner', 'https://bisniswisata.co.id/wp-content/uploads/2019/10/OYO-malaysia.jpg', '2022-02-28 04:04:23', '2022-02-28 04:04:23'),
-(2, 'Keren Hotel', 'oke oke oke', 'biasa', 3500000, 'Tersedia', 'Free Wifi', 'https://cdn-cms.pgimgs.com/static/2021/10/15-Dekorasi-Desain-Kamar-Anak-Perempuan.png', '2022-02-28 05:57:07', '2022-02-28 05:57:07'),
-(3, 'Hotel Keren', 'Yes', 'VIP', 450000, 'Tersedia', 'yes', 'https://cdn.popmama.com/content-images/post/20210526/headerjpg-483db8b30c0450a3a503d292bf1a48ea_600xauto.jpg', '2022-02-28 05:59:10', '2022-02-28 05:59:10'),
-(4, 'Hotel Fira', 'adalah gwej', 'VIP', 3500000, 'Kosong', 'bar caffe', 'https://ik.imagekit.io/tk6ir0e7mng/uploads/2021/07/1627119407550.jpeg', '2022-02-28 06:16:32', '2022-02-28 06:16:32');
+(4, 'Hotel Fira', 'adalah gwej', 'VIP', 3500000, 'Tersedia', 'bar caffe', 'wiZ2AqGHu8.jpeg', '2022-02-28 06:16:32', '2022-03-01 07:29:53'),
+(5, 'hotel Azek', '<p>oke oke oke</p>', 'VIP', 300000, 'Tersedia', 'Kolam Renang , Club', 'unnamed.jpg', '2022-03-01 07:24:52', '2022-03-01 07:24:52');
 
 -- --------------------------------------------------------
 
@@ -114,7 +112,7 @@ INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_chec
 --
 
 CREATE TABLE `tb_role` (
-  `id` int(11) NOT NULL,
+  `id_role` int(11) NOT NULL,
   `role` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -122,7 +120,7 @@ CREATE TABLE `tb_role` (
 -- Dumping data for table `tb_role`
 --
 
-INSERT INTO `tb_role` (`id`, `role`) VALUES
+INSERT INTO `tb_role` (`id_role`, `role`) VALUES
 (1, 'user'),
 (2, 'admin'),
 (3, 'resepsionis');
@@ -139,6 +137,7 @@ CREATE TABLE `tb_user` (
   `email` varchar(100) NOT NULL,
   `nik` varchar(16) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `role_id` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -147,12 +146,13 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `created_at`, `updated_at`) VALUES
-(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'alfaoken', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', '2022-02-09 04:00:48', '2022-02-09 04:00:48');
+INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`, `created_at`, `updated_at`) VALUES
+(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'alfaoken', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
+(10, 'test role', 'korwil@gmail.com', '1234567891012134', '$2y$10$WnnEmkE42OQcbLVve9NWweqjfFFAXX3BC58vq7Xt6uA5/cKx11WzK', 1, '2022-03-01 06:56:03', '2022-03-01 06:56:03');
 
 --
 -- Indexes for dumped tables
@@ -186,7 +186,7 @@ ALTER TABLE `tb_reservasion`
 -- Indexes for table `tb_role`
 --
 ALTER TABLE `tb_role`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_role`);
 
 --
 -- Indexes for table `tb_user`
@@ -214,7 +214,7 @@ ALTER TABLE `tb_fasilitas`
 -- AUTO_INCREMENT for table `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`
@@ -226,13 +226,13 @@ ALTER TABLE `tb_reservasion`
 -- AUTO_INCREMENT for table `tb_role`
 --
 ALTER TABLE `tb_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
