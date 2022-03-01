@@ -12,15 +12,20 @@ class Admin extends BaseController{
         helper('url');
         $this->kamarModel       = new KamarModel(); 
         $this->userModel        = new UserModel(); 
-        $this->resepModel       = new ReservationModel(); 
+        $this->resepModel       = new ReservationModel();
+
+        // $role = session()->get('role');
+		// if ($role != '2') 
+		// {	
+		// 	session()->setFlashdata('warning' , 'Hanya Admin yang bisa mengaksesnya');
+		// 	return redirect()->to('/');
+		// }
+        
     }
 
     public function index()
     {
-        // if(session()->get('role_id') != 2 || session()->get('role_id') != 3){
-        //     return redirect()->to('/');
-        // }
-
+        
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();

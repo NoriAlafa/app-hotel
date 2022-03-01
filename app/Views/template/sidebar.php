@@ -21,7 +21,5 @@
             </li>
             <li class="menu-header">Resepsionis</li>
             <li><a class="nav-link" href="<?=base_url('/konfirmasiRoom')?>"><i class="fas fa-lock"></i> <span>Konfirmasi</span></a></li>
-            <li class="menu-header">LogOut</li> 
-            <li><a class="nav-link" href="<?=base_url('/logout')?>"><i class="far fa-square"></i> <span>Logout</span></a></li>       
         </aside>
     

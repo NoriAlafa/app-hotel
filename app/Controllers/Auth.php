@@ -9,6 +9,7 @@ class Auth extends BaseController
     public function __construct(){
         helper('url');
         $this->userModel = new \App\Models\UserModel();
+        
     }
 
     public function index()
@@ -103,8 +104,9 @@ class Auth extends BaseController
             if(password_verify($password,$dataUser['password'])) {
                 //masukan session untuk username dan status login
                 session()->set([
-                'email' => $username,
-                'role'  => $dataUser['role_id'],
+                'id'        =>$dataUser['id_user'],
+                'email'     => $username,
+                'role_id'   => $dataUser['role_id'],
                 'logged_in' =>true
                 ]);
                 session()->setFlashdata('success',"Berhasil Login");
