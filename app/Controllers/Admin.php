@@ -116,8 +116,11 @@ class Admin extends BaseController{
         }
 
         $gambar = $this->request->getFile('gambar');
-        $gambar->move('images/');
-        $fileGambar = $gambar->getName();
+        // $gambar->move('images/');
+        if ($gambar->isValid() && ! $gambar->hasMoved()) {
+            $fileGambar = $gambar;
+            $gambar->move('images/' , $fileGambar);
+        }
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
@@ -151,9 +154,11 @@ class Admin extends BaseController{
         }
 
         $gambar = $this->request->getFile('gambar');
-        $gambar->move('images/');
         $fileGambar = $gambar->getName();
+        $gambar->move('images/' , $fileGambar);
+
         
+
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
