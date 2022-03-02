@@ -15,8 +15,7 @@ class Hotel extends BaseController
 
     public function lamanDepan()
     {
-        $data['kamar'] = $this->kamarModel->findAll();
-        return view('user/laman_depan' , $data);
+        return view('user/laman_depan');
     }
 
     public function lamanKamar()

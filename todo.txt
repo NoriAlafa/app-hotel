@@ -1,4 +1,4 @@
-1.join belum kelar
+
 2.pagination dinamis
 3.resepsionis konfirmasi
 4.crud image

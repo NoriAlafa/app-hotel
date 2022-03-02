@@ -17,8 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
-$routes->setDefaultMethod('index');
+$routes->setDefaultController('Hotel');
+$routes->setDefaultMethod('lamanDepan');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -33,6 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 //user
+$routes->get('/laman_depan', 'Hotel::lamanDepan');
 $routes->get('/', 'Hotel::lamanDepan');
 $routes->get('/kamar', 'Hotel::lamanKamar');
 $routes->get('/kamarhotel', 'Hotel::hotelKamar');

@@ -14,18 +14,14 @@ class Admin extends BaseController{
         $this->userModel        = new UserModel(); 
         $this->resepModel       = new ReservationModel();
 
-        // $role = session()->get('role');
-		// if ($role != '2') 
-		// {	
-		// 	session()->setFlashdata('warning' , 'Hanya Admin yang bisa mengaksesnya');
-		// 	return redirect()->to('/');
-		// }
-        
     }
 
     public function index()
     {
-        
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
@@ -46,6 +42,10 @@ class Admin extends BaseController{
     }
     
     public function buatKamar(){
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+
             $data['judul'] = "Tambah Hotel";
             // ini nanti diisi database kamar
             return view('admin/buat_kamar' ,$data);
@@ -53,6 +53,10 @@ class Admin extends BaseController{
 
     public function tampilHotel()
     {
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+
         $data['judul'] = "CRUD Hotel";
         $data['kamar'] = $this->kamarModel->findAll();
         // ini nanti diisi database kamar
@@ -60,6 +64,10 @@ class Admin extends BaseController{
     }
 
     public function buatHotel(){
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+
         $validation = $this->validate([
             'nama_kamar'    =>[
                 'rules' =>'required|min_length[4]',
@@ -127,6 +135,9 @@ class Admin extends BaseController{
     }
 
     public function edit($id){
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
         $data['judul']='Edit Kamar';
 
         $data['kamar']=$this->kamarModel->where('id_kamar',$id)->findAll();
@@ -135,6 +146,10 @@ class Admin extends BaseController{
     }
 
     public function update(){
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+
         $gambar = $this->request->getFile('gambar');
         $gambar->move('images/');
         $fileGambar = $gambar->getName();
@@ -154,6 +169,10 @@ class Admin extends BaseController{
     }
 
     public function delete($id){
+        if(session('role_id') != 2){
+            return redirect()->to('/');
+        }
+        
         $gambar = $this->kamarModel->find($id);
         $fileGambar = $gambar['gambar'];
         if(file_exists("images/" . $fileGambar)){

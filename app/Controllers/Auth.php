@@ -20,6 +20,10 @@ class Auth extends BaseController
 
     public function login()
     {
+        if(session('id')){
+            return redirect()->to('/dashboard');
+        }
+
         $data['judul'] = "Login";
         return view('auth/login' , $data);
     }
@@ -104,13 +108,17 @@ class Auth extends BaseController
             if(password_verify($password,$dataUser['password'])) {
                 //masukan session untuk username dan status login
                 session()->set([
-                'id'        =>$dataUser['id_user'],
-                'email'     => $username,
-                'role_id'   => $dataUser['role_id'],
-                'logged_in' =>true
+                    'id'        =>$dataUser['id_user'],
+                    'email'     => $username,
+                    'role_id'   => $dataUser['role_id'],
+                    'logged_in' =>true
                 ]);
-                session()->setFlashdata('success',"Berhasil Login");
-                return redirect()->to('/dashboard');
+                if(session('role_id') ==2 OR session('role_id') ==3 ){
+                    session()->setFlashdata('success',"Berhasil Login");
+                    return redirect()->to('/dashboard');
+                }else{
+                    return redirect()->to('/laman_depan');
+                }
             }
             
             else { 
