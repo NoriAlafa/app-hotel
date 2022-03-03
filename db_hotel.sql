@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2022 at 03:06 PM
+-- Generation Time: Mar 03, 2022 at 10:55 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -74,8 +74,17 @@ CREATE TABLE `tb_kamar` (
 --
 
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status`, `fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
-(4, 'Hotel Fira', 'adalah gwej', 'VIP', 3500000, 'Tersedia', 'bar caffe', 'wiZ2AqGHu8.jpeg', '2022-02-28 06:16:32', '2022-03-01 07:29:53'),
-(5, 'hotel Azek', '<p>oke oke oke</p>', 'VIP', 300000, 'Tersedia', 'Kolam Renang , Club', 'unnamed.jpg', '2022-03-01 07:24:52', '2022-03-01 07:24:52');
+(4, 'Hotel Fira', 'adalah gwej', 'VIP', 3500000, 'Tersedia', 'bar caffe', 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-01 09:02:10'),
+(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 10000, 'Tersedia', 'Oke', '258853866_126236396506198_6070899489570258289_n.jpg', '2022-03-01 09:01:46', '2022-03-01 09:01:46'),
+(7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 'Kolam Renang , Club , Karaoke', '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
+(8, 'korewa2', '<p>nani kore</p>', 'BIASA', 30000, 'Tersedia', 'Kolam Renang , Club', '242402771_995142647946601_3407249521776712034_n.jpg', '2022-03-01 09:09:45', '2022-03-01 09:09:45'),
+(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 'Kolam Renang , Club , Karaoke , Free Dinner ', 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
+(10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 'Kolam Renang , Club , Karaoke', 'ticket jepang.jpg', '2022-03-02 10:06:25', '2022-03-02 10:06:25'),
+(11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 'Kolam Renang , Club , Karaoke , Free Dinner ', '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
+(12, '8888', '<p>88888</p>', 'VIP', 8888888, 'Tersedia', 'babiiii', 'Screenshot (2).png', '2022-03-03 03:49:24', '2022-03-03 03:49:24'),
+(13, '999999', '<p>99999</p>', 'VIP', 99999, 'Tersedia', 'Free Dinner', 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
+(14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 'Kolam Renang , Club , Karaoke', 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
+(15, '11111111', '<p>111111</p>', 'BIASA', 11111111, 'Tersedia', 'Kolam Renang , Club', 'Screenshot (5).png', '2022-03-03 03:51:41', '2022-03-03 03:51:41');
 
 -- --------------------------------------------------------
 
@@ -152,7 +161,8 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`,
 (7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 'alfaoken', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
-(10, 'test role', 'korwil@gmail.com', '1234567891012134', '$2y$10$WnnEmkE42OQcbLVve9NWweqjfFFAXX3BC58vq7Xt6uA5/cKx11WzK', 1, '2022-03-01 06:56:03', '2022-03-01 06:56:03');
+(10, 'test role', 'korwil@gmail.com', '1234567891012134', '$2y$10$WnnEmkE42OQcbLVve9NWweqjfFFAXX3BC58vq7Xt6uA5/cKx11WzK', 1, '2022-03-01 06:56:03', '2022-03-01 06:56:03'),
+(11, 'mamank', 'testresep@gmail.com', '1234567890123457', '$2y$10$RbjJFb91ZrveQzFe4Z4p0OEO.B0YSCvjjyGzSz/dVk9e90PjbW632', 3, '2022-03-02 09:27:41', '2022-03-02 09:27:41');
 
 --
 -- Indexes for dumped tables
@@ -214,7 +224,7 @@ ALTER TABLE `tb_fasilitas`
 -- AUTO_INCREMENT for table `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`
@@ -232,7 +242,7 @@ ALTER TABLE `tb_role`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
