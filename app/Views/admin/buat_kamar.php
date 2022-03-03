@@ -8,6 +8,7 @@
             <div class="section-header-back">
               <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
+            <div class="flash-data-resep" data-flashdata="<?=session()->getFlashdata('resep')?>"></div>
             <?php if (!empty(session()->getFlashdata('error'))) { ?>         
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

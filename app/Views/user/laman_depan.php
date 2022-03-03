@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
   </head>
   <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="<?=base_url('/')?>">FAHOTEL</a>

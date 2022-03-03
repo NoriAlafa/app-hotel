@@ -4,6 +4,7 @@ const flashData = $('.flash-data').data('flashdata');
 const flashDataAdmin = $('.flash-data-admin').data('flashdata');
 const flashDataRes = $('.flash-data-resep').data('flashdata');
 
+
 if(flashData){
   swal({
     title:'Berhasil' ,
@@ -19,6 +20,8 @@ if(flashDataAdmin){
     icon:'error'
   });
 }
+
+
 
 if(flashDataRes){
   swal({

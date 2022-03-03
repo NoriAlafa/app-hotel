@@ -17,7 +17,7 @@ class Resepsionis extends BaseController
     {
         if(session('role_id') != 3){
             session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back();
         }
 
         $dataPesan          = $this->resepModel->reservasi(); 
@@ -32,7 +32,7 @@ class Resepsionis extends BaseController
     public function edit($id){
         if(session('role_id') != 3){
             session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back();
         }
 
         $resep = $this->resepModel->find($id);

@@ -1,6 +1,7 @@
 <?=$this->extend('template/layout')?>
 <?=$this->section('content')?>
   <div class="flash-data" data-flashdata="<?=session()->getFlashdata('success')?>"></div>
+  <div class="flash-data-resep" data-flashdata="<?=session()->getFlashdata('resep')?>"></div>
   <div class="row">
               <div class="col-sm-12 col-md-12 col-lg-12">
                 <div class="card">

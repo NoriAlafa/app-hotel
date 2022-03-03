@@ -9,14 +9,7 @@
               <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
 
-            <?php if (!empty(session()->getFlashdata('error'))) { ?>         
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span area-hide="true">&times;</span>
-                    </button>
-                    Data gagal disimpan   <strong> <?= session()->getFlashdata('error')?></strong>
-                </div>
-            <?php } ?>
+            <div class="flash-data-admin" data-flashdata="<?=session()->getFlashdata('admin')?>"></div>
             
             <h1><?=$judul?></h1>
             <div class="section-header-breadcrumb">

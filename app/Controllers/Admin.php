@@ -21,7 +21,7 @@ class Admin extends BaseController{
     public function buatKamar(){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
 
             $data['judul'] = "Tambah Hotel";
@@ -33,7 +33,7 @@ class Admin extends BaseController{
     {
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
 
         $data['judul'] = "CRUD Hotel";
@@ -45,7 +45,7 @@ class Admin extends BaseController{
     public function buatHotel(){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
 
         $validation = $this->validate([
@@ -98,7 +98,7 @@ class Admin extends BaseController{
         $gambar = $this->request->getFile('gambar');
         // $gambar->move('images/');
         if ($gambar->isValid() && ! $gambar->hasMoved()) {
-            $fileGambar = $gambar;
+            $fileGambar = $gambar->getName();
             $gambar->move('images/' , $fileGambar);
         }
 
@@ -120,7 +120,7 @@ class Admin extends BaseController{
     public function edit($id){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
         $data['judul']='Edit Kamar';
 
@@ -132,7 +132,7 @@ class Admin extends BaseController{
     public function update(){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
 
         $gambar = $this->request->getFile('gambar');
@@ -158,7 +158,7 @@ class Admin extends BaseController{
     public function delete($id){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
-            return redirect()->to('/dashboard');
+            return redirect()->back;
         }
         
         $gambar = $this->kamarModel->find($id);

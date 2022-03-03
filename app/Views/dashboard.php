@@ -1,9 +1,8 @@
 <?=$this->extend('template/layout')?>
 
 <?=$this->section('content')?>
-  <div class="flash-data-login" data-flashdata="<?=session()->getFlashdata('success')?>"></div>
-  <div class="flash-data-resep" data-flashdata="<?=session()->getFlashdata('resep')?>"></div>
-  <div class="flash-data-admin" data-flashdata="<?=session()->getFlashdata('admin')?>"></div>
+<div class="flash-data-admin" data-flashdata="<?=session()->getFlashdata('admin')?>"></div>
+<div class="flash-data-resep" data-flashdata="<?=session()->getFlashdata('resep')?>"></div>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card card-statistic-2">
