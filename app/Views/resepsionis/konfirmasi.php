@@ -52,9 +52,11 @@
                               </td>
                               <td><?=$row['nama_kamar']?></td>
                               <td>
-                                <button class="btn btn-outline-success">
-                                  <a href="" class="outline-primary"></a>Edit
-                                </button>
+                                <a href="/konfirmasi/<?=$row['id_reservasion']?>/edit" class="outline-primary">
+                                  <button class="btn btn-outline-success">
+                                    Edit
+                                  </button>
+                                </a>
                               </td>
                               
                         </tr>

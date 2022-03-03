@@ -1,7 +1,8 @@
 "use strict";
 
 const flashData = $('.flash-data').data('flashdata');
-const flashDataLog = $('.flash-data-login').data('flashdata');
+const flashDataAdmin = $('.flash-data-admin').data('flashdata');
+const flashDataRes = $('.flash-data-resep').data('flashdata');
 
 if(flashData){
   swal({
@@ -11,11 +12,19 @@ if(flashData){
   });
 }
 
-if(flashDataLog){
+if(flashDataAdmin){
   swal({
-    title:'Berhasil' ,
-    text:'Yeay    ' + flashDataLog,
-    icon:'success'
+    title:'Gagal' ,
+    text:'Oops    ' + flashDataAdmin,
+    icon:'error'
+  });
+}
+
+if(flashDataRes){
+  swal({
+    title:'Gagal' ,
+    text:'Oops    ' + flashDataRes,
+    icon:'error'
   });
 }
 

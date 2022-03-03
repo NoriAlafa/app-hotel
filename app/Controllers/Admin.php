@@ -16,34 +16,12 @@ class Admin extends BaseController{
 
     }
 
-    public function index()
-    {
-        if(session('role_id') != 2){
-            return redirect()->to('/');
-        }
-
-        $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
-        $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
-        $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
-        $dataPending        = $this->resepModel->where('status_rev' , 'booking')->countAllResults();
-        $dataBayar          = $this->resepModel->where('status_rev' , 'bayar')->countAllResults();
-        $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
-        $dataAllUser        = $this->userModel->get()->resultID->num_rows;
-        $data = [
-            'viewKamar'         => $dataAllKamar,
-            'dataPending'       => $dataPending,
-            'dataBayar'         => $dataBayar,
-            'dataOut'           => $dataOut,
-            'viewUser'          => $dataAllUser,
-            'statusAda'         => $dataStatusAda,
-            'statusKosong'      => $dataStatusTdk
-        ];
-        return view('admin/index_admin' , $data);
-    }
+    
     
     public function buatKamar(){
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
 
             $data['judul'] = "Tambah Hotel";
@@ -54,7 +32,8 @@ class Admin extends BaseController{
     public function tampilHotel()
     {
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
 
         $data['judul'] = "CRUD Hotel";
@@ -65,7 +44,8 @@ class Admin extends BaseController{
 
     public function buatHotel(){
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
 
         $validation = $this->validate([
@@ -139,7 +119,8 @@ class Admin extends BaseController{
 
     public function edit($id){
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
         $data['judul']='Edit Kamar';
 
@@ -150,7 +131,8 @@ class Admin extends BaseController{
 
     public function update(){
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
 
         $gambar = $this->request->getFile('gambar');
@@ -175,7 +157,8 @@ class Admin extends BaseController{
 
     public function delete($id){
         if(session('role_id') != 2){
-            return redirect()->to('/');
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->to('/dashboard');
         }
         
         $gambar = $this->kamarModel->find($id);
