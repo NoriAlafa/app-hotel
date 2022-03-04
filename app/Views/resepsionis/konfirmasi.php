@@ -16,7 +16,7 @@
                             <th>Pemesan</th>
                             <th>Check In</th>
                             <th>Check Out</th>
-                            <th>Info Bayar</th>
+                            <th>Info Pemesan</th>
                             <th>Pembayaran</th>
                             <th>Status Kamar</th>
                             <th>Kamar</th>

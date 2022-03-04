@@ -57,6 +57,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');
     $routes->get('/konfirmasi/(:any)/edit', 'Resepsionis::edit/$1');
+    $routes->put('/editPesanan', 'Resepsionis::update');
 });
 
 //auth
