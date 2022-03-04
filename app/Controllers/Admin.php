@@ -129,17 +129,22 @@ class Admin extends BaseController{
         return view('admin/edit_kamar',$data);
     }
 
-    public function update(){
+    public function update($id){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
             return redirect()->back();
         }
 
         $gambar = $this->request->getFile('gambar');
-        $fileGambar = $gambar->getName();
-        $gambar->move('images/' , $fileGambar);
-
-        
+        $pindah = $this->kamarModel->find($id);
+        if($gambar->isValid() && !$gambar->hasMoved()){
+            $old_image_file = $pindah['gambar'];
+            if(file_exists('images/'.$old_image_file)){
+                unlink('images/'.$old_image_file);
+            }
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/' , $fileGambar);
+        }
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
@@ -151,7 +156,7 @@ class Admin extends BaseController{
             'gambar'            => $fileGambar
         ];
 
-        $this->kamarModel->update(['id_kamar' => $this->request->getPost('id_kamar')],$data);
+        $this->kamarModel->update($id,$data);
         return redirect()->to('/dataHotel');
     }
 

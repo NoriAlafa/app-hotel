@@ -32,8 +32,8 @@
             <p class="section-lead">
               On this page you can create a new post and fill in all fields.
             </p>
-            <form action="/editKamar" method="post" enctype="multipart/form-data">
             <?php foreach($kamar as $kmr):?>
+            <form action="/editKamar/<?=$kmr['id_kamar']?>" method="post" enctype="multipart/form-data">
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="put">
             <div class="row">
@@ -42,7 +42,6 @@
                   <div class="card-header">
                     <h4>Edit Kamar</h4>
                   </div>
-                  <input type="hidden" class="form-control" readonly name="id_kamar" value="<?=$kmr['id_kamar']?>">
                   <div class="card-body">
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Title</label>

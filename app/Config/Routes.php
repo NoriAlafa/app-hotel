@@ -52,7 +52,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/dashboard', 'Home::index');
     $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
     $routes->get('/kamar/(:any)/edit', 'Admin::edit/$1');
-    $routes->put('/editKamar', 'Admin::update');
+    $routes->put('/editKamar/(:any)', 'Admin::update/$1');
 
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');
