@@ -39,13 +39,13 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Check in</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="date" class="form-control" name="tgl_check_in" value="<?=$kfr['tgl_check_in']?> ">
+                        <input type="text" class="form-control" name="tgl_check_in" value="<?=$kfr['tgl_check_in']?> " readonly>
                       </div>
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Check Out</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="date" class="form-control" name="tgl_check_out" value="<?=$kfr['tgl_check_out']?> ">
+                        <input type="text" class="form-control datetimepicker" name="tgl_check_out" value="<?=$kfr['tgl_check_out']?> ">
                       </div>
                     </div>
                     <div class="form-group row mb-4">
@@ -62,15 +62,6 @@
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pembayaran</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control" name="harga_kamar" value="<?=number_format($kfr['harga_kamar'])?> " readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
-                      <div class="col-sm-12 col-md-7">
-                        <select class="form-control selectric" name="status">
-                          <option value="Tersedia">Tersedia</option>
-                          <option value="Kosong">Kosong</option>
-                        </select>
                       </div>
                     </div>
                     <div class="form-group row mb-4">

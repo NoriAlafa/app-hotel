@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/datatables.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')?>">
-
+  <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css')?>">
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
@@ -75,11 +76,14 @@
   
   <!-- JS Libraies -->
   <script src="<?=base_url('assets/modules/jquery.sparkline.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.js')?>"></script>
   <script src="<?=base_url('assets/modules/chart.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/sweetalert/sweetalert.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/owlcarousel2/dist/owl.carousel.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/summernote/summernote-bs4.js')?>"></script>
   <script src="<?=base_url('assets/modules/chocolat/dist/js/jquery.chocolat.min.js')?>"></script>
+  <script src="<?=base_url('assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js')?>"></script>
+
 
   <!-- Page Specific JS File -->
   <script src="<?=base_url('assets/js/page/index.js')?>"></script>
@@ -93,5 +97,6 @@
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>
   <script src="<?=base_url('assets/js/custom.js')?>"></script>
+  <script src="<?=base_url('assets/js/page/forms-advanced-forms.js')?>"></script>
 </body>
 </html>
