@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="<?=base_url('css/open-iconic-bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/animate.css')?>">
-    
+
     <link rel="stylesheet" href="<?=base_url('css/owl.carousel.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/owl.theme.default.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/magnific-popup.css')?>">
@@ -19,9 +19,7 @@
 
     <link rel="stylesheet" href="<?=base_url('css/ionicons.min.css')?>">
 
-    <link rel="stylesheet" href="<?=base_url('css/bootstrap-datepicker.css')?>">
-    <link rel="stylesheet" href="<?=base_url('css/jquery.timepicker.css')?>">
-
+    <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap/css/bootstrap.min.css')?>">
     
     <link rel="stylesheet" href="<?=base_url('css/flaticon.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/icomoon.css')?>">
@@ -88,22 +86,14 @@
     			</div>
 				<?php endforeach?>
     		</div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="paginate-room">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item"><a class="page-link text-dark" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link text-dark" href="#">Next</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+
+        <div class="row">
+         
+            <div class="col-md-12 col-sm-12 col-lg-12 ">
+                <?=$pager->links('default' , 'pagination')?>         
             </div>
-    	</div>
+          
+    	  </div>
     </section>
 
 

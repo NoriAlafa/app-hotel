@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\KamarModel;
+use CodeIgniter\Pager\PagerRenderer;
+
 class Hotel extends BaseController
 {
 
@@ -26,6 +28,8 @@ class Hotel extends BaseController
     public function hotelKamar(){
         $data['judul'] = 'Kamar';
         $data['kamar'] = $this->kamarModel->findAll();
+        $data['kamar'] = $this->kamarModel->paginate(9);
+        $data['pager'] = $this->kamarModel->pager;
         return view('user/room' , $data);
     }
 
