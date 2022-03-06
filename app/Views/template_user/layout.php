@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/modules/fontawesome/css/all.min.css')?>">
 
+    <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
+    <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
@@ -84,8 +87,6 @@
 <script src="<?=base_url('js/bootstrap-datepicker.js')?>"></script>
 <script src="<?=base_url('js/jquery.timepicker.min.js')?>"></script>
 <script src="<?=base_url('js/scrollax.min.js')?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="<?=base_url('js/google-map.js')?>"></script>
 <script src="<?=base_url('js/main.js')?>"></script>
 <script src="<?=base_url('assets/modules/jquery.min.js')?>"></script>
 <script src="<?=base_url('assets/modules/popper.js')?>"></script>
@@ -95,6 +96,7 @@
 <script src="<?=base_url('assets/modules/moment.min.js')?>"></script>
 <script src="<?=base_url('assets/js/stisla.js')?>"></script>
 <script src="<?=base_url('assets/js/scripts.js')?>"></script>
-  <script src="<?=base_url('assets/js/custom.js')?>"></script>
+<script src="<?=base_url('assets/js/custom.js')?>"></script>
+  
 </body>
 </html>

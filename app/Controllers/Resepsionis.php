@@ -38,7 +38,7 @@ class Resepsionis extends BaseController
             return redirect()->back();
         }
         $data['judul']      = 'Edit Pemesanan';
-        $data['dataRev']    = $this->resepModel->where('id_reservasion' , $id)->reservasi();
+        $data['dataRev']    = $this->resepModel->edit($id);
         return view('resepsionis/edit_konfir',$data);
     }
 
