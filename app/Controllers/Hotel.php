@@ -20,9 +20,11 @@ class Hotel extends BaseController
         return view('user/laman_depan');
     }
 
-    public function lamanKamar()
+    public function lamanKamar($id)
     {
-        return view('user/room_detail');
+        $data['judul']      ='Kamar';
+        $data['viewKamar']  =$this->kamarModel->viewFasilitas($id);
+        return view('user/room_detail' , $data);
     }
 
     public function hotelKamar(){

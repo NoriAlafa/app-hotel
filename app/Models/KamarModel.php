@@ -14,7 +14,7 @@ class KamarModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kamar','nama_kamar','deskripsi' ,'tipe_kamar' , 'harga_kamar' ,'status' ,'fasilitas' ,'gambar' ,'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_kamar','nama_kamar','deskripsi' ,'tipe_kamar' , 'harga_kamar' ,'status' ,'id_fasilitas' ,'gambar' ,'created_at' , 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -27,7 +27,18 @@ class KamarModel extends Model
       dijoin dengan table fasilitas
     */
     public function fasilitas(){
-        $this->db->table('tb_kamar')->join();
+      $builder = $this->db->table('tb_kamar');
+      $builder->join('tb_fasilitas' , 'tb_fasilitas.id_fasilitas = tb_kamar.id_fasilitas');
+      $query = $builder->get();
+      return $query->getResultArray();
     }
+
+    public function viewFasilitas($id){
+      $builder = $this->db->table('tb_kamar');
+      $builder->where('id_kamar' , $id);
+      $builder->join('tb_fasilitas' , 'tb_fasilitas.id_fasilitas = tb_kamar.id_fasilitas');
+      $query = $builder->get();
+      return $query->getResultArray();
+  }
 
 }

@@ -1,7 +1,7 @@
 <?=$this->extend('template_user/layout')?>
 
 <?=$this->section('content')?>
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url(<?=base_url('images/bg_1.jpg')?>);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -17,40 +17,37 @@
     
     <section class="ftco-section">
       <div class="container">
-        <div class="row">
+		  <div class="row">
+			<?php foreach($viewKamar as $kamarV):?>
           <div class="col-lg-8">
           	<div class="row">
           		<div class="col-md-12 ftco-animate">
-          			<h2 class="mb-4">Family Room</h2>
+          			<h2 class="mb-4"><?=$judul?></h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-1.jpg);"></div>
-          				</div>
-          				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-2.jpg);"></div>
-          				</div>
-          				<div class="item">
-          					<div class="room-img" style="background-image: url(images/room-3.jpg);"></div>
-          				</div>
+							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:350px;">
+						</div>
           			</div>
           		</div>
 
           	</div>
           </div> <!-- .col-md-8 -->
-          <div class="col-lg-4 sidebar ftco-animate"> 
+
+			<div class="col-lg-4 sidebar ftco-animate"> 
             <div class="sidebar-box ftco-animate">
               <div class="categories">
-                <h3>FASILITAS</h3>
-                <li>WiFi</li>
-                <li>SPA</li>
-                <li>Kolam Renang</li>
-                <li>Bar</li>
-                <li>Bebas Rokok </li>
-                <li>Layanan Front Office 24jam</li>
+                <h3>Fasilitas</h3>
+                <li><?=$kamarV['fasilitas_1']?></li>
+                <li><?=$kamarV['fasilitas_2']?></li>
+                <li><?=$kamarV['fasilitas_3']?></li>
+                <li><?=$kamarV['fasilitas_4']?></li>
+                <li><?=$kamarV['fasilitas_5']?></li>
+                <li><?=$kamarV['fasilitas_6']?> </li>
               </div>
               </div>
             </div>
           </div>
+		  <?php endforeach?>
         </div>
         <div class="row justify-content-center">
         <div class="col-md-6">

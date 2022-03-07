@@ -48,6 +48,7 @@ class Resepsionis extends BaseController
             return redirect()->back();
         }
 
+        $id = $this->request->getPost('id_reservasion');
         $data = [
             'nama'                  => $this->request->getPost('nama'),
             'tgl_check_in'          => $this->request->getPost('tgl_check_in'),
@@ -57,7 +58,7 @@ class Resepsionis extends BaseController
             'kamar'                 => $this->request->getPost('nama_kamar')
         ];
 
-        $this->resepModel->update(['id_reservasion' => $this->request->getPost('id_reservasion')],$data);
+        $this->resepModel->updateResep($id ,$data);
         return redirect()->to('/konfirmasiRoom');
     }
 

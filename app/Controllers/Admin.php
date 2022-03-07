@@ -37,7 +37,7 @@ class Admin extends BaseController{
         }
 
         $data['judul'] = "CRUD Hotel";
-        $data['kamar'] = $this->kamarModel->findAll();
+        $data['kamar'] = $this->kamarModel->fasilitas();
         // ini nanti diisi database kamar
         return view('admin/tampil_hotel' ,$data);
     }

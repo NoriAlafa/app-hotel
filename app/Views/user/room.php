@@ -45,7 +45,7 @@
 						<h3 class="mb-3"><a href=""><?=$kmr['nama_kamar']?></a></h3>
 						<p><span class="price mr-2"><b>Rp </b><?=number_format($kmr['harga_kamar'], 0 , ',' , '.')?></span> <span class="per">per night</span></p>
 						<hr>
-						<p class="pt-1"><a href="<?=base_url('/kamar')?>" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+						<p class="pt-1"><a href="/kamar/<?=$kmr['id_kamar']?>" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
 					</div>
 				</div>
 			</div>

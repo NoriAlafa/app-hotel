@@ -17,7 +17,7 @@
           <div class="section-body">
             <h2 class="section-title">Edit Pemesanan</h2>
             <form action="/editPesanan" method="post">
-            <?php foreach($dataRev as $kfr):?>
+              <?php foreach($dataRev as $kfr):?>
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="put">
             <div class="row">
