@@ -27,8 +27,6 @@
                     <h4>Edit Kamar</h4>
                   </div>
                   <input type="hidden" class="form-control" readonly name="id_reservasion" value="<?=$kfr['id_reservasion']?>">
-                  <input type="hidden" class="form-control" readonly name="id_kamar" value="<?=$kfr['id_kamar']?>">
-                  <input type="hidden" class="form-control" readonly name="id_user" value="<?=$kfr['id_user']?>">
                   <div class="card-body">
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pemesan</label>

@@ -35,4 +35,14 @@ class ReservationModel extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+
+    public function updateResep($id , $data){
+        $this->db->table('tb_reservasion');
+        $sql = "UPDATE tb_reservasion AS ud JOIN tb_kamar AS k JOIN tb_user AS u ON ud.id_kamar = k.id_kamar , ud.id_user = u.id_user WHERE ud.id_reservasion = $id";
+        $this->db->set($data);
+        $this->db->transStart();
+        $this->db->query($sql)->getResultArray();
+        $this->db->transComplete();
+
+    }
 }
