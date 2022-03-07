@@ -1,4 +1,4 @@
-
-2.pagination dinamis
+1.Tambah kamar kurang fasilitas karena baru dijoin
+2.Pembayaran user
 3.resepsionis konfirmasi
-4.crud image
+4.Search Kamar
