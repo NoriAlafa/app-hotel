@@ -39,6 +39,17 @@ class KamarModel extends Model
       $builder->join('tb_fasilitas' , 'tb_fasilitas.id_fasilitas = tb_kamar.id_fasilitas');
       $query = $builder->get();
       return $query->getResultArray();
-  }
+    }
+
+    public function getPaginate($num,$keyword){
+      $builder = $this->builder();
+      if($keyword != ''){
+        $builder->like('nama_kamar',$keyword);
+      }
+      return [
+        'kamar'   =>$this->paginate($num),
+        'pager'   =>$this->pager,
+      ];
+    }
 
 }

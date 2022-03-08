@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\KamarModel;
 use App\Models\UserModel;
 use App\Models\ReservationModel;
+use App\Models\FasilitasModel;
 
 class Admin extends BaseController{
 
@@ -13,6 +14,7 @@ class Admin extends BaseController{
         $this->kamarModel       = new KamarModel(); 
         $this->userModel        = new UserModel(); 
         $this->resepModel       = new ReservationModel();
+        $this->fasilitasModel   = new FasilitasModel();
 
     }
 
@@ -74,12 +76,6 @@ class Admin extends BaseController{
                     'required'=>'Harga Kamar Tidak Boleh Kosong'
                 ]
             ],
-            'fasilitas'    =>[
-                'rules' =>'required',
-                'errors'=>[
-                    'required'=>'Fasilitas Kamar Tidak Boleh Kosong'
-                ]
-            ],
             'gambar'    =>[
                 'rules' =>'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                 'errors'=>[
@@ -108,7 +104,7 @@ class Admin extends BaseController{
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'status'            => 'tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
-            'fasilitas'         => $this->request->getPost('fasilitas'),
+            'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
             'gambar'            => $fileGambar
         ];
         
@@ -124,9 +120,10 @@ class Admin extends BaseController{
         }
         $data['judul']='Edit Kamar';
 
-        $data['kamar']=$this->kamarModel->where('id_kamar',$id)->findAll();
+        $data['kamar']=$this->kamarModel->viewFasilitas($id);
         //tampilkan data di view
         return view('admin/edit_kamar',$data);
+        
     }
 
     public function update($id){
@@ -152,8 +149,8 @@ class Admin extends BaseController{
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status'            => $this->request->getPost('status'),
-            'fasilitas'         => $this->request->getPost('fasilitas'),
-            'gambar'            => $fileGambar
+            'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
+            'gambar'            => $gambar
         ];
 
         $this->kamarModel->update($id,$data);

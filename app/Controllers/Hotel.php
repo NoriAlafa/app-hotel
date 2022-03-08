@@ -28,10 +28,10 @@ class Hotel extends BaseController
     }
 
     public function hotelKamar(){
-        $data['judul'] = 'Kamar';
-        $data['kamar'] = $this->kamarModel->findAll();
-        $data['kamar'] = $this->kamarModel->paginate(9);
-        $data['pager'] = $this->kamarModel->pager;
+        $keyword            = $this->request->getGet('keyword');
+        $data['judul']      = 'Kamar';
+        $data['kamar']      = $this->kamarModel->findAll();
+        $data               = $this->kamarModel->getPaginate(9 , $keyword);
         return view('user/room' , $data);
     }
 

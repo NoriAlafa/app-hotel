@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 //user
 $routes->get('/laman_depan', 'Hotel::lamanDepan');
 $routes->get('/', 'Hotel::lamanDepan');
-$routes->get('/kamar/(:any)', 'Hotel::lamanKamar/$1');
+$routes->get('/room/(:any)', 'Hotel::lamanKamar/$1');
 $routes->get('/kamarhotel', 'Hotel::hotelKamar');
 $routes->get('/kontak', 'Hotel::kontak');
 $routes->get('/invoice', 'Hotel::payment');

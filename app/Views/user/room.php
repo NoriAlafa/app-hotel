@@ -18,16 +18,18 @@
     	<div class="container">
 				<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Hotel</h2>
+            <a href="/kamarhotel">
+				<h2 class="mb-4">Kamar</h2>
+			</a>
           </div>
         </div> 
 		
 		<div class="row mb-lg-5">
 			<div class="col-md-12 col-lg-12 col-lg-12">
-				<form action="" class="form-inline mr-auto justify-content-center" method="get">
-					
+				<form action="" class="form-inline mr-auto justify-content-center" method="get" autocomplete="off">
 					<div class="search-element">
-						<input class="form-control" name="keyword" type="search" placeholder="Cari Kamar" aria-label="Search" data-width="250">
+						<?php $request = \Config\Services::request();?>
+						<input class="form-control" name="keyword" value="<?=$request->getGet('keyword');?>" type="search" placeholder="Cari Kamar" aria-label="Search" data-width="250">
 						<button class="btn" type="submit"><i class="fas fa-search"></i></button>
 					</div>
 				</form>
@@ -45,7 +47,7 @@
 						<h3 class="mb-3"><a href=""><?=$kmr['nama_kamar']?></a></h3>
 						<p><span class="price mr-2"><b>Rp </b><?=number_format($kmr['harga_kamar'], 0 , ',' , '.')?></span> <span class="per">per night</span></p>
 						<hr>
-						<p class="pt-1"><a href="/kamar/<?=$kmr['id_kamar']?>" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
+						<p class="pt-1"><a href="/room/<?=$kmr['id_kamar']?>" class="btn-custom">View Room Details <span class="icon-long-arrow-right"></span></a></p>
 					</div>
 				</div>
 			</div>
@@ -53,7 +55,6 @@
 		</div>
 
         <div class="row">
-         
             <div class="col-md-12 col-sm-12 col-lg-12 ">
                 <?=$pager->links('default' , 'pagination')?>         
             </div>
