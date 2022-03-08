@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2022 at 02:51 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Mar 08, 2022 at 04:59 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,21 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_hotel`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_admin`
---
-
-CREATE TABLE `tb_admin` (
-  `id_admin` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` varchar(15) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,7 +43,8 @@ CREATE TABLE `tb_fasilitas` (
 
 INSERT INTO `tb_fasilitas` (`id_fasilitas`, `fasilitas_1`, `fasilitas_2`, `fasilitas_3`, `fasilitas_4`, `fasilitas_5`, `fasilitas_6`) VALUES
 (1, 'Bebas Rokok', 'Bar Caffe', 'Kolam Renang', 'Layanan Front Office', 'Dinner', 'Karaoke'),
-(2, 'Free Wifi', 'Restaurant', 'Layanan Office', 'AC', 'Soft Drink Lobby', 'Kamar Luas');
+(2, 'Free Wifi', 'Restaurant', 'Layanan Office', 'AC', 'Soft Drink Lobby', 'Kamar Luas'),
+(3, 'AC', 'smart tv', 'sprai premium', 'WiFi', 'telephone', 'pemandangan bagus');
 
 -- --------------------------------------------------------
 
@@ -86,14 +72,14 @@ CREATE TABLE `tb_kamar` (
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
 (4, 'Hotel Fira', 'adalah gwej', 'VIP', 300000, 'Kosong', 1, 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-04 08:09:54'),
 (6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 10000, 'Tersedia', 2, 'Screenshot (36).png', '2022-03-01 09:01:46', '2022-03-04 09:53:20'),
-(7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 1, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
+(7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
 (8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 2, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
-(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 2, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
+(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 3, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
 (10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 2, 'ticket jepang.jpg', '2022-03-02 10:06:25', '2022-03-02 10:06:25'),
 (11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 1, '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
 (13, '999999', '<p>99999</p>', 'VIP', 99999, 'Tersedia', 2, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
 (14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 1, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
-(15, '11111111', '<p>111111</p>', 'BIASA', 11111111, 'Tersedia', 1, 'Screenshot (47).png', '2022-03-03 03:51:41', '2022-03-06 06:06:13');
+(15, '11111111', '<p>111111</p>', 'BIASA', 11111111, 'Tersedia', 3, 'Screenshot (47).png', '2022-03-03 03:51:41', '2022-03-06 06:06:13');
 
 -- --------------------------------------------------------
 
@@ -178,12 +164,6 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`,
 --
 
 --
--- Indexes for table `tb_admin`
---
-ALTER TABLE `tb_admin`
-  ADD PRIMARY KEY (`id_admin`);
-
---
 -- Indexes for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
@@ -218,16 +198,10 @@ ALTER TABLE `tb_user`
 --
 
 --
--- AUTO_INCREMENT for table `tb_admin`
---
-ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`
