@@ -45,11 +45,19 @@
 						<li><?=$kamarV['fasilitas_6']?> </li>
 					</div>
               	</div>
+			  <form action="/bayar" method="post">
+			  <?= csrf_field(); ?>
 			  <div class="card">
 				<div class="card-header " style="background-color:#6777ef; color:white; font-size:20px;">
 					Isi Data Pemesan
 				</div>
 				<div class="card-body">
+					<div class="form-group">
+						<input type="hidden" name="id_reservasion">
+						<input type="hidden" name="id_kamar" value="<?=$kamarV['id_kamar']?>">
+						<input type="hidden" name="id_user">
+						<input type="hidden" name="pembayaran" value="<?=$kamarV['harga_kamar']?>">
+					</div>
 					<div class="form-group">
 						<label>Nama</label>
 					  <input type="text" name="nama" class="form-control">
@@ -66,13 +74,14 @@
 					  </div>
 					<center>
 						<?php if($kamarV['status'] == 'Tersedia'):?>
-							<a href="" class=" btn btn-primary" style="margin-top:20px;">Pesan</a>
+							<button type="submit" href="/bayar" class=" btn btn-primary" style="margin-top:20px;">Pesan</button>
 						<?php endif;?>
 						<?php if($kamarV['status'] == 'Kosong'):?>
-							<a href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</a>
+							<button type="button" disabled href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</button>
 						<?php endif;?>
 					</center>
 				</div>
+				</form>
 			  </div>
             </div>
           </div>

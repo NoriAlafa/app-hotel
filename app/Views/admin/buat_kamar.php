@@ -32,6 +32,7 @@
               On this page you can create a new post and fill in all fields.
             </p>
           <form action="/saveBuat" method="post" enctype="multipart/form-data">
+          <?= csrf_field(); ?>
             <div class="row">
               <div class="col-12">
                 <div class="card">

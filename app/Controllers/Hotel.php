@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use App\Models\KamarModel;
+use App\Models\ReservationModel;
 use CodeIgniter\Pager\PagerRenderer;
 
 class Hotel extends BaseController
@@ -11,8 +12,9 @@ class Hotel extends BaseController
 
     public function __construct(){
         helper('url');
-        $this->userModel = new UserModel();
-        $this->kamarModel = new KamarModel();
+        $this->userModel    = new UserModel();
+        $this->kamarModel   = new KamarModel();
+        $this->resepModel   = new ReservationModel();
     }
 
     public function lamanDepan()
@@ -49,6 +51,22 @@ class Hotel extends BaseController
     {
         $data['profile'] =$this->userModel->findAll();
         return view('user/profile' ,$data);
+    }
+
+    public function bayar(){
+        $user = session('id');
+        $data = [
+            'id_reservasion'            =>$this->request->getPost('id_reservation'),
+            'id_kamar'                  =>$this->request->getPost('id_kamar'),
+            'id_user'                   =>$user,
+            'nama'                      =>$this->request->getPost('nama'),
+            'tgl_check_in'              =>$this->request->getPost('tgl_check_in'),
+            'tgl_check_out'             =>$this->request->getPost('tgl_check_out'),
+            'pembayaran'                =>$this->request->getPost('pembayaran'),
+            'status_rev'                =>'booking'
+        ];
+        $this->resepModel->insert($data);
+        return redirect()->to('/kamarhotel');
     }
 
     
