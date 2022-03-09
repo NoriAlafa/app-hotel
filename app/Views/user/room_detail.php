@@ -25,99 +25,77 @@
           			<h2 class="mb-4"><?=$judul?></h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
-							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:350px;">
+							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:800px;">
 						</div>
           			</div>
           		</div>
 
           	</div>
           </div> <!-- .col-md-8 -->
-
+		  
 			<div class="col-lg-4 sidebar ftco-animate"> 
-            <div class="sidebar-box ftco-animate">
-              <div class="categories">
-                <h3>Fasilitas</h3>
-                <li><?=$kamarV['fasilitas_1']?></li>
-                <li><?=$kamarV['fasilitas_2']?></li>
-                <li><?=$kamarV['fasilitas_3']?></li>
-                <li><?=$kamarV['fasilitas_4']?></li>
-                <li><?=$kamarV['fasilitas_5']?></li>
-                <li><?=$kamarV['fasilitas_6']?> </li>
-              </div>
-              </div>
+            	<div class="sidebar-box ftco-animate">
+					<div class="categories">
+						<h3>Fasilitas</h3>
+						<li><?=$kamarV['fasilitas_1']?></li>
+						<li><?=$kamarV['fasilitas_2']?></li>
+						<li><?=$kamarV['fasilitas_3']?></li>
+						<li><?=$kamarV['fasilitas_4']?></li>
+						<li><?=$kamarV['fasilitas_5']?></li>
+						<li><?=$kamarV['fasilitas_6']?> </li>
+					</div>
+              	</div>
+			  <div class="card">
+				<div class="card-header " style="background-color:#6777ef; color:white; font-size:20px;">
+					Isi Data Pemesan
+				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<label>Nama</label>
+					  <input type="text" name="nama" class="form-control">
+					</div>
+					
+					  <div class="form-group">
+						<label>Check in</label>
+						<input type="text" name="tgl_check_in" class="form-control datetimepicker">
+					  </div>
+  
+					  <div class="form-group">
+						<label>Check Out</label>
+						<input type="text" name="tgl_check_out" class="form-control datetimepicker">
+					  </div>
+					<center>
+						<?php if($kamarV['status'] == 'Tersedia'):?>
+							<a href="" class=" btn btn-primary" style="margin-top:20px;">Pesan</a>
+						<?php endif;?>
+						<?php if($kamarV['status'] == 'Kosong'):?>
+							<a href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</a>
+						<?php endif;?>
+					</center>
+				</div>
+			  </div>
             </div>
           </div>
 		  <?php endforeach?>
-        </div>
-        <div class="row justify-content-center">
-        <div class="col-md-6">
-		<form action="/invoice" class="booking-form">
-		<div class="row">
-			<div class="col-md-3 d-flex">
-				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
-					<div class="wrap">
-							<label for="#">Check-in Date</label>
-							<input type="text" class="form-control checkin_date" placeholder="Check-in date">
-						</div>
-					</div>
-			</div>
-			<div class="col-md-3 d-flex">
-				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
-					<div class="wrap">
-							<label for="#">Check-out Date</label>
-							<input type="text" class="form-control checkout_date" placeholder="Check-out date">
-					</div>
-					</div>
-			</div>
-			<div class="col-md d-flex">
-				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
-					<div class="wrap">
-						<label for="#">Room</label>
-						<div class="form-field">
-							<div class="select-wrap">
-					<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-					<select name="" id="" class="form-control">
-						<option value="">Suite</option>
-						<option value="">Family Room</option>
-						<option value="">Deluxe Room</option>
-						<option value="">Classic Room</option>
-						<option value="">Superior Room</option>
-						<option value="">Luxury Room</option>
-					</select>
-					</div>
-					</div>
+		  <div class="card-body">
+			<div class="buttons">
+				<div class="section-title mt-0">Status Kamar</div>
+					<?php if($kamarV['status'] == 'Tersedia'):?>
+						<button type="button" class="btn btn-success">
+							Tersedia <span class="badge badge-transparent"><i class="fas fa-check"></i></span>
+						</button>
+					<?php endif;?>
+					<?php if($kamarV['status'] == 'Kosong'):?>
+						<button type="button" class="btn btn-danger">
+								kosong <span class="badge badge-transparent"><i class="fas fa-times"></i></span>
+						</button>
+					<?php endif;?>
 				</div>
 			</div>
-			</div>
-			<div class="col-md d-flex">
-				<div class="form-group p-4 align-self-stretch d-flex align-items-end">
-					<div class="wrap">
-						<label for="#">Customer</label>
-						<div class="form-field">
-							<div class="select-wrap">
-					<div class="icon"><span class="ion-ios-arrow-down"></span></div>
-					<select name="" id="" class="form-control">
-						<option value="">1 Adult</option>
-						<option value="">2 Adult</option>
-						<option value="">3 Adult</option>
-						<option value="">4 Adult</option>
-						<option value="">5 Adult</option>
-						<option value="">6 Adult</option>
-					</select>
-					</div>
-					</div>
-				</div>
-			</div>
-			</div>
-			<div class="col-md d-flex">
-				<div class="form-group d-flex align-self-stretch">
-				<input type="submit" value="Check Availability" class="btn btn-primary py-3 px-4 align-self-stretch">
-			</div>
-			</div>
-		</div>
-	</form>
-	</div>
+         </div>
         </div>
+
+        
       </div>
     </section> 
 

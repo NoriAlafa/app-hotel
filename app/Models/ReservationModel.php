@@ -36,11 +36,12 @@ class ReservationModel extends Model
         return $query->getResultArray();
     }
 
-    public function updateResep(){
+    public function updateResep($id){
         $builder = $this->db->table('tb_reservasion');
-        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
+        $siap = $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
         ->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
-        $builder->set();
+        $builder->where('status_rev' , $id);
+        $builder->set($siap);
         $builder->update();
         $query = $builder->get();
         return $query->getResultArray();

@@ -1,7 +1,9 @@
 Senin Depan Setidaknya selesai
-1.Tambah kamar kurang fasilitas karena baru dijoin[DONE]
-2.Plus Editnya[DONE]
-2.Pembayaran user
-3.resepsionis konfirmasi
-4.Search Kamar[DONE]
-5.Tampilan Dashboard
++(Tambah kamar kurang fasilitas karena baru dijoin[DONE])
++(Plus Editnya[DONE])
+Modal Fasilitas Di Admin tambah data
+print Pembayaran user
+resepsionis konfirmasi
++(Search Kamar[DONE])
+Tampilan Dashboard
+lokasi bayar

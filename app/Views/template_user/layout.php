@@ -24,7 +24,7 @@
 	
     <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/modules/fontawesome/css/all.min.css')?>">
-
+    <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
 
@@ -97,6 +97,7 @@
 <script src="<?=base_url('assets/js/stisla.js')?>"></script>
 <script src="<?=base_url('assets/js/scripts.js')?>"></script>
 <script src="<?=base_url('assets/js/custom.js')?>"></script>
+<script src="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.js')?>"></script>
   
 </body>
 </html>
