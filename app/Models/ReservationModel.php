@@ -40,8 +40,11 @@ class ReservationModel extends Model
         $builder = $this->db->table('tb_reservasion');
         $siap = $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
         ->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
-        $builder->where('status_rev' , $id);
-        $builder->set($siap);
+        $query = "UPDATE tb_reservasion a
+        JOIN tb_kamar b ON a.j = b.join_col AND a.column_a = b.column_b
+        JOIN TABLE_C c ON [condition]
+    SET a.column_c = a.column_c + 1";
+        $builder->where('id_reservasion' , $id);
         $builder->update();
         $query = $builder->get();
         return $query->getResultArray();

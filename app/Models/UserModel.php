@@ -22,5 +22,12 @@ class UserModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
+    public function user($id){
+        $builder = $this->db->table('tb_user');
+        $builder->join('tb_role' , 'tb_role.role_id = tb_user.role_id');
+        $builder->where('id_user' , $id);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
     
 }

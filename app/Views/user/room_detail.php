@@ -16,6 +16,7 @@
 
     
     <section class="ftco-section">
+	<div class="flash-data-kamar" data-flashdata="<?=session()->getFlashdata('user')?>"></div>
       <div class="container">
 		  <div class="row">
 			<?php foreach($viewKamar as $kamarV):?>
@@ -45,65 +46,57 @@
 						<li><?=$kamarV['fasilitas_6']?> </li>
 					</div>
               	</div>
-			  <form action="/bayar" method="post">
-			  <?= csrf_field(); ?>
-			  <div class="card">
-				<div class="card-header " style="background-color:#6777ef; color:white; font-size:20px;">
-					Isi Data Pemesan
-				</div>
-				<div class="card-body">
-					<div class="form-group">
-						<input type="hidden" name="id_reservasion">
-						<input type="hidden" name="id_kamar" value="<?=$kamarV['id_kamar']?>">
-						<input type="hidden" name="id_user">
-						<input type="hidden" name="pembayaran" value="<?=$kamarV['harga_kamar']?>">
-					</div>
-					<div class="form-group">
-						<label>Nama</label>
-					  <input type="text" name="nama" class="form-control">
-					</div>
-					
-					  <div class="form-group">
-						<label>Check in</label>
-						<input type="text" name="tgl_check_in" class="form-control datetimepicker">
-					  </div>
-  
-					  <div class="form-group">
-						<label>Check Out</label>
-						<input type="text" name="tgl_check_out" class="form-control datetimepicker">
-					  </div>
-					<center>
-						<?php if($kamarV['status'] == 'Tersedia'):?>
-							<button type="submit" href="/bayar" class=" btn btn-primary" style="margin-top:20px;">Pesan</button>
-						<?php endif;?>
-						<?php if($kamarV['status'] == 'Kosong'):?>
-							<button type="button" disabled href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</button>
-						<?php endif;?>
-					</center>
-				</div>
-				</form>
-			  </div>
-            </div>
-          </div>
-		  <?php endforeach?>
-		  <div class="card-body">
-			<div class="buttons">
-				<div class="section-title mt-0">Status Kamar</div>
+				  <div class="buttons" >		
 					<?php if($kamarV['status'] == 'Tersedia'):?>
-						<button type="button" class="btn btn-success">
+						<button type="button" class="btn-success" style="margin-left:20px; margin-bottom:30px;">
 							Tersedia <span class="badge badge-transparent"><i class="fas fa-check"></i></span>
 						</button>
+						<form action="/bayar" method="post">
+							<?= csrf_field(); ?>
+							<div class="card">
+								<div class="card-header " style="background-color:#6777ef; color:white; font-size:20px;">
+									Pesan
+								</div>
+								<div class="card-body">
+									<div class="form-group">
+										<input type="hidden" name="id_reservasion">
+										<input type="hidden" name="id_kamar" value="<?=$kamarV['id_kamar']?>">
+										<input type="hidden" name="id_user">
+										<input type="hidden" name="pembayaran" value="<?=$kamarV['harga_kamar']?>">
+									</div>
+									
+									<div class="form-group">
+										<label>Check in</label>
+										<input type="text" name="tgl_check_in" class="form-control datetimepicker">
+									</div>
+				
+									<div class="form-group">
+										<label>Check Out</label>
+										<input type="text" name="tgl_check_out" class="form-control datetimepicker">
+									</div>
+									<center>
+										<?php if($kamarV['status'] == 'Tersedia'):?>
+											<button type="submit" href="/bayar" class=" btn btn-primary" style="margin-top:20px;">Pesan</button>
+										<?php endif;?>
+										<?php if($kamarV['status'] == 'Kosong'):?>
+											<button type="button" disabled href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</button>
+										<?php endif;?>
+									</center>
+								</div>
+							</form>
 					<?php endif;?>
 					<?php if($kamarV['status'] == 'Kosong'):?>
-						<button type="button" class="btn btn-danger">
+						<button type="button" class="btn-danger">
 								kosong <span class="badge badge-transparent"><i class="fas fa-times"></i></span>
 						</button>
 					<?php endif;?>
 				</div>
-			</div>
-         </div>
+			  </div>
+            </div>
+          </div>
+		  <?php endforeach?>
         </div>
-
+		
         
       </div>
     </section> 

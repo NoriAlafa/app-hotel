@@ -56,12 +56,16 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="<?=base_url('/kamarhotel')?>" class="nav-link">Rooms</a></li>
+	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/kamarhotel" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="<?=base_url('/kontak')?>" class="nav-link">Contact</a></li>
-	          <li class="nav-item"><a href="<?=base_url('/login')?>" class="nav-link">Login</a></li>
-	          <li class="nav-item"><a href="<?=base_url('/profile')?>" class="nav-link">Profile</a></li>
+	          <li class="nav-item"><a href="/kontak" class="nav-link">Contact</a></li>
+            <?php if(session('id')):?>
+              <li class="nav-item"><a href="/profile" class="nav-link">Profile</a></li>
+            <?php endif;?>
+            <?php if(!session('id')){?>
+              <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+            <?php }?>
 	        </ul>
 	      </div>
 	    </div>
@@ -84,8 +88,8 @@
 <script src="<?=base_url('js/jquery.magnific-popup.min.js')?>"></script>
 <script src="<?=base_url('js/aos.js')?>"></script>
 <script src="<?=base_url('js/jquery.animateNumber.min.js')?>"></script>
-<script src="<?=base_url('js/bootstrap-datepicker.js')?>"></script>
-<script src="<?=base_url('js/jquery.timepicker.min.js')?>"></script>
+<script src="<?=base_url('assets/modules/sweetalert/sweetalert.min.js')?>"></script>
+<script src="<?=base_url('assets/js/page/modules-sweetalert.js')?>"></script>
 <script src="<?=base_url('js/scrollax.min.js')?>"></script>
 <script src="<?=base_url('js/main.js')?>"></script>
 <script src="<?=base_url('assets/modules/jquery.min.js')?>"></script>

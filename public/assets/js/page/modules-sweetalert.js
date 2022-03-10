@@ -3,6 +3,7 @@
 const flashData = $('.flash-data').data('flashdata');
 const flashDataAdmin = $('.flash-data-admin').data('flashdata');
 const flashDataRes = $('.flash-data-resep').data('flashdata');
+const flashDataKamar = $('.flash-data-kamar').data('flashdata');
 
 
 if(flashData){
@@ -18,6 +19,14 @@ if(flashDataAdmin){
     title:'Gagal' ,
     text:'Oops    ' + flashDataAdmin,
     icon:'error'
+  });
+}
+
+if(flashDataKamar){
+  swal({
+    title:'Berhasil' ,
+    text:'Yeay    ' + flashDataKamar,
+    icon:'success'
   });
 }
 

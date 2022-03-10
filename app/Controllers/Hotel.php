@@ -49,11 +49,15 @@ class Hotel extends BaseController
 
     public function profile()
     {
-        $data['profile'] =$this->userModel->findAll();
+        $id = session('id');
+        $data['profile'] =$this->userModel->user($id);
         return view('user/profile' ,$data);
     }
 
     public function bayar(){
+        if(!session('id')){
+            return redirect()->to('/login');
+        }
         $user = session('id');
         $data = [
             'id_reservasion'            =>$this->request->getPost('id_reservation'),
@@ -66,7 +70,8 @@ class Hotel extends BaseController
             'status_rev'                =>'booking'
         ];
         $this->resepModel->insert($data);
-        return redirect()->to('/kamarhotel');
+        session()->setFlashdata('user' , 'Kamar Berhasil Dipesan');
+        return redirect()->back();
     }
 
     

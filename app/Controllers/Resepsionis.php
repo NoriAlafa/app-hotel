@@ -58,7 +58,7 @@ class Resepsionis extends BaseController
             'kamar'                 => $this->request->getPost('nama_kamar')
         ];
 
-        $this->resepModel->updateResep($id ,$data);
+        $this->resepModel->update($id ,$data);
         return redirect()->to('/konfirmasiRoom');
     }
 

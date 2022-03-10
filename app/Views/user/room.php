@@ -41,7 +41,9 @@
 			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 				<div class="room">
 					<a href="rooms.html" class="img d-flex justify-content-center align-items-center">
-					<img src="images/<?=$kmr['gambar']?>" style="height:300px; width:350px;margin-top:20px;">
+					<div class="gambar">
+						<img src="images/<?=$kmr['gambar']?>" style="height:300px; width:350px;margin-top:20px;">
+					</div>
 					</a>
 					<div class="text p-3 text-center">
 						<h3 class="mb-3"><a href=""><?=$kmr['nama_kamar']?></a></h3>

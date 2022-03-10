@@ -6,4 +6,4 @@ print Pembayaran user
 resepsionis konfirmasi
 +(Search Kamar[DONE])
 Tampilan Dashboard
-lokasi bayar
++(form bayar[DONE])
