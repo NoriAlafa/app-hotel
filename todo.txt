@@ -2,7 +2,7 @@ Senin Depan Setidaknya selesai
 +(Tambah kamar kurang fasilitas karena baru dijoin[DONE])
 +(Plus Editnya[DONE])
 Modal Fasilitas Di Admin tambah data
-print Pembayaran user
++(print Pembayaran user[DONE])
 resepsionis konfirmasi
 +(Search Kamar[DONE])
 Tampilan Dashboard

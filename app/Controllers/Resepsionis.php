@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\ReservationModel;
 use App\Models\KamarModel;
 use App\Models\UserModel;
+use Dompdf\Dompdf;
 
 class Resepsionis extends BaseController
 {
@@ -62,4 +63,27 @@ class Resepsionis extends BaseController
         return redirect()->to('/konfirmasiRoom');
     }
 
+    public function printPesan($id){
+        if(session('role_id') != 3){
+            session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['judul']      = 'Pesanan Anda';
+        $data['dataRev']    = $this->resepModel->print($id);
+        $html = view('resepsionis/print',$data);
+
+        // instantiate and use the dompdf class
+        $dompdf = new \Dompdf\Dompdf(['isRemoteEnabled' => true]);
+        
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream();
+    }
 }
