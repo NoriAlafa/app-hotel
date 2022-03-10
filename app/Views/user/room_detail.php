@@ -62,7 +62,8 @@
 										<input type="hidden" name="id_reservasion">
 										<input type="hidden" name="id_kamar" value="<?=$kamarV['id_kamar']?>">
 										<input type="hidden" name="id_user">
-										<input type="hidden" name="pembayaran" value="<?=$kamarV['harga_kamar']?>">
+										<input type="hidden" name="pembayaran">
+										<input type="hidden" name="harga_kamar" value="<?=$kamarV['harga_kamar']?>">
 									</div>
 									
 									<div class="form-group">
@@ -86,9 +87,7 @@
 							</form>
 					<?php endif;?>
 					<?php if($kamarV['status'] == 'Kosong'):?>
-						<button type="button" class="btn-danger">
-								kosong <span class="badge badge-transparent"><i class="fas fa-times"></i></span>
-						</button>
+						
 					<?php endif;?>
 				</div>
 			  </div>

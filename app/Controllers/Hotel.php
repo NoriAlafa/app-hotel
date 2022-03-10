@@ -59,6 +59,13 @@ class Hotel extends BaseController
             return redirect()->to('/login');
         }
         $user = session('id');
+        $check_in = strtotime($this->request->getPost('tgl_check_in'));
+        $check_out = strtotime($this->request->getPost('tgl_check_out'));
+        $perMalam = abs($check_out - $check_in)/(60*1440);
+        $harga_kamar = $this->request->getPost('harga_kamar');
+        $finalBayar = $perMalam * $harga_kamar;
+
+
         $data = [
             'id_reservasion'            =>$this->request->getPost('id_reservation'),
             'id_kamar'                  =>$this->request->getPost('id_kamar'),
@@ -66,7 +73,8 @@ class Hotel extends BaseController
             'nama'                      =>$this->request->getPost('nama'),
             'tgl_check_in'              =>$this->request->getPost('tgl_check_in'),
             'tgl_check_out'             =>$this->request->getPost('tgl_check_out'),
-            'pembayaran'                =>$this->request->getPost('pembayaran'),
+            'pembayaran'                =>$finalBayar,
+            'harga_kamar'               =>$harga_kamar,
             'status_rev'                =>'booking'
         ];
         $this->resepModel->insert($data);
