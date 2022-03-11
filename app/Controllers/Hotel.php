@@ -82,5 +82,8 @@ class Hotel extends BaseController
         return redirect()->back();
     }
 
+    public function profileUpdate(){
+        return view('user/profile_update');
+    }
     
 }

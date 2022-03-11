@@ -49,15 +49,16 @@ class Resepsionis extends BaseController
             return redirect()->back();
         }
         
-        $data= [
-            'tgl_check_out'         => $this->request->getPost('tgl_check_out'),
-            'status_rev'            => $this->request->getPost('status_rev'),
-            'pembayaran'            => $this->request->getPost('pembayaran'),
-            'harga_kamar'           => $this->request->getPost('harga_kamar'),
-            'status_kamar'          => $this->request->getPost('status_kamar'),
-        
+        $data = [
+            'id_kamar'          => $this->request->getPost('id_kamar'),
+            'tgl_check_out'     => $this->request->getPost('tgl_check_out'),
+            'status_rev'        => $this->request->getPost('status_rev'),
+            'status_kamar'      => $this->request->getPost('status_kamar'),        
+            'harga_kamar'       => $this->request->getPost('harga_kamar'),
+            'pembayaran'        => $this->request->getPost('pembayaran')
         ];
-        $this->resepModel->oke($id ,$data);
+ 
+        $this->resepModel->update($id,$data);
         return redirect()->to('/konfirmasiRoom');
     }
 

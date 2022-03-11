@@ -71,7 +71,7 @@
                         <ul class="nav nav-pills flex-column">
                           <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
                           <li class="nav-item"><a href="#" class="nav-link">Pesanan Saya</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Update Profile</a></li>
+                          <li class="nav-item"><a href="/profile/update" class="nav-link">Update Profile</a></li>
                           <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
                         </ul>
                       </div>

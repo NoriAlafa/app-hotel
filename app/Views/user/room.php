@@ -26,12 +26,10 @@
 		
 		<div class="row mb-lg-5">
 			<div class="col-md-12 col-lg-12 col-lg-12">
-				<form action="" class="form-inline mr-auto justify-content-center" method="get" autocomplete="off">
-					<div class="search-element">
-						<?php $request = \Config\Services::request();?>
-						<input class="form-control" name="keyword" value="<?=$request->getGet('keyword');?>" type="search" placeholder="Cari Kamar" aria-label="Search" data-width="250">
-						<button class="btn" type="submit"><i class="fas fa-search"></i></button>
-					</div>
+				<form action="" class="form-inline mr-auto justify-content-center" method="get">
+					<?php $request = \Config\Services::request();?>
+					<input class="form-control mr-sm-2" name="keyword" value="<?=$request->getGet('keyword');?>" type="search" placeholder="Cari Kamar" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
 		</div>

@@ -26,6 +26,7 @@
                   <div class="card-header">
                     <h4>Edit Kamar</h4>
                   </div>
+                  <input type="hidden" name="id_kamar" value="<?=$kfr['id_kamar']?>">
                   <div class="card-body">
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Check Out</label>

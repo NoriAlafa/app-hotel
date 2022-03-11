@@ -23,8 +23,8 @@ class Home extends BaseController
             return redirect()->to('/');
         }
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
-        $dataStatusAda      = $this->kamarModel->where('status' , 'Tersedia')->countAllResults();
-        $dataStatusTdk      = $this->kamarModel->where('status' , 'Kosong')->countAllResults();
+        $dataStatusAda      = $this->kamarModel->where('status_kamar' , 'Tersedia')->countAllResults();
+        $dataStatusTdk      = $this->kamarModel->where('status_kamar' , 'Kosong')->countAllResults();
         $dataPending        = $this->resepModel->where('status_rev' , 'booking')->countAllResults();
         $dataBayar          = $this->resepModel->where('status_rev' , 'bayar')->countAllResults();
         $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
