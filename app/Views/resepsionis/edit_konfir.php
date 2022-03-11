@@ -16,8 +16,8 @@
 
           <div class="section-body">
             <h2 class="section-title">Edit Pemesanan</h2>
-            <form action="/editPesanan" method="post">
-              <?php foreach($dataRev as $kfr):?>
+            <?php foreach($dataRev as $kfr):?>
+            <form action="/editPesanan/<?=$kfr['id_reservasion']?>" method="post">
             <?= csrf_field(); ?>
             <input type="hidden" name="_method" value="put">
             <div class="row">
@@ -26,20 +26,7 @@
                   <div class="card-header">
                     <h4>Edit Kamar</h4>
                   </div>
-                  <input type="hidden" class="form-control" readonly name="id_reservasion" value="<?=$kfr['id_reservasion']?>">
                   <div class="card-body">
-                    <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pemesan</label>
-                      <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" name="nama" value="<?=$kfr['nama']?> " readonly>
-                      </div>
-                    </div>
-                    <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Check in</label>
-                      <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" name="tgl_check_in" value="<?=$kfr['tgl_check_in']?> " readonly>
-                      </div>
-                    </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Check Out</label>
                       <div class="col-sm-12 col-md-7">
@@ -57,15 +44,24 @@
                       </div>
                     </div>
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pembayaran</label>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status Kamar</label>
+                      <div class="col-sm-12 col-md-7">
+                        <select class="form-control selectric" name="status_kamar" id="status_kamar">
+                          <option value="Tersedia">Tersedia</option>
+                          <option value="Kosong">Kosong</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga Kamar</label>
                       <div class="col-sm-12 col-md-7">
                         <input type="text" class="form-control" name="harga_kamar" value="<?=number_format($kfr['harga_kamar'])?> " readonly>
                       </div>
                     </div>
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kamar</label>
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pembayaran</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" name="nama" value="<?=$kfr['nama_kamar']?> " readonly>
+                        <input type="text" class="form-control" name="harga_kamar" value="<?=number_format($kfr['pembayaran'])?> ">
                       </div>
                     </div>
                     <div class="form-group row mb-4">

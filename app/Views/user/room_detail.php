@@ -47,7 +47,7 @@
 					</div>
               	</div>
 				  <div class="buttons" >		
-					<?php if($kamarV['status'] == 'Tersedia'):?>
+					<?php if($kamarV['status_kamar'] == 'Tersedia'):?>
 						<button type="button" class="btn-success" style="margin-left:20px; margin-bottom:30px;">
 							Tersedia <span class="badge badge-transparent"><i class="fas fa-check"></i></span>
 						</button>
@@ -76,17 +76,17 @@
 										<input type="text" name="tgl_check_out" class="form-control datetimepicker">
 									</div>
 									<center>
-										<?php if($kamarV['status'] == 'Tersedia'):?>
+										<?php if($kamarV['status_kamar'] == 'Tersedia'):?>
 											<button type="submit" href="/bayar" class=" btn btn-primary" style="margin-top:20px;">Pesan</button>
 										<?php endif;?>
-										<?php if($kamarV['status'] == 'Kosong'):?>
+										<?php if($kamarV['status_kamar'] == 'Kosong'):?>
 											<button type="button" disabled href="" class=" btn btn-primary disabled" style="margin-top:20px;">Kosong</button>
 										<?php endif;?>
 									</center>
 								</div>
 							</form>
 					<?php endif;?>
-					<?php if($kamarV['status'] == 'Kosong'):?>
+					<?php if($kamarV['status_kamar'] == 'Kosong'):?>
 						
 					<?php endif;?>
 				</div>

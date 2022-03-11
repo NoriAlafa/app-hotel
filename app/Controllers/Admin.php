@@ -102,7 +102,7 @@ class Admin extends BaseController{
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
             'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
-            'status'            => 'tersedia',
+            'status_kamar'      => 'Tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
             'gambar'            => $fileGambar
@@ -148,7 +148,7 @@ class Admin extends BaseController{
             'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
-            'status'            => $this->request->getPost('status'),
+            'status_kamar'      => $this->request->getPost('status_kamar'),
             'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
             'gambar'            => $gambar
         ];

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2022 at 04:59 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Mar 11, 2022 at 09:25 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,7 @@ CREATE TABLE `tb_kamar` (
   `deskripsi` text NOT NULL,
   `tipe_kamar` varchar(20) NOT NULL,
   `harga_kamar` int(11) NOT NULL,
-  `status` enum('Tersedia','Kosong') NOT NULL,
+  `status_kamar` enum('Tersedia','Kosong') NOT NULL,
   `id_fasilitas` int(11) NOT NULL,
   `gambar` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE `tb_kamar` (
 -- Dumping data for table `tb_kamar`
 --
 
-INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
+INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status_kamar`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
 (4, 'Hotel Fira', 'adalah gwej', 'VIP', 300000, 'Kosong', 1, 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-04 08:09:54'),
 (6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 10000, 'Tersedia', 2, 'Screenshot (36).png', '2022-03-01 09:01:46', '2022-03-04 09:53:20'),
 (7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
@@ -79,7 +79,7 @@ INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `ha
 (11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 1, '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
 (13, '999999', '<p>99999</p>', 'VIP', 99999, 'Tersedia', 2, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
 (14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 1, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
-(15, '11111111', '<p>111111</p>', 'BIASA', 11111111, 'Tersedia', 3, 'Screenshot (47).png', '2022-03-03 03:51:41', '2022-03-06 06:06:13');
+(16, 'Test Fasilitas', '<p>test oke</p>', 'VIP', 500000, 'Tersedia', 3, 'template.jpg', '2022-03-08 06:50:12', '2022-03-08 06:50:12');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,14 @@ INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_chec
 (1, 5, 4, '2022-02-28 04:05:36', '2022-02-28 04:05:00', 300000, 'bayar', '2022-02-28 04:05:36', '2022-03-07 06:30:08'),
 (2, 6, 6, '2022-02-28 05:56:17', '2022-06-01 01:44:00', 400000, 'out', '2022-02-28 05:56:17', '2022-03-07 06:30:25'),
 (3, 7, 7, '2022-02-28 05:56:17', '2022-02-28 05:56:17', 500000, 'bayar', '2022-02-28 05:56:17', '2022-02-28 05:56:17'),
-(4, 8, 8, '0000-00-00 00:00:00', '2022-02-28 06:17:37', 400000, 'bayar', '2022-02-28 06:17:37', '2022-03-04 08:09:54');
+(4, 8, 8, '0000-00-00 00:00:00', '2022-02-28 06:17:37', 400000, 'bayar', '2022-02-28 06:17:37', '2022-03-04 08:09:54'),
+(6, 10, 6, '2022-03-15 12:00:00', '2022-03-15 12:00:00', 10000, 'booking', '2022-03-09 07:10:02', '2022-03-09 07:10:02'),
+(7, 10, 7, '2022-03-24 12:00:00', '2022-03-14 12:00:00', 300000, 'booking', '2022-03-09 07:11:03', '2022-03-09 07:11:03'),
+(12, 10, 6, '2022-03-10 12:00:00', '2022-03-11 12:00:00', 10000, 'booking', '2022-03-10 05:58:13', '2022-03-10 05:58:13'),
+(13, 10, 6, '2022-03-10 12:00:00', '2022-03-13 12:00:00', 29583, 'booking', '2022-03-10 05:58:39', '2022-03-10 05:58:39'),
+(14, 10, 7, '2022-03-10 12:00:00', '2022-03-12 12:00:00', 600000, 'booking', '2022-03-10 05:59:50', '2022-03-10 05:59:50'),
+(15, 10, 16, '2022-03-10 12:00:00', '2022-03-12 12:00:00', 1000000, 'booking', '2022-03-10 07:11:07', '2022-03-10 07:11:07'),
+(16, 10, 16, '2022-03-10 12:00:00', '2022-03-10 12:00:00', 0, 'booking', '2022-03-10 07:12:35', '2022-03-10 07:12:35');
 
 -- --------------------------------------------------------
 
@@ -116,7 +123,7 @@ INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_chec
 --
 
 CREATE TABLE `tb_role` (
-  `id_role` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
   `role` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -124,7 +131,7 @@ CREATE TABLE `tb_role` (
 -- Dumping data for table `tb_role`
 --
 
-INSERT INTO `tb_role` (`id_role`, `role`) VALUES
+INSERT INTO `tb_role` (`role_id`, `role`) VALUES
 (1, 'user'),
 (2, 'admin'),
 (3, 'resepsionis');
@@ -185,7 +192,7 @@ ALTER TABLE `tb_reservasion`
 -- Indexes for table `tb_role`
 --
 ALTER TABLE `tb_role`
-  ADD PRIMARY KEY (`id_role`);
+  ADD PRIMARY KEY (`role_id`);
 
 --
 -- Indexes for table `tb_user`
@@ -207,19 +214,19 @@ ALTER TABLE `tb_fasilitas`
 -- AUTO_INCREMENT for table `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`
 --
 ALTER TABLE `tb_reservasion`
-  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_role`
 --
 ALTER TABLE `tb_role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

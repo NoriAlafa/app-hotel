@@ -45,12 +45,12 @@
                               <td>Rp <?=number_format($row['harga_kamar'])?></td>
                               <td>Rp <?=number_format($row['pembayaran'])?></td>
                               <td>
-                                  <?php if($row['status'] == 'Tersedia'):?>
-                                    <span class="badge badge-info" style="width:80px;"><?=$row['status']?></span>
+                                  <?php if($row['status_kamar'] == 'Tersedia'):?>
+                                    <span class="badge badge-info" style="width:80px;"><?=$row['status_kamar']?></span>
                                   <?php endif;?>
 
-                                  <?php if($row['status'] == 'Kosong'):?>
-                                    <span class="badge badge-secondary"style="width:80px;"><?=$row['status']?></span>
+                                  <?php if($row['status_kamar'] == 'Kosong'):?>
+                                    <span class="badge badge-secondary"style="width:80px;"><?=$row['status_kamar']?></span>
                                   <?php endif;?>
                               </td>
                               <td><?=$row['nama_kamar']?></td>

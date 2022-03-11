@@ -43,23 +43,21 @@ class Resepsionis extends BaseController
         return view('resepsionis/edit_konfir',$data);
     }
 
-    public function update(){
+    public function update($id){
         if(session('role_id') != 3){
             session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
             return redirect()->back();
         }
-
-        $id = $this->request->getPost('id_reservasion');
-        $data = [
-            'nama'                  => $this->request->getPost('nama'),
-            'tgl_check_in'          => $this->request->getPost('tgl_check_in'),
+        
+        $data= [
             'tgl_check_out'         => $this->request->getPost('tgl_check_out'),
             'status_rev'            => $this->request->getPost('status_rev'),
+            'pembayaran'            => $this->request->getPost('pembayaran'),
             'harga_kamar'           => $this->request->getPost('harga_kamar'),
-            'kamar'                 => $this->request->getPost('nama_kamar')
+            'status_kamar'          => $this->request->getPost('status_kamar'),
+        
         ];
-
-        $this->resepModel->update($id ,$data);
+        $this->resepModel->oke($id ,$data);
         return redirect()->to('/konfirmasiRoom');
     }
 
