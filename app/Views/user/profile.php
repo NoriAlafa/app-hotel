@@ -60,7 +60,6 @@
                           </div>
                     </div>
                   </div>
-                  <?php }?>
                 </div>
                 <div class="col-sm-5 col-md-5 col-lg-5 mt-md-5">
                   <div class="card">
@@ -71,10 +70,11 @@
                         <ul class="nav nav-pills flex-column">
                           <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
                           <li class="nav-item"><a href="#" class="nav-link">Pesanan Saya</a></li>
-                          <li class="nav-item"><a href="/profile/update" class="nav-link">Update Profile</a></li>
+                          <li class="nav-item"><a href="/profile/edit/<?=$row['id_user']?>" class="nav-link">Update Profile</a></li>
                           <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
                         </ul>
                       </div>
+                      <?php }?>
                   </div>
                 </div>
               </div>

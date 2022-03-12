@@ -82,8 +82,54 @@ class Hotel extends BaseController
         return redirect()->back();
     }
 
+    public function profileEdit($id){
+        $data['profile'] = $this->userModel->where('id_user',$id)->findAll();
+        return view('user/profile_update',$data);
+    }
+
     public function profileUpdate(){
-        return view('user/profile_update');
+        $validate = $this->validate([
+            'nama'  =>[
+                'rules' =>'required|min_length[4]',
+                'errors'=>[
+                    'required'      =>'Nama Tidak Boleh Kosong',
+                    'min_length'    =>'Nama Tidak Boleh Kurang Dari 4'
+                ],
+            ],
+            'nik'   =>[
+                'rules'=>'required|min_length[16]|integer',
+                'errors'=>[
+                    'required'      =>'NIK Tidak Bolehh Kosong',
+                    'min_length'    =>'Perhatikan Panjang NIK Anda',
+                    'integer'       =>'NIK tidak boleh berisi huruf'
+                ],
+            ],
+            'email' =>[
+                'rules'=>'required|valid_email',
+                'errors'=>[
+                    'required'      =>'Email Harus Diisi',
+                    'valid_email'   =>'Email Tidak Valid'
+                ],
+            ],
+            'password'=>[
+                'rules'=>'required|min_length[8]',
+                'errors'=>[
+                    'required'      =>'Password Harus Diisi',
+                    'min_length'    =>'Password Minimal 8 karakter'
+                ],
+            ],
+        ]);
+
+        if(!$validate){
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'nama'  => $this->request->getPost('nama'),
+            'nik'   => $this->request->getPost('nik'),
+        ];
+        $this->userModel->update(['id_user'=>$this->request->getPost('id_user')],$data);
+        return redirect()->to('/profile');
     }
     
 }

@@ -12,11 +12,13 @@
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?=base_url('assets/modules/summernote/summernote-bs4.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/jquery-selectric/selectric.css')?>">
-  <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')?>">
+  <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-social/bootstrap-social.css')?>">
+
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+  
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -49,32 +51,46 @@
             <h4>Update</h4>
             </div>
             <div class="card-body">
-                <form action="" method="">
+                <?php $validation = \Config\Services::validation();?>
+                <form action="/profile/update" method="post" class="needs-validation" >
+                <input type="hidden" name="_method" value="put">
+                <?= csrf_field(); ?>
+                <?php foreach ($profile as $row){?>
+                <input type="hidden" value="<?=$row['id_user']?>">
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
                     <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control">
+                        <input type="text" name="nama" class="form-control <?=$validation->hasError('nama') ? 'is-invalid' : null ?>" value="<?=old('nama',$row['nama'])?>">
+                        <div class="invalid-feedback">
+                            <?=$validation->getError('nama');?>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">NIK</label>
                     <div class="col-sm-12 col-md-7">
-                        <input type="number" class="form-control inputtags">
+                        <input type="number" name="nik"  class="form-control <?=$validation->hasError('nik') ? 'is-invalid' : null ?>" value="<?=old('nik',$row['nik'])?>">
+                        <div class="invalid-feedback">
+                            <?=$validation->getError('nik');?>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">EMAIL</label>
                     <div class="col-sm-12 col-md-7">
-                        <input type="email" class="form-control inputtags">
+                        <input type="email" id="email" name="email" class="form-control <?=$validation->hasError('email') ? 'is-invalid' : null ?>" value="<?=old('email',$row['email'])?>">
+                        <div class="invalid-feedback">
+                            Please fill in your email
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password</label>
                     <div class="col-sm-12 col-md-7">
-                        <input type="password" class="form-control inputtags">
+                        <input type="password" name="password" class="form-control inputtags">
                     </div>
                 </div>
                 
@@ -84,6 +100,7 @@
                         <button class="btn btn-primary">Update</button>
                     </div>
                 </div>
+                <?php }?>
                 </form>
             </div>
         </div>
@@ -104,8 +121,6 @@
   <!-- JS Libraies -->
   
   <script src="<?=base_url('assets/modules/summernote/summernote-bs4.js')?>"></script>
-  <script src="<?=base_url('assets/modules/jquery-selectric/jquery.selectric.min.js')?>">></script>
-  <script src="<?=base_url('assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')?>"></script>
 
   <!-- Page Specific JS File -->

@@ -44,7 +44,8 @@ $routes->post('/bayar', 'Hotel::bayar');
 $routes->group('', ['filter' => 'auth'], function($routes){
     //user
     $routes->get('/profile', 'Hotel::profile');
-    $routes->get('/profile/update', 'Hotel::profileUpdate');
+    $routes->get('/profile/edit/(:any)', 'Hotel::profileEdit/$1');
+    $routes->put('/profile/update', 'Hotel::profileUpdate');
 
     //admin
     $routes->get('/createRoom', 'Admin::buatKamar');
