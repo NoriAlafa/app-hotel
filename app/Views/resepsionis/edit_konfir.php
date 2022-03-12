@@ -37,7 +37,7 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Info Pemesan</label>
                       <div class="col-sm-12 col-md-7">
-                        <select class="form-control selectric" name="status_rev">
+                        <select class="form-control selectric" name="status_rev" id="status_rev">
                           <option value="booking">Booking</option>
                           <option value="bayar">Bayar</option>
                           <option value="out">Out</option>
@@ -56,13 +56,13 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Harga Kamar</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" name="harga_kamar" value="<?=number_format($kfr['harga_kamar'])?> " readonly>
+                        <input type="text" class="form-control" name="harga_kamar" value="<?=$kfr['harga_kamar']?> " readonly>
                       </div>
                     </div>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Pembayaran</label>
                       <div class="col-sm-12 col-md-7">
-                        <input type="text" class="form-control" name="harga_kamar" value="<?=number_format($kfr['pembayaran'])?> ">
+                        <input type="text" class="form-control" name="pembayaran" value="<?=$kfr['pembayaran']?> ">
                       </div>
                     </div>
                     <div class="form-group row mb-4">

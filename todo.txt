@@ -3,7 +3,7 @@ Senin Depan Setidaknya selesai
 +(Plus Editnya[DONE])
 Modal Fasilitas Di Admin tambah data
 +(print Pembayaran user[DONE])
-resepsionis konfirmasi
++(resepsionis konfirmasi[DONE])
 +(Search Kamar[DONE])
 Tampilan Dashboard
 +(form bayar[DONE])
