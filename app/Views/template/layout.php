@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css')?>">
+
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
@@ -83,8 +84,6 @@
   <script src="<?=base_url('assets/modules/summernote/summernote-bs4.js')?>"></script>
   <script src="<?=base_url('assets/modules/chocolat/dist/js/jquery.chocolat.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js')?>"></script>
-
-
   <!-- Page Specific JS File -->
   <script src="<?=base_url('assets/js/page/index.js')?>"></script>
   <script src="<?=base_url('assets/js/page/modules-sweetalert.js')?>"></script>

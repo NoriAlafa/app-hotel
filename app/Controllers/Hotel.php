@@ -125,10 +125,12 @@ class Hotel extends BaseController
         }
 
         $data = [
-            'nama'  => $this->request->getPost('nama'),
-            'nik'   => $this->request->getPost('nik'),
+            'nama'      => $this->request->getPost('nama'),
+            'nik'       => $this->request->getPost('nik'),
+            'email'     => $this->request->getPost('email'),
+            'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT)
         ];
-        $this->userModel->update(['id_user'=>$this->request->getPost('id_user')],$data);
+        $this->userModel->update(session('id'),$data);
         return redirect()->to('/profile');
     }
     

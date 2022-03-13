@@ -48,10 +48,10 @@ class Auth extends BaseController
                 ]
             ],
             'nik'  =>[
-                'rules' =>'required|max_length[16]|integer',
+                'rules' =>'required|min_length[16]|integer',
                 'errors'=>[
                     'required' => 'NIK tidak boleh kosong',
-                    'max_length'=> 'Perhatikan panjang NIK Anda',
+                    'min_length'=> 'Perhatikan panjang NIK Anda',
                     'integer'   => 'Oops NIK anda Illegal'
                 ]
             ],
@@ -74,7 +74,6 @@ class Auth extends BaseController
 
         //jika data tidak sesuai kembali dan munculkan pesan error di form register.
         if(!$validasi){
-            session()->setFlashdata('error', $this->validator->listErrors());
             return redirect()->back()->withInput();
         }
 

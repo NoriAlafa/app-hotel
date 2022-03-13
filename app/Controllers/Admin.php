@@ -118,8 +118,7 @@ class Admin extends BaseController{
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
             return redirect()->back();
         }
-        $data['judul']='Edit Kamar';
-
+        $data['judul']='Edit Kamar'; 
         $data['kamar']=$this->kamarModel->viewFasilitas($id);
         //tampilkan data di view
         return view('admin/edit_kamar',$data);

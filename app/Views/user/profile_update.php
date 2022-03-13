@@ -82,7 +82,7 @@
                     <div class="col-sm-12 col-md-7">
                         <input type="email" id="email" name="email" class="form-control <?=$validation->hasError('email') ? 'is-invalid' : null ?>" value="<?=old('email',$row['email'])?>">
                         <div class="invalid-feedback">
-                            Please fill in your email
+                            <?=$validation->getError('email');?>
                         </div>
                     </div>
                 </div>
@@ -91,6 +91,9 @@
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password</label>
                     <div class="col-sm-12 col-md-7">
                         <input type="password" name="password" class="form-control inputtags">
+                        <div class="invalid-feedback">
+                            <?=$validation->getError('password');?>
+                        </div>
                     </div>
                 </div>
                 

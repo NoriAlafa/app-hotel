@@ -21,16 +21,15 @@
             
             <h1><?=$judul?></h1>
             <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#">Posts</a></div>
-              <div class="breadcrumb-item">Create New Post</div>
+              <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>
+              <div class="breadcrumb-item">Posts</div>
+              <div class="breadcrumb-item">Edit</div>
             </div>
           </div>
 
           <div class="section-body">
-            <h2 class="section-title">Create New Post</h2>
+            <h2 class="section-title">Edit Kamar</h2>
             <p class="section-lead">
-              On this page you can create a new post and fill in all fields.
             </p>
             <?php foreach($kamar as $kmr):?>
             <form action="/editKamar/<?=$kmr['id_kamar']?>" method="post" enctype="multipart/form-data">
@@ -86,7 +85,10 @@
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
                         </select>
+                        <span><a href="<?=site_url()?>">View ID Fasilitas</a></span>
                       </div>
                     </div>
                     <div class="form-group row mb-4">
@@ -95,6 +97,7 @@
                           <input type="file"  required name="gambar" id="gambar"class="form-control"><span><?=$kmr['gambar']?></span>
                       </div>
                     </div>
+                    <?php endforeach?>
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
@@ -105,9 +108,9 @@
                 </div>
               </div>
             </div>
-            <?php endforeach?>
           </div>
           </form>
+          </div>
       </section>
     </div>
 

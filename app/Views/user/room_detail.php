@@ -38,12 +38,12 @@
             	<div class="sidebar-box ftco-animate">
 					<div class="categories">
 						<h3>Fasilitas</h3>
-						<li><?=$kamarV['fasilitas_1']?></li>
-						<li><?=$kamarV['fasilitas_2']?></li>
-						<li><?=$kamarV['fasilitas_3']?></li>
-						<li><?=$kamarV['fasilitas_4']?></li>
-						<li><?=$kamarV['fasilitas_5']?></li>
-						<li><?=$kamarV['fasilitas_6']?> </li>
+						<li><?=$kamarV['fasilitas_1'] ? $kamarV['fasilitas_1']:'' ?></li>
+						<li><?=$kamarV['fasilitas_2'] ? $kamarV['fasilitas_2']:'' ?></li>
+						<li><?=$kamarV['fasilitas_3'] ? $kamarV['fasilitas_3']:'' ?></li>
+						<li><?=$kamarV['fasilitas_4'] ? $kamarV['fasilitas_4']:'' ?></li>
+						<li><?=$kamarV['fasilitas_5'] ? $kamarV['fasilitas_5']:'' ?></li>
+						<li><?=$kamarV['fasilitas_6'] ? $kamarV['fasilitas_6']:'' ?> </li>
 					</div>
               	</div>
 				  <div class="buttons" >		
