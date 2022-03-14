@@ -45,5 +45,14 @@ class ReservationModel extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+
+    public function chart(){
+        $builder = $this->db->table('tb_reservasion');
+        $builder->select('COUNT(tb_reservasion.id_kamar) AS jumlah , tb_kamar.nama_kamar');
+        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar');
+        $builder->groupBy('tb_reservasion.id_kamar');
+        $query = $builder->get();
+        return $query;
+    }
    
 }
