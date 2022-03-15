@@ -56,7 +56,7 @@
                               <td><?=$row['nama_kamar']?></td>
                               <td>
                                 <a href="/konfirmasi/<?=$row['id_reservasion']?>/edit" class="btn btn-outline-success">Edit</a>
-                                <a href="/print/<?=$row['id_reservasion']?>" class=" btn btn-primary">Print</a>
+                                <a href="/print/<?=$row['id_reservasion']?>" target="_blank" class=" btn btn-primary">Print</a>
                               </td>
                               
                         </tr>
