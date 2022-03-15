@@ -54,5 +54,14 @@ class ReservationModel extends Model
         $query = $builder->get();
         return $query;
     }
+
+    public function Barchart(){
+        $builder = $this->db->table('tb_reservasion');
+        $builder->select('COUNT(tb_reservasion.pembayaran) AS pembayaran , tb_kamar.nama_kamar');
+        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar');
+        $builder->groupBy('tb_reservasion.id_kamar');
+        $query = $builder->get();
+        return $query;
+    }
    
 }

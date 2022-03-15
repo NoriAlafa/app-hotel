@@ -98,11 +98,21 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-12 col-sm-12 col-lg-12 ">
-          <div class="card">
-            <div class="card-body ml-md-3">
-              <h3 style="color:#6777ef; text-align:center;">Informasi Kamar Dipesan</h3>
-              <canvas id="myChart" height="335" width="990"></canvas>
+        <div class="col-md-12 col-sm-12 col-lg-12">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6">
+              <div class="card">
+                <div class="card-body ml-md-3">
+                  <canvas id="myChart2" height="158"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 ">
+              <div class="card">
+                <div class="card-body ml-md-3">
+                  <canvas id="myChart" height="524" width="990"></canvas>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -145,5 +155,57 @@
     },
   }
 });
+
+var ctp = document.getElementById("myChart2").getContext('2d');
+var pemKamar   = [];
+var namKamar = [];
+
+  <?php foreach($barchart->getResult() as $chart):?>
+    pemKamar.push(<?=$chart->pembayaran?>);
+    namKamar.push('<?=$chart->nama_kamar?>');
+  <?php endforeach?>
+
+var myChart2 = new Chart(ctp, {
+  type: 'bar',
+  data: {
+    labels: namKamar,
+    datasets: [{
+      label: 'Statistics',
+      data: pemKamar,
+      borderWidth: 2,
+      backgroundColor: '#6777ef',
+      borderColor: '#6777ef',
+      borderWidth: 2.5,
+      pointBackgroundColor: '#ffffff',
+      pointRadius: 4
+    }]
+  },
+  options: {
+    legend: {
+      display: false
+    },
+    scales: {
+      yAxes: [{
+        gridLines: {
+          drawBorder: false,
+          color: '#f2f2f2',
+        },
+        ticks: {
+          beginAtZero: true,
+          stepSize: 150
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          display: false
+        },
+        gridLines: {
+          display: false
+        }
+      }]
+    },
+  }
+});
+
 </script>
 <?=$this->endSection()?>

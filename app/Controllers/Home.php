@@ -24,6 +24,7 @@ class Home extends BaseController
         }
 
         $chart              = $this->resepModel->chart();
+        $Barchart           = $this->resepModel->Barchart();
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataStatusAda      = $this->kamarModel->where('status_kamar' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status_kamar' , 'Kosong')->countAllResults();
@@ -32,6 +33,7 @@ class Home extends BaseController
         $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->get()->resultID->num_rows;
         $data = [
+            'barchart'          =>$Barchart,
             'dataChart'         =>$chart,
             'viewKamar'         => $dataAllKamar,
             'dataPending'       => $dataPending,

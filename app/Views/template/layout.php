@@ -85,7 +85,7 @@
   <script src="<?=base_url('assets/modules/chocolat/dist/js/jquery.chocolat.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js')?>"></script>
   <!-- Page Specific JS File -->
-  <script src="<?=base_url('assets/js/page/index-0.js')?>"></script>
+  <script src="<?=base_url('assets/js/page/index.js')?>"></script>
   <script src="<?=base_url('assets/js/page/modules-sweetalert.js')?>"></script>
   <script src="<?=base_url('assets/modules/datatables/datatables.min.js')?>"></script>
   <script src="<?=base_url('assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js')?>"></script>
