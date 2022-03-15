@@ -135,8 +135,8 @@ class Admin extends BaseController{
         $pindah = $this->kamarModel->find($id);
         if($gambar->isValid() && !$gambar->hasMoved()){
             $old_image_file = $pindah['gambar'];
-            if(file_exists('images/'.$old_image_file)){
-                unlink('images/'.$old_image_file);
+            if(file_exists("images/".$old_image_file)){
+                unlink("images/".$old_image_file);
             }
             $fileGambar = $gambar->getName();
             $gambar->move('images/' , $fileGambar);
@@ -149,7 +149,7 @@ class Admin extends BaseController{
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status_kamar'      => $this->request->getPost('status_kamar'),
             'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
-            'gambar'            => $gambar
+            'gambar'            => $fileGambar
         ];
 
         $this->kamarModel->update($id,$data);
