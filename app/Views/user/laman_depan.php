@@ -64,64 +64,7 @@
 			</div>
 		</section>
 
-		<section class="ftco-section">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-reception-bell"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">25/7 Front Desk</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-serving-dish"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Restaurant Bar</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex align-sel Searchf-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-car"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Transfer Services</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-spa"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Spa Suites</h3>
-                <p>A small river named Duden flows by their place and supplies.</p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
-    </section>
+		
 
     
 
@@ -133,15 +76,15 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="50000">0</strong>
-		                <span>Happy Guests</span>
+		                <strong class="number" data-number="<?=$profileCount?>">0</strong>
+		                <span>Happy Guest</span>
 		              </div>
 		            </div>
 		          </div>
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="3000">0</strong>
+		                <strong class="number" data-number="<?=$kamarCount?>">0</strong>
 		                <span>Rooms</span>
 		              </div>
 		            </div>
@@ -149,7 +92,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="1000">0</strong>
+		                <strong class="number" data-number="<?=$adminCount + $resepCount?>">0</strong>
 		                <span>Staffs</span>
 		              </div>
 		            </div>
@@ -158,7 +101,7 @@
 		            <div class="block-18 text-center">
 		              <div class="text">
 		                <strong class="number" data-number="100">0</strong>
-		                <span>Destination</span>
+		                <span>Beragam Menu Masakan</span>
 		              </div>
 		            </div>
 		          </div>

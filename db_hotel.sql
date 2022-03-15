@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2022 at 09:25 AM
+-- Generation Time: Mar 15, 2022 at 02:02 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -44,7 +44,9 @@ CREATE TABLE `tb_fasilitas` (
 INSERT INTO `tb_fasilitas` (`id_fasilitas`, `fasilitas_1`, `fasilitas_2`, `fasilitas_3`, `fasilitas_4`, `fasilitas_5`, `fasilitas_6`) VALUES
 (1, 'Bebas Rokok', 'Bar Caffe', 'Kolam Renang', 'Layanan Front Office', 'Dinner', 'Karaoke'),
 (2, 'Free Wifi', 'Restaurant', 'Layanan Office', 'AC', 'Soft Drink Lobby', 'Kamar Luas'),
-(3, 'AC', 'smart tv', 'sprai premium', 'WiFi', 'telephone', 'pemandangan bagus');
+(3, 'AC', 'smart tv', 'sprai premium', 'WiFi', 'telephone', 'pemandangan bagus'),
+(4, 'GYM', 'Kolam Renang', 'Musik Room', 'AC', 'WiFi', ''),
+(5, 'AC', 'WiFi', 'Smart TV', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -71,14 +73,14 @@ CREATE TABLE `tb_kamar` (
 
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status_kamar`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
 (4, 'Hotel Fira', 'adalah gwej', 'VIP', 300000, 'Kosong', 1, 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-04 08:09:54'),
-(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 10000, 'Tersedia', 2, 'Screenshot (36).png', '2022-03-01 09:01:46', '2022-03-04 09:53:20'),
+(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 200000, 'Tersedia', 2, 'Screenshot (36).png', '2022-03-01 09:01:46', '2022-03-12 01:58:06'),
 (7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
-(8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 2, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
-(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 3, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
+(8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 4, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
+(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 5, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
 (10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 2, 'ticket jepang.jpg', '2022-03-02 10:06:25', '2022-03-02 10:06:25'),
 (11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 1, '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
-(13, '999999', '<p>99999</p>', 'VIP', 99999, 'Tersedia', 2, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
-(14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 1, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
+(13, '999999', '<p>99999</p>', 'BIASA', 99999, 'Tersedia', 4, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
+(14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 5, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
 (16, 'Test Fasilitas', '<p>test oke</p>', 'VIP', 500000, 'Tersedia', 3, 'template.jpg', '2022-03-08 06:50:12', '2022-03-08 06:50:12');
 
 -- --------------------------------------------------------
@@ -104,17 +106,17 @@ CREATE TABLE `tb_reservasion` (
 --
 
 INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_check_in`, `tgl_check_out`, `pembayaran`, `status_rev`, `created_at`, `updated_at`) VALUES
-(1, 5, 4, '2022-02-28 04:05:36', '2022-02-28 04:05:00', 300000, 'bayar', '2022-02-28 04:05:36', '2022-03-07 06:30:08'),
-(2, 6, 6, '2022-02-28 05:56:17', '2022-06-01 01:44:00', 400000, 'out', '2022-02-28 05:56:17', '2022-03-07 06:30:25'),
-(3, 7, 7, '2022-02-28 05:56:17', '2022-02-28 05:56:17', 500000, 'bayar', '2022-02-28 05:56:17', '2022-02-28 05:56:17'),
-(4, 8, 8, '0000-00-00 00:00:00', '2022-02-28 06:17:37', 400000, 'bayar', '2022-02-28 06:17:37', '2022-03-04 08:09:54'),
-(6, 10, 6, '2022-03-15 12:00:00', '2022-03-15 12:00:00', 10000, 'booking', '2022-03-09 07:10:02', '2022-03-09 07:10:02'),
-(7, 10, 7, '2022-03-24 12:00:00', '2022-03-14 12:00:00', 300000, 'booking', '2022-03-09 07:11:03', '2022-03-09 07:11:03'),
-(12, 10, 6, '2022-03-10 12:00:00', '2022-03-11 12:00:00', 10000, 'booking', '2022-03-10 05:58:13', '2022-03-10 05:58:13'),
-(13, 10, 6, '2022-03-10 12:00:00', '2022-03-13 12:00:00', 29583, 'booking', '2022-03-10 05:58:39', '2022-03-10 05:58:39'),
-(14, 10, 7, '2022-03-10 12:00:00', '2022-03-12 12:00:00', 600000, 'booking', '2022-03-10 05:59:50', '2022-03-10 05:59:50'),
-(15, 10, 16, '2022-03-10 12:00:00', '2022-03-12 12:00:00', 1000000, 'booking', '2022-03-10 07:11:07', '2022-03-10 07:11:07'),
-(16, 10, 16, '2022-03-10 12:00:00', '2022-03-10 12:00:00', 0, 'booking', '2022-03-10 07:12:35', '2022-03-10 07:12:35');
+(1, 5, 4, '2022-02-28 04:05:36', '2022-03-17 12:00:00', 100000, 'bayar', '2022-02-28 04:05:36', '2022-03-12 01:49:37'),
+(2, 6, 6, '2022-02-28 05:56:17', '2022-03-17 12:00:00', 100000, 'out', '2022-02-28 05:56:17', '2022-03-12 01:49:37'),
+(3, 7, 7, '2022-02-28 05:56:17', '2022-03-17 12:00:00', 100000, 'bayar', '2022-02-28 05:56:17', '2022-03-12 01:49:37'),
+(4, 8, 8, '0000-00-00 00:00:00', '2022-03-17 12:00:00', 100000, 'bayar', '2022-02-28 06:17:37', '2022-03-12 01:49:37'),
+(6, 10, 6, '2022-03-15 12:00:00', '2022-03-18 12:00:00', 200000, 'out', '2022-03-09 07:10:02', '2022-03-12 01:58:07'),
+(7, 10, 7, '2022-03-24 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-09 07:11:03', '2022-03-12 01:49:37'),
+(12, 10, 6, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 05:58:13', '2022-03-12 01:49:37'),
+(13, 10, 6, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 05:58:39', '2022-03-12 01:49:37'),
+(14, 10, 7, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 05:59:50', '2022-03-12 01:49:37'),
+(15, 10, 16, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 07:11:07', '2022-03-12 01:49:37'),
+(16, 10, 16, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 07:12:35', '2022-03-12 01:49:37');
 
 -- --------------------------------------------------------
 
@@ -163,7 +165,7 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`,
 (7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (8, 'alfaoken ', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', 1, '0000-00-00 00:00:00', '2022-03-04 08:09:54'),
 (9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
-(10, 'test role', 'korwil@gmail.com', '1234567891012134', '$2y$10$WnnEmkE42OQcbLVve9NWweqjfFFAXX3BC58vq7Xt6uA5/cKx11WzK', 1, '2022-03-01 06:56:03', '2022-03-01 06:56:03'),
+(10, 'korwil', 'korwil2@gmail.com', '1234567891012135', '$2y$10$a3L3BHRXUyIU9a.r6EFIyORxyMs8m6LS8ETl5cx.xvfWLbAtVV8YW', 1, '2022-03-01 06:56:03', '2022-03-12 21:54:00'),
 (11, 'mamank', 'testresep@gmail.com', '1234567890123457', '$2y$10$RbjJFb91ZrveQzFe4Z4p0OEO.B0YSCvjjyGzSz/dVk9e90PjbW632', 3, '2022-03-02 09:27:41', '2022-03-02 09:27:41');
 
 --
@@ -208,7 +210,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`

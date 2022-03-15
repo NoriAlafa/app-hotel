@@ -19,7 +19,13 @@ class Hotel extends BaseController
 
     public function lamanDepan()
     {
-        return view('user/laman_depan');
+        $data = [
+            'profileCount'  => $this->userModel->where('role_id' , 1)->countAllResults(),
+            'kamarCount'    => $this->kamarModel->get()->resultID->num_rows,
+            'adminCount'    => $this->userModel->where('role_id' , 2)->countAllResults(),
+            'resepCount'    => $this->userModel->where('role_id' , 3)->countAllResults(),
+        ];
+        return view('user/laman_depan' , $data);
     }
 
     public function lamanKamar($id)

@@ -110,7 +110,7 @@
             <div class="col-md-6 col-sm-6 col-lg-6 ">
               <div class="card">
                 <div class="card-body ml-md-3">
-                  <canvas id="myChart" height="524" width="990"></canvas>
+                  <canvas id="myCharto" height="524" width="990"></canvas>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@
 
 <?=$this->section('script')?>
 <script>
-  var ctx = document.getElementById("myChart").getContext('2d');
+  var ctx = document.getElementById("myCharto").getContext('2d');
   var idKamar   = [];
   var namaKamar = [];
 

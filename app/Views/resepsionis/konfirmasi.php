@@ -18,6 +18,7 @@
                             <th>Check Out</th>
                             <th>Info Pemesan</th>
                             <th>Harga Kamar</th>
+                            <th>Tipe Kamar</th>
                             <th>Pembayaran</th>
                             <th>Status Kamar</th>
                             <th>Kamar</th>
@@ -43,6 +44,7 @@
                               <?php endif;?>
                               </td>
                               <td>Rp <?=number_format($row['harga_kamar'])?></td>
+                              <td><?=$row['tipe_kamar']?></td>
                               <td>Rp <?=number_format($row['pembayaran'])?></td>
                               <td>
                                   <?php if($row['status_kamar'] == 'Tersedia'):?>
