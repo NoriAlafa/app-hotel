@@ -48,16 +48,13 @@ class Hotel extends BaseController
         return view('user/contact');
     }
 
-    public function payment()
-    {
-        return view('user/pembayaran');
-    }
+   
 
     public function profile()
     {
         $id = session('id');
         $data['profile'] =$this->userModel->user($id);
-        return view('user/profile' ,$data);
+        return view('user/profile/profile' ,$data);
     }
 
     public function bayar(){
@@ -90,7 +87,7 @@ class Hotel extends BaseController
 
     public function profileEdit($id){
         $data['profile'] = $this->userModel->where('id_user',$id)->findAll();
-        return view('user/profile_update',$data);
+        return view('user/profile/profile_update',$data);
     }
 
     public function profileUpdate(){
@@ -141,7 +138,7 @@ class Hotel extends BaseController
     }
 
     public function profilePesanan(){
-        return view('user/pesanan_saya');
+        return view('user/profile/pesanan_saya');
     }
     
 }

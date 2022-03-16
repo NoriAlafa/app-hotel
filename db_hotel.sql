@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 08:10 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Mar 16, 2022 at 11:38 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,9 @@ CREATE TABLE `tb_fasilitas` (
 INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`) VALUES
 (1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>'),
 (2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n'),
-(3, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang Dinner</liv>\r\n');
+(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n'),
+(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n'),
+(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n');
 
 -- --------------------------------------------------------
 
@@ -70,7 +72,7 @@ INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `ha
 (7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
 (8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 4, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
 (9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 5, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
-(10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 2, 'ticket jepang.jpg', '2022-03-02 10:06:25', '2022-03-02 10:06:25'),
+(10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 2, '92199789_p0_master1200.jpg', '2022-03-02 10:06:25', '2022-03-16 05:31:02'),
 (11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 1, '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
 (13, '999999', '<p>99999</p>', 'BIASA', 99999, 'Tersedia', 4, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
 (14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 5, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
@@ -204,7 +206,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`

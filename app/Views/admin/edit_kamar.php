@@ -79,19 +79,6 @@
                       </div>
                     </div>
                     <div class="form-group row mb-4">
-                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Fasilitas</label>
-                      <div class="col-sm-12 col-md-7">
-                        <select class="form-control selectric" name="id_fasilitas">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="4">4</option>
-                          <option value="5">5</option>
-                        </select>
-                        <span><a href="<?=site_url()?>">View ID Fasilitas</a></span>
-                      </div>
-                    </div>
-                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Gambar</label>
                       <div class="col-sm-12 col-md-7">
                           <input type="file"  required name="gambar" value="<?=$kmr['gambar']?>" id="gambar"class="form-control"><span><?=$kmr['gambar']?></span>
@@ -99,9 +86,19 @@
                     </div>
                     <?php endforeach?>
                     <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Fasilitas</label>
+                      <div class="col-sm-12 col-md-7">
+                        <select class="form-control selectric" name="id_fasilitas">
+                          <?php foreach($fasilitas as $fs){?>
+                            <option value="<?=$fs['id_fasilitas']?>"><?=$fs['nama_fasilitas']?></option>
+                          <?php }?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                       <div class="col-sm-12 col-md-7">
-                        <button class="btn btn-primary" type="submit">Create </button>
+                        <button class="btn btn-primary" type="submit">Update </button>
                       </div>
                     </div>
                   </div>

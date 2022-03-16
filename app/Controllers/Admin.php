@@ -122,6 +122,7 @@ class Admin extends BaseController{
         }
         $data['judul']='Edit Kamar'; 
         $data['kamar']=$this->kamarModel->viewFasilitas($id);
+        $data['fasilitas'] = $this->fasilitasModel->findAll();
         //tampilkan data di view
         return view('admin/edit_kamar',$data);
         

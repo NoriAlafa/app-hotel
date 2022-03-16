@@ -26,7 +26,7 @@
           			<h2 class="mb-4"><?=$judul?></h2>
           			<div class="single-slider owl-carousel">
           				<div class="item">
-							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:800px;">
+							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:600px;">
 						</div>
           			</div>
           		</div>
@@ -91,10 +91,9 @@
 	</div>
 </section> 
 <?php if($kamarV['tipe_kamar']== 'VIP'):?>
-	<section class="ftco-section">
       <div class="container">
 		<h2 class="text-center " style="font-size:50px; margin-bottom:20px; font-weight:bold; color:#8d703b;">VIP ROOM</h2>
-        <div class="row d-flex">
+        <div class="row d-flex shadow-lg p-3 mb-5 bg-white rounded">
           <div class="col-md-3 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services py-4 d-block text-center">
               <div class="d-flex justify-content-center">
@@ -149,7 +148,6 @@
           </div>
         </div>
       </div>
-    </section>
 <?php endif?>
 <?php endforeach?>
 

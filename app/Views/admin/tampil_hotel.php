@@ -35,7 +35,7 @@
                                   <td><?=$kmr['tipe_kamar']?></td>
                                   <td>Rp <?=number_format($kmr['harga_kamar'])?></td>
                                   <td><?=$kmr['status_kamar']?></td>
-                                  <td><?=$kmr['nama_fasilitas']?></td>
+                                  <td style="list-style:none;"><?=$kmr['nama_fasilitas']?></td>
                                   <td><img src="<?=base_url('images/'.$kmr['gambar'])?>" style="height:80px; width:80px;"></td>
                                   <td><?=$kmr['created_at']?></td>
                                   <td><?=$kmr['updated_at']?></td>
