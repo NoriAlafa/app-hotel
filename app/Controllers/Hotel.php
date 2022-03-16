@@ -137,8 +137,9 @@ class Hotel extends BaseController
         return redirect()->to('/profile');
     }
 
-    public function profilePesanan(){
-        return view('user/profile/pesanan_saya');
+    public function profilePesanan($id){
+        $data['pesanKamar'] = $this->resepModel->where('id_reservasion' , $id)->getByUser();
+        return view('user/profile/pesanan_saya' , $data);
     }
     
 }

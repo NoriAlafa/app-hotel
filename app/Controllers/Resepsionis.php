@@ -84,7 +84,6 @@ class Resepsionis extends BaseController
         $dompdf->render();
 
         // Output the generated PDF to Browser
-        $dompdf->stream("data_pendaftaran.pdf",["Attachment"=>0
-    ]);
+        $dompdf->stream("data_pembayaran.pdf",["Attachment"=>0]);
     }
 }

@@ -70,7 +70,7 @@
                       <div class="card-body">
                         <ul class="nav nav-pills flex-column">
                           <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
-                          <li class="nav-item"><a href="/profile/pesanan" class="nav-link">Pesanan Saya</a></li>
+                          <li class="nav-item"><a href="/profile/pesanan/<?=$row['id_user']?>" class="nav-link">Pesanan Saya</a></li>
                           <li class="nav-item"><a href="/profile/edit/<?=$row['id_user']?>" class="nav-link">Update Profile</a></li>
                           <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
                         </ul>

@@ -1,7 +1,6 @@
 Senin Depan Setidaknya selesai
 +(Tambah kamar kurang fasilitas karena baru dijoin[DONE])
 +(Plus Editnya[DONE])
-Modal Fasilitas Di Admin tambah data
 +(print Pembayaran user[DONE])
 +(resepsionis konfirmasi[DONE])
 +(Search Kamar[DONE])
@@ -9,7 +8,7 @@ Modal Fasilitas Di Admin tambah data
 +(form bayar[DONE])
 
 Kamis
-Dropdown Fasilitas Dinamis
++(Dropdown Fasilitas Dinamis[DONE])
 Mengubah Tampilan Navbar tidak responsive di mobile
 Navbar profile
 Update poto profile dan bio user

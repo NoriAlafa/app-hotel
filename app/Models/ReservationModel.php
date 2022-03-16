@@ -63,5 +63,12 @@ class ReservationModel extends Model
         $query = $builder->get();
         return $query;
     }
+
+    public function getByUser(){
+        $builder = $this->db->table('tb_reservasion');
+        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
    
 }

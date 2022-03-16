@@ -52,5 +52,4 @@ class KamarModel extends Model
       ];
     }
 
-
 }

@@ -21,16 +21,56 @@
         <div class="section-header-back">
             <a href="/profile" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
+        </div>
         <div class="section-body">
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-lg-6">
-                    
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6">
-        
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header justify-content-center bg-primary text-white font-bold">Daftar Pesanan</div>
+                        <div class="card-body">
+                            <hr style="height:2px;border-width:0;color:black;background-color:black">
+                            <div class="row">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Gambar</th>
+                                            <th>Nama Kamar</th>
+                                            <th>Harga Kamar</th>
+                                            <th>pembayaran</th>
+                                            <th>Status Pemesanan</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $no=1; foreach($pesanKamar as $pk):?>
+                                        <tr>
+                                            <td><?=$no++?></td>
+                                            <td><img src="<?=base_url('images/'.$pk['gambar'])?>" height="30px"></td>
+                                            <td><?=$pk['nama_kamar']?></td>
+                                            <td><?=$pk['harga_kamar']?></td>
+                                            <td><?=$pk['pembayaran']?></td>
+                                            <td>
+                                            <?php if($pk['status_rev'] == 'booking'):?>
+                                                <span class="badge badge-warning" style="width:80px;"><?=$pk['status_rev']?></span>
+                                            <?php endif;?>
+                                            <?php if($pk['status_rev'] == 'bayar'):?>
+                                                <span class="badge badge-success" style="width:80px;"><?=$pk['status_rev']?></span>
+                                            <?php endif;?>
+                                            <?php if($pk['status_rev'] == 'out'):?>
+                                                <span class="badge badge-danger" style="width:80px;"><?=$pk['status_rev']?></span>
+                                            <?php endif;?>
+                                            </td>
+                                            <td><a href="" class="btn btn-danger">Hapus</a></td>
+                                        </tr>
+                                    </tbody>
+                                    <?php endforeach?>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 <script src="<?=base_url('assets/modules/summernote/summernote-bs4.js')?>"></script>
