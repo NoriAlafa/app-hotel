@@ -52,7 +52,7 @@
             </div>
             <div class="card-body">
                 <?php $validation = \Config\Services::validation();?>
-                <form action="/profile/update" method="post" class="needs-validation" >
+                <form action="/profile/update" method="post" class="needs-validation shadow p-3 mb-5 bg-white rounded" >
                 <input type="hidden" name="_method" value="put">
                 <?= csrf_field(); ?>
                 <?php foreach ($profile as $row){?>

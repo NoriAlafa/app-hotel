@@ -139,5 +139,9 @@ class Hotel extends BaseController
         $this->userModel->update(session('id'),$data);
         return redirect()->to('/profile');
     }
+
+    public function profilePesanan(){
+        return view('user/pesanan_saya');
+    }
     
 }

@@ -14,6 +14,7 @@
         <!-- Template CSS -->
         <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
         <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+        <title>Profile</title>
     </head>
 <body>
 <!-- Main Content -->
@@ -39,7 +40,7 @@
                   
                   <div class="profile-widget-description">
                     <div class="profile-widget-name"><?=$row['nama']?> <div class="text-muted d-inline font-weight-normal"><div class="slash"></div> <?=$row['role']?></div></div>
-                      Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.
+                      <?=$row['nama']?> is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.
                     </div>
                         <div class="card-body">
                           <div class="row">                               
@@ -69,7 +70,7 @@
                       <div class="card-body">
                         <ul class="nav nav-pills flex-column">
                           <li class="nav-item"><a href="/" class="nav-link active">Home</a></li>
-                          <li class="nav-item"><a href="#" class="nav-link">Pesanan Saya</a></li>
+                          <li class="nav-item"><a href="/profile/pesanan" class="nav-link">Pesanan Saya</a></li>
                           <li class="nav-item"><a href="/profile/edit/<?=$row['id_user']?>" class="nav-link">Update Profile</a></li>
                           <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
                         </ul>
