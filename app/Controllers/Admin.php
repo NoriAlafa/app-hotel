@@ -27,6 +27,7 @@ class Admin extends BaseController{
         }
 
             $data['judul'] = "Tambah Hotel";
+            $data['fasilitas']      = $this->fasilitasModel->findAll();
             // ini nanti diisi database kamar
             return view('admin/buat_kamar' ,$data);
     }
@@ -38,8 +39,8 @@ class Admin extends BaseController{
             return redirect()->back();
         }
 
-        $data['judul'] = "CRUD Hotel";
-        $data['kamar'] = $this->kamarModel->fasilitas();
+        $data['judul']          = "CRUD Hotel";
+        $data['kamar']          = $this->kamarModel->fasilitas();
         // ini nanti diisi database kamar
         return view('admin/tampil_hotel' ,$data);
     }
@@ -97,6 +98,7 @@ class Admin extends BaseController{
             $fileGambar = $gambar->getName();
             $gambar->move('images/' , $fileGambar);
         }
+       
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),

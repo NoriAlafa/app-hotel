@@ -70,13 +70,13 @@
                     <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Fasilitas</label>
                       <div class="col-sm-12 col-md-7">
+                       
                         <select class="form-control selectric" name="id_fasilitas">
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                          <option value="3">4</option>
-                          <option value="3">5</option>
+                        <?php foreach($fasilitas as $fs){?>
+                          <option value="<?=$fs['id_fasilitas']?>"><?=$fs['nama_fasilitas']?></option>
+                          <?php } ?>
                         </select>
+                        
                       </div>
                     </div>
                     <div class="form-group row mb-4">

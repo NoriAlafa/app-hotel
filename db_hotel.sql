@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2022 at 02:02 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.3.31
+-- Generation Time: Mar 16, 2022 at 08:10 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,24 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
-  `fasilitas_1` text NOT NULL,
-  `fasilitas_2` text NOT NULL,
-  `fasilitas_3` text NOT NULL,
-  `fasilitas_4` text NOT NULL,
-  `fasilitas_5` text NOT NULL,
-  `fasilitas_6` text NOT NULL
+  `nama_fasilitas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_fasilitas`
 --
 
-INSERT INTO `tb_fasilitas` (`id_fasilitas`, `fasilitas_1`, `fasilitas_2`, `fasilitas_3`, `fasilitas_4`, `fasilitas_5`, `fasilitas_6`) VALUES
-(1, 'Bebas Rokok', 'Bar Caffe', 'Kolam Renang', 'Layanan Front Office', 'Dinner', 'Karaoke'),
-(2, 'Free Wifi', 'Restaurant', 'Layanan Office', 'AC', 'Soft Drink Lobby', 'Kamar Luas'),
-(3, 'AC', 'smart tv', 'sprai premium', 'WiFi', 'telephone', 'pemandangan bagus'),
-(4, 'GYM', 'Kolam Renang', 'Musik Room', 'AC', 'WiFi', ''),
-(5, 'AC', 'WiFi', 'Smart TV', '', '', '');
+INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`) VALUES
+(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>'),
+(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n'),
+(3, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang Dinner</liv>\r\n');
 
 -- --------------------------------------------------------
 
@@ -73,7 +66,7 @@ CREATE TABLE `tb_kamar` (
 
 INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status_kamar`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
 (4, 'Hotel Fira', 'adalah gwej', 'VIP', 300000, 'Kosong', 1, 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-04 08:09:54'),
-(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'VIP', 200000, 'Tersedia', 2, 'Screenshot (36).png', '2022-03-01 09:01:46', '2022-03-12 01:58:06'),
+(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'BIASA', 200000, 'Tersedia', 2, '20220118_145408.jpg', '2022-03-01 09:01:46', '2022-03-16 01:33:02'),
 (7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
 (8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 4, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
 (9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 5, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
@@ -116,7 +109,8 @@ INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `tgl_chec
 (13, 10, 6, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 05:58:39', '2022-03-12 01:49:37'),
 (14, 10, 7, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 05:59:50', '2022-03-12 01:49:37'),
 (15, 10, 16, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 07:11:07', '2022-03-12 01:49:37'),
-(16, 10, 16, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 07:12:35', '2022-03-12 01:49:37');
+(16, 10, 16, '2022-03-10 12:00:00', '2022-03-17 12:00:00', 100000, 'booking', '2022-03-10 07:12:35', '2022-03-12 01:49:37'),
+(17, 10, 10, '2022-03-16 12:00:00', '2022-03-16 12:00:00', 0, 'booking', '2022-03-16 01:27:32', '2022-03-16 01:27:32');
 
 -- --------------------------------------------------------
 
@@ -210,7 +204,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`
@@ -222,7 +216,7 @@ ALTER TABLE `tb_kamar`
 -- AUTO_INCREMENT for table `tb_reservasion`
 --
 ALTER TABLE `tb_reservasion`
-  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_role`
