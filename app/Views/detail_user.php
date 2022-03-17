@@ -85,7 +85,7 @@
                         <div class="container">
                         <?php foreach($user as $usr):?>
                             <div class="content-center">
-                            <div class="cc-profile-image"><a href="#"><img src="<?=base_url('images/default.jpg')?>" class=" rounded-circle" alt="Image"/></a></div>
+                            <div class="cc-profile-image"><a href="#"><img src="<?=base_url('images/profile/' . $usr['gambar'])?>" height="300px" width="150px" class=" rounded-circle" alt="Image"/></a></div>
                         </div>
                         
                         </div>
@@ -98,9 +98,14 @@
                             <div class="col-lg-6 col-md-12">
                             <div class="card-body">
                                 <div class="h4 mt-0 title">About</div>
-                                <p>Hello! <?=$usr['nama']?>. Web Developer, Graphic Designer and Photographer.</p>
-                                <p>Creative CV is a HTML resume template for professionals. Built with Bootstrap 4, Now UI Kit and FontAwesome, this modern and responsive design template is perfect to showcase your portfolio, skills and experience.</p>
-                            </div>
+                                    <?php if(!$usr['bio']):?>
+                                        <p>Hello! Staff Nampaknya <b> <?=$usr['nama']?>  Belum Mengisi Bio Nya.</p></b>
+                                        <p>Lakukan sesuatu yang membuat dirimu di masa depan berterima kasih pada dirimu yang sekarang</p>
+                                    <?php endif?>
+                                    <?php if($usr['bio']):?>
+                                        <p><?=$usr['bio']?></p>
+                                    <?php endif?>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                             <div class="card-body">
