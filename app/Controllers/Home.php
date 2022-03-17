@@ -46,4 +46,12 @@ class Home extends BaseController
         return view('dashboard' , $data);
         
     }
+
+    public function tampilUser(){
+        $data = [
+            'judul'     => 'Data User',
+            'user'      => $this->userModel->where('role_id' , 1)->findAll()
+        ];
+        return view('tampil_user' , $data);
+    }
 }

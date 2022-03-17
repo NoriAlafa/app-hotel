@@ -29,7 +29,7 @@ class Admin extends BaseController{
             $data['judul'] = "Tambah Hotel";
             $data['fasilitas']      = $this->fasilitasModel->findAll();
             // ini nanti diisi database kamar
-            return view('admin/buat_kamar' ,$data);
+            return view('admin/crud/buat_kamar' ,$data);
     }
 
     public function tampilHotel()
@@ -42,7 +42,7 @@ class Admin extends BaseController{
         $data['judul']          = "CRUD Hotel";
         $data['kamar']          = $this->kamarModel->fasilitas();
         // ini nanti diisi database kamar
-        return view('admin/tampil_hotel' ,$data);
+        return view('admin/crud/tampil_hotel' ,$data);
     }
 
     public function buatHotel(){
@@ -124,7 +124,7 @@ class Admin extends BaseController{
         $data['kamar']=$this->kamarModel->viewFasilitas($id);
         $data['fasilitas'] = $this->fasilitasModel->findAll();
         //tampilkan data di view
-        return view('admin/edit_kamar',$data);
+        return view('admin/crud/edit_kamar',$data);
         
     }
 

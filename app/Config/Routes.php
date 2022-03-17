@@ -48,11 +48,13 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->put('/profile/update', 'Hotel::profileUpdate');
     $routes->get('/profile/pesanan/(:any)', 'Hotel::profilePesanan/$1');
 
+    //staff
+    $routes->get('/dashboard', 'Home::index');
+    $routes->get('/user/view','Home::tampilUser');
     //admin
     $routes->get('/createRoom', 'Admin::buatKamar');
     $routes->get('/dataHotel', 'Admin::tampilHotel');
     $routes->post('/saveBuat', 'Admin::buatHotel');
-    $routes->get('/dashboard', 'Home::index');
     $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
     $routes->get('/kamar/(:any)/edit', 'Admin::edit/$1');
     $routes->put('/editKamar/(:any)', 'Admin::update/$1');

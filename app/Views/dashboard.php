@@ -79,7 +79,7 @@
           <div class="card-stats-title">Pengguna</div>
         </div>
         <div class="card-chart">
-          <a href="#">
+          <a href="/user/view">
             <h2 class="text-center">Cek User</h2>
           </a>
         </div>
