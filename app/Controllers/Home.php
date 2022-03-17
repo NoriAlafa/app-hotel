@@ -31,7 +31,7 @@ class Home extends BaseController
         $dataPending        = $this->resepModel->where('status_rev' , 'booking')->countAllResults();
         $dataBayar          = $this->resepModel->where('status_rev' , 'bayar')->countAllResults();
         $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
-        $dataAllUser        = $this->userModel->get()->resultID->num_rows;
+        $dataAllUser        = $this->userModel->where('role_id' , 1)->countAllResults();
         $data = [
             'barchart'          =>$Barchart,
             'dataChart'         =>$chart,

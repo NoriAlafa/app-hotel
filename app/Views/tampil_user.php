@@ -1,6 +1,7 @@
 <?=$this->extend('template/layout')?>
 <?=$this->section('content')?>
 <section class="section">
+<div class="flash-data-admin" data-flashdata="<?=session()->getFlashdata('admin')?>"></div>
   <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
@@ -26,7 +27,7 @@
                         <td><?=$usr['nama']?></td>
                         <td><?=$usr['email']?></td>
                         <td><?=$usr['nik']?></td>
-                        <td><a href="">Detail</a> | <a href="">Edit</a> </td>
+                        <td><a href="">Detail</a> | <a href="/user/<?=$usr['id_user']?>/edit">Edit</a> </td>
                     </tr>
                     <?php endforeach?>
                 </tbody>

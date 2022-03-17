@@ -51,13 +51,17 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     //staff
     $routes->get('/dashboard', 'Home::index');
     $routes->get('/user/view','Home::tampilUser');
+
     //admin
-    $routes->get('/createRoom', 'Admin::buatKamar');
-    $routes->get('/dataHotel', 'Admin::tampilHotel');
-    $routes->post('/saveBuat', 'Admin::buatHotel');
-    $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
-    $routes->get('/kamar/(:any)/edit', 'Admin::edit/$1');
-    $routes->put('/editKamar/(:any)', 'Admin::update/$1');
+        //kamar
+        $routes->get('/createRoom', 'Admin::buatKamar');
+        $routes->get('/dataHotel', 'Admin::tampilHotel');
+        $routes->post('/saveBuat', 'Admin::buatHotel');
+        $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
+        $routes->get('/kamar/(:any)/edit', 'Admin::edit/$1');
+        $routes->put('/editKamar/(:any)', 'Admin::update/$1');
+        //user
+        $routes->get('/user/(:any)/edit', 'Admin::userEdit/$1');
 
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');

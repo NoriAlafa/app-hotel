@@ -173,4 +173,14 @@ class Admin extends BaseController{
         $this->kamarModel->delete($id);
         return redirect()->to('/dataHotel');
     }
+
+    public function userEdit($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['judul']  = 'Edit User';
+        $data['user'] = $this->userModel->find($id);
+        return view('admin/user/edit_user' , $data);
+    }
 }
