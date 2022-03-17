@@ -27,7 +27,7 @@
                         <td><?=$usr['nama']?></td>
                         <td><?=$usr['email']?></td>
                         <td><?=$usr['nik']?></td>
-                        <td><a href="">Detail</a> | <a href="/user/<?=$usr['id_user']?>/edit">Edit</a> </td>
+                        <td><a href="/user/detail/<?=$usr['id_user']?>">Detail</a> | <a href="/user/<?=$usr['id_user']?>/edit">Edit</a> </td>
                     </tr>
                     <?php endforeach?>
                 </tbody>

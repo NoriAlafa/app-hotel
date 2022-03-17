@@ -51,6 +51,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     //staff
     $routes->get('/dashboard', 'Home::index');
     $routes->get('/user/view','Home::tampilUser');
+    $routes->get('/user/detail/(:any)','Home::detailUser/$1');
 
     //admin
         //kamar

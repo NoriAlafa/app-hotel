@@ -48,10 +48,24 @@ class Home extends BaseController
     }
 
     public function tampilUser(){
+        if(session('role_id') == 1){
+            return redirect()->to('/');
+        }
+
         $data = [
             'judul'     => 'Data User',
             'user'      => $this->userModel->where('role_id' , 1)->findAll()
         ];
         return view('tampil_user' , $data);
+    }
+
+    public function detailUser($id){
+        if(session('role_id') == 1){
+            return redirect()->to('/');
+        }
+
+        $data['judul']  = 'Edit User';
+        $data['user'] = $this->userModel->where('id_user',$id)->findAll();
+        return view('detail_user' , $data);
     }
 }
