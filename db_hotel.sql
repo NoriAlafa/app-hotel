@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2022 at 11:38 AM
+-- Generation Time: Mar 17, 2022 at 02:28 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -147,6 +147,8 @@ CREATE TABLE `tb_user` (
   `nik` varchar(16) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role_id` int(11) NOT NULL,
+  `gambar` varchar(200) NOT NULL,
+  `bio` text NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -155,14 +157,15 @@ CREATE TABLE `tb_user` (
 -- Dumping data for table `tb_user`
 --
 
-INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`, `created_at`, `updated_at`) VALUES
-(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'alfaoken ', 'alafanori11@gmail.com', '12334456776', '$2y$10$SLqUTTznH7GEaCTjr8FEY.XFi.ETePKdrdmH5Aa2lly/.iCwf7p.S', 1, '0000-00-00 00:00:00', '2022-03-04 08:09:54'),
-(9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
-(10, 'korwil', 'korwil2@gmail.com', '1234567891012135', '$2y$10$a3L3BHRXUyIU9a.r6EFIyORxyMs8m6LS8ETl5cx.xvfWLbAtVV8YW', 1, '2022-03-01 06:56:03', '2022-03-12 21:54:00'),
-(11, 'mamank', 'testresep@gmail.com', '1234567890123457', '$2y$10$RbjJFb91ZrveQzFe4Z4p0OEO.B0YSCvjjyGzSz/dVk9e90PjbW632', 3, '2022-03-02 09:27:41', '2022-03-02 09:27:41');
+INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`, `gambar`, `bio`, `created_at`, `updated_at`) VALUES
+(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', 2, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', 2, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, 'default.jpg', '', '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
+(10, 'korwil', 'korwil2@gmail.com', '1234567891012135', '$2y$10$DknoztYxnMLybpGEtSNeD.JoBrhhcLUhNo7xTirYYDOKCmlMBc2F.', 1, '1637205760350.jpg', '<p>Bass Klemes</p>', '2022-03-01 06:56:03', '2022-03-17 07:36:59'),
+(11, 'mamank', 'testresep@gmail.com', '1234567890123457', '$2y$10$RbjJFb91ZrveQzFe4Z4p0OEO.B0YSCvjjyGzSz/dVk9e90PjbW632', 3, 'default.jpg', '', '2022-03-02 09:27:41', '2022-03-02 09:27:41'),
+(12, 'Nivila', 'Nivila@gmail.com', '0987654333334445', '$2y$10$cgxJJFa8yeoiYSc3l8Q...ZDIlxphAM3C4vgBUgWSWWDczsObJ2Qm', 1, 'fira.jpg', '<p>&nbsp;<b> &nbsp; Halo Saya Nivila</b><br></p>', '2022-03-17 07:39:54', '2022-03-17 08:17:47'),
+(13, 'Alfa', 'alfasaya@gmail.com', '1112233445555678', '$2y$10$6dNN01VV/m3GOCbjGgS41OjqRd4eVAitMBL.vRMzEM/U9YP1zwdgu', 1, 'default.jpg', '', '2022-03-17 08:14:13', '2022-03-17 08:14:13');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +233,7 @@ ALTER TABLE `tb_role`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

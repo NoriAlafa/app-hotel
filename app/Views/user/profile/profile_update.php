@@ -52,11 +52,11 @@
             </div>
             <div class="card-body">
                 <?php $validation = \Config\Services::validation();?>
-                <form action="/profile/update" method="post" class="needs-validation" >
+                <form action="/profile/update" method="post" class="needs-validation" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="put">
-                <?= csrf_field(); ?>
                 <?php foreach ($profile as $row){?>
-                <input type="hidden" value="<?=$row['id_user']?>">
+                <?= csrf_field(); ?>
+                <!-- <input type="hidden" value=""> -->
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nama</label>
                     <div class="col-sm-12 col-md-7">
@@ -85,6 +85,23 @@
                             <?=$validation->getError('email');?>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Bio</label>
+                      <div class="col-sm-12 col-md-7">
+                        <textarea class="summernote-simple" name="bio" ></textarea>
+                      </div>
+                </div>
+
+                <div class="form-group row mb-4">
+                      <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Gambar</label>
+                      <div class="col-sm-12 col-md-7">
+                          <input type="file"  required name="gambar" value="<?=$row['gambar'] ? $row['gambar'] : 'default.jpg'?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
+                          <div class="invalid-feedback">
+                            <?=$validation->getError('gambar');?>
+                          </div>
+                      </div>
                 </div>
 
                 <div class="form-group row mb-4">

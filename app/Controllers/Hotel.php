@@ -121,19 +121,39 @@ class Hotel extends BaseController
                     'min_length'    =>'Password Minimal 8 karakter'
                 ],
             ],
+            'gambar'    =>[
+                'rules' =>'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors'=>[
+                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
+                    'is_image'=>'Yang Anda Pilih Bukan Gambar',
+                    'mime_in' =>'Yang Anda Pilih Bukan Gambar'
+                ]
+            ],
         ]);
 
         if(!$validate){
             return redirect()->back()->withInput();
+        }
+        $id = session('id');
+        $gambar = $this->request->getFile('gambar');
+        $pindah = $this->userModel->find($id);
+        if ($gambar->isValid() && ! $gambar->hasMoved()) {
+            if(file_exists('images/profile/'.$pindah['gambar'])){
+                unlink('images/profile/' . $pindah['gambar']);
+            }
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/profile/' , $fileGambar);
         }
 
         $data = [
             'nama'      => $this->request->getPost('nama'),
             'nik'       => $this->request->getPost('nik'),
             'email'     => $this->request->getPost('email'),
-            'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT)
+            'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
+            'bio'       => $this->request->getPost('bio'),
+            'gambar'    =>$fileGambar
         ];
-        $this->userModel->update(session('id'),$data);
+        $this->userModel->update($id,$data);
         return redirect()->to('/profile');
     }
 
