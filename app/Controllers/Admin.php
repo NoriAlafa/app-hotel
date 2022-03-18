@@ -180,7 +180,54 @@ class Admin extends BaseController{
             return redirect()->back();
         }
         $data['judul']  = 'Edit User';
-        $data['user'] = $this->userModel->find($id);
+        $data['user'] = $this->userModel->where('id_user' , $id)->findAll();
         return view('admin/user/edit_user' , $data);
+    }
+
+    public function userUpdate(){
+        $validasi = $this->validate([
+            'nama'=>[
+                //jika username sudah ada di table dan harus diisi
+                'rules' => 'min_length[4]',
+                'errors' => [
+                    'min_length' => 'Nama kurang lebih memiliki panjang 4 karakter'
+                ]
+            ],
+            'email' =>[
+                'rules' =>'is_unique[tb_user.email]|valid_email',
+                'errors'=>[
+                    'is_unique' =>'Email sudah dipakai user lain',
+                    'valid_email'=>'Email tidak valid'
+                ]
+            ],
+            'nik'  =>[
+                'rules' =>'min_length[16]|integer',
+                'errors'=>[
+                    'min_length'=> 'Perhatikan panjang NIK Anda',
+                    'integer'   => 'Oops NIK anda Illegal'
+                ]
+            ],
+        ]);
+
+        //jika data tidak sesuai kembali dan munculkan pesan error di form register.
+        if(!$validasi){
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'nama'        => $this->request->getPost('nama'),
+            'email'         => $this->request->getPost('email'),
+            'bio'        => $this->request->getPost('bio'),
+            'nik'       => $this->request->getPost('nik')
+        ];
+
+        $this->userModel->update(['id_user' => $this->request->getPost('id_user')] , $data);
+        return redirect()->to('/user/view');
+    }
+
+    public function viewFasilitas(){
+        $data['judul']  = 'Fasilitas';
+        $data['fasilitas'] = $this->fasilitasModel->findAll();
+        return view('admin/fasilitas/tampil_fas' , $data);
     }
 }

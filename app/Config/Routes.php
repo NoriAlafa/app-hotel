@@ -61,8 +61,13 @@ $routes->group('', ['filter' => 'auth'], function($routes){
         $routes->get('/kamar/(:any)/delete', 'Admin::delete/$1');
         $routes->get('/kamar/(:any)/edit', 'Admin::edit/$1');
         $routes->put('/editKamar/(:any)', 'Admin::update/$1');
+        
+        //fasilitas
+        $routes->get('/fasilitas/kamar' , 'Admin::viewFasilitas');
+
         //user
         $routes->get('/user/(:any)/edit', 'Admin::userEdit/$1');
+        $routes->put('/user/update', 'Admin::userUpdate');
 
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');

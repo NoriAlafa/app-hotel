@@ -48,8 +48,8 @@
                                             <td><?=$no++?></td>
                                             <td><img src="<?=base_url('images/'.$pk['gambar'])?>" height="30px"></td>
                                             <td><?=$pk['nama_kamar']?></td>
-                                            <td><?=$pk['harga_kamar']?></td>
-                                            <td><?=$pk['pembayaran']?></td>
+                                            <td>Rp <?=number_format($pk['harga_kamar'])?></td>
+                                            <td>Rp <?=number_format($pk['pembayaran'])?></td>
                                             <td>
                                             <?php if($pk['status_rev'] == 'booking'):?>
                                                 <span class="badge badge-warning" style="width:80px;"><?=$pk['status_rev']?></span>
@@ -61,7 +61,11 @@
                                                 <span class="badge badge-danger" style="width:80px;"><?=$pk['status_rev']?></span>
                                             <?php endif;?>
                                             </td>
-                                            <td><a href="" class="btn btn-danger">Hapus</a></td>
+                                            <td>
+                                                <?php if($pk['status_rev'] == 'out'):?>
+                                                    <a href="" class="btn btn-danger">Hapus</a>
+                                                <?php endif;?>
+                                            </td>
                                         </tr>
                                     </tbody>
                                     <?php endforeach?>
