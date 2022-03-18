@@ -65,7 +65,9 @@ $routes->group('', ['filter' => 'auth'], function($routes){
         //fasilitas
         $routes->get('/fasilitas/kamar' , 'Admin::viewFasilitas');
         $routes->get('/fasilitas/tambah' , 'Admin::addFasilitas');
+        $routes->post('/fasilitas/insert' , 'Admin::insertFasilitas');
         $routes->get('/fasilitas/(:any)/edit' , 'Admin::editFasilitas/$1');
+        $routes->put('/fasilitas/update' , 'Admin::updateFasilitas');
         $routes->get('/fasilitas/(:any)/delete' , 'Admin::deleteFasilitas/$1');
 
         //user

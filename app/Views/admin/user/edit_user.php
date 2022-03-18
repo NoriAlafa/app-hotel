@@ -9,15 +9,6 @@
             </div>
             <div class="flash-data-resep" data-flashdata="<?=session()->getFlashdata('resep')?>"></div>
 
-            <?php if (!empty(session()->getFlashdata('error'))) { ?>         
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span area-hide="true">&times;</span>
-                    </button>
-                    Data gagal disimpan   <strong> <?= session()->getFlashdata('error')?></strong>
-                </div>
-            <?php } ?>
-            
             <h1><?=$judul?></h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="/dashboard">Dashboard</a></div>

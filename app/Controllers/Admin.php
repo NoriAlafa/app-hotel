@@ -226,18 +226,61 @@ class Admin extends BaseController{
     }
 
     public function viewFasilitas(){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
         $data['judul']  = 'Fasilitas';
         $data['fasilitas'] = $this->fasilitasModel->findAll();
         return view('admin/fasilitas/tampil_fas' , $data);
     }
 
     public function addFasilitas(){
-        return view('admin/fasilitas/tambah_fasilitas');
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['judul'] = 'Tambah Fasilitas';
+        return view('admin/fasilitas/tambah_fasilitas',$data);
     }
-
+    
+    public function insertFasilitas(){
+        $data = [
+            'id_fasilitas'    => $this->request->getPost('id_fasilitas'),
+            'nama_fasilitas'  => $this->request->getPost('nama_fasilitas'),
+        ];
+        session()->setFlashdata('fasilitas' , "Data Fasilitas Di Trima");
+        $this->fasilitasModel->insert($data);
+        return redirect()->to('/fasilitas/kamar');
+    }
     public function editFasilitas($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['judul']     = 'Edit Fasilitas';
         $data['fasilitas'] = $this->fasilitasModel->where('id_fasilitas',$id)->findAll();
         return view('admin/fasilitas/edit_fasilitas',$data);
     }
-    public function deleteFasilitas($id){}
+
+    public function updateFasilitas(){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data = [
+            'nama_fasilitas'    => $this->request->getPost('nama_fasilitas')
+        ];
+        session()->setFlashdata('fasilitas' , "Data Fasilitas Di Trima");
+        $this->fasilitasModel->update(['id_fasilitas'   => $this->request->getPost('id_fasilitas')] , $data);
+        return redirect()->to('/fasilitas/kamar');
+    }
+    public function deleteFasilitas($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $this->fasilitasModel->delete($id);
+        return redirect()->to('/fasilitas/kamar');
+    }
 }

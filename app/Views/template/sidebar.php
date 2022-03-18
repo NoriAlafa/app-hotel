@@ -23,7 +23,7 @@
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-cog"></i> <span>Fasilitas</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="<?=base_url('/fasilitas/kamar')?>"><i class="fab fa-deviantart"></i><span>Fasilitas</span></a></li>
-                <li><a class="nav-link" href="<?=base_url('/fasilitas/tambah')?>"><i class="fab fa-plus"></i><span>Tambah Fasilitas</span></a></li>
+                <li><a class="nav-link" href="<?=base_url('/fasilitas/tambah')?>"><i class="fas fa-plus"></i><span>Tambah Fasilitas</span></a></li>
               </ul>
             </li>
             <li class="menu-header">Resepsionis</li>
