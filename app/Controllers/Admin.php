@@ -230,4 +230,14 @@ class Admin extends BaseController{
         $data['fasilitas'] = $this->fasilitasModel->findAll();
         return view('admin/fasilitas/tampil_fas' , $data);
     }
+
+    public function addFasilitas(){
+        return view('admin/fasilitas/tambah_fasilitas');
+    }
+
+    public function editFasilitas($id){
+        $data['fasilitas'] = $this->fasilitasModel->where('id_fasilitas',$id)->findAll();
+        return view('admin/fasilitas/edit_fasilitas',$data);
+    }
+    public function deleteFasilitas($id){}
 }
