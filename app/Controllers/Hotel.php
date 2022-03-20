@@ -66,9 +66,12 @@ class Hotel extends BaseController
         $check_out = strtotime($this->request->getPost('tgl_check_out'));
         $perMalam = abs($check_out - $check_in)/(60*1440);
         $harga_kamar = $this->request->getPost('harga_kamar');
-        $finalBayar = $perMalam * $harga_kamar;
+        $bayarMalamSesTamu = $this->request->getPost('jumlah_tamu');
+        //harga kamar dikali harga sewa permalam dan di kali jumlah tamu
+        $bayarMalam = $perMalam * $harga_kamar * $bayarMalamSesTamu;
 
-
+        
+        
         $data = [
             'id_reservasion'            =>$this->request->getPost('id_reservation'),
             'id_kamar'                  =>$this->request->getPost('id_kamar'),
@@ -76,7 +79,8 @@ class Hotel extends BaseController
             'nama'                      =>$this->request->getPost('nama'),
             'tgl_check_in'              =>$this->request->getPost('tgl_check_in'),
             'tgl_check_out'             =>$this->request->getPost('tgl_check_out'),
-            'pembayaran'                =>$finalBayar,
+            'jumlah_tamu'               =>$bayarMalamSesTamu,
+            'pembayaran'                =>$bayarMalam,
             'harga_kamar'               =>$harga_kamar,
             'status_rev'                =>'booking'
         ];
@@ -158,7 +162,7 @@ class Hotel extends BaseController
     }
 
     public function profilePesanan($id){
-        $data['pesanKamar'] = $this->resepModel->where('id_reservasion' , $id)->getByUser();
+        $data['pesanKamar'] = $this->resepModel->getByUser($id);
         return view('user/profile/pesanan_saya' , $data);
     }
     

@@ -11,7 +11,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- End Container -->
     </div>
 
     
@@ -20,19 +20,19 @@
 	<div class="flash-data-kamar" data-flashdata="<?=session()->getFlashdata('user')?>"></div>
       <div class="container">
 		  <div class="row">
-          <div class="col-lg-8">
-          	<div class="row">
-          		<div class="col-md-12 ftco-animate">
-          			<h2 class="mb-4"><?=$judul?></h2>
-          			<div class="single-slider owl-carousel">
-          				<div class="item">
-							<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:600px;">
+			<div class="col-lg-8">
+				<div class="row">
+					<div class="col-md-12 ftco-animate">
+						<h2 class="mb-4"><?=$judul?></h2>
+						<div class="single-slider owl-carousel">
+							<div class="item">
+								<img src="<?=base_url('images/'.$kamarV['gambar'])?>" style=" height:685px;">
+							</div>
 						</div>
-          			</div>
-          		</div>
+					</div>
 
-          	</div>
-          </div> <!-- .col-md-8 -->
+				</div>
+			</div> <!-- .col-md-8 -->
 		  
 			<div class="col-lg-4 sidebar ftco-animate"> 
             	<div class="sidebar-box ftco-animate">
@@ -70,10 +70,18 @@
 										<label>Check Out</label>
 										<input type="text" name="tgl_check_out" class="form-control datetimepicker">
 									</div>
+
+									<div class="form-group">
+										<label>Jumlah Tamu</label>
+										<select class="form-control selectric" name="jumlah_tamu">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+									</div>
+
 									<center>
-										<?php if($kamarV['status_kamar'] == 'Tersedia'):?>
-											<button type="submit" href="/bayar" class=" btn btn-primary" style="margin-top:20px;">Pesan</button>
-										<?php endif;?>
+										<button type="submit" href="/bayar" class=" btn-primary" style="margin-top:20px;">Pesan</button>
 									</center>
 								</div>
 							</form>
@@ -88,68 +96,69 @@
             </div>
           </div>
         </div>
-	</div>
+		<?php if($kamarV['tipe_kamar']== 'VIP'):?>
+			<div class="container mt-md-2">
+				<h2 class="text-center " style="font-size:50px; margin-bottom:20px; font-weight:bold; color:#8d703b;">VIP ROOM</h2>
+				<div class="row d-flex shadow-lg p-3 mb-5 bg-white rounded">
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services py-4 d-block text-center">
+					<div class="d-flex justify-content-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span class="flaticon-reception-bell"></span>
+						</div>
+					</div>
+					<div class="media-body p-2 mt-2">
+						<h3 class="heading mb-3">Layanan Resepsionis</h3>
+						<p>Layanan Cepat Dari Resepsionis 24 Jam </p>
+					</div>
+					</div>      
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services py-4 d-block text-center">
+					<div class="d-flex justify-content-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span class="flaticon-serving-dish"></span>
+						</div>
+					</div>
+					<div class="media-body p-2 mt-2">
+						<h3 class="heading mb-3">Restaurant Bar</h3>
+						<p>Restaurant Yang Mewah Dan Berbagai Menu Makanan Exclusive</p>
+					</div>
+					</div>    
+				</div>
+				<div class="col-md-3 d-flex align-sel Searchf-stretch ftco-animate">
+					<div class="media block-6 services py-4 d-block text-center">
+					<div class="d-flex justify-content-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span class="flaticon-car"></span>
+						</div>
+					</div>
+					<div class="media-body p-2 mt-2">
+						<h3 class="heading mb-3">Transfer Services</h3>
+						<p>Jalan Jalan Keliling Menikmati Pemandangan Kota Di Akhir Masa CheckOut Anda</p>
+					</div>
+					</div>      
+				</div>
+				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services py-4 d-block text-center">
+					<div class="d-flex justify-content-center">
+						<div class="icon d-flex align-items-center justify-content-center">
+							<span class="flaticon-spa"></span>
+						</div>
+					</div>
+					<div class="media-body p-2 mt-2">
+						<h3 class="heading mb-3">Spa Suites</h3>
+						<p>Rias Facial Professional Dan Perawatan Perawatan Pribadi </p>
+					</div>
+					</div>      
+				</div>
+				</div>
+			</div>
+		<?php endif?>
+	</div><!-- End Container -->
+	<?php endforeach?>
 </section> 
-<?php if($kamarV['tipe_kamar']== 'VIP'):?>
-      <div class="container">
-		<h2 class="text-center " style="font-size:50px; margin-bottom:20px; font-weight:bold; color:#8d703b;">VIP ROOM</h2>
-        <div class="row d-flex shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-reception-bell"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Layanan Resepsionis</h3>
-                <p>Layanan Cepat Dari Resepsionis 24 Jam </p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-serving-dish"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Restaurant Bar</h3>
-                <p>Restaurant Yang Mewah Dan Berbagai Menu Makanan Exclusive</p>
-              </div>
-            </div>    
-          </div>
-          <div class="col-md-3 d-flex align-sel Searchf-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-car"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Transfer Services</h3>
-                <p>Jalan Jalan Keliling Menikmati Pemandangan Kota Di Akhir Masa CheckOut Anda</p>
-              </div>
-            </div>      
-          </div>
-          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
-            <div class="media block-6 services py-4 d-block text-center">
-              <div class="d-flex justify-content-center">
-              	<div class="icon d-flex align-items-center justify-content-center">
-              		<span class="flaticon-spa"></span>
-              	</div>
-              </div>
-              <div class="media-body p-2 mt-2">
-                <h3 class="heading mb-3">Spa Suites</h3>
-                <p>Rias Facial Professional Dan Perawatan Perawatan Pribadi </p>
-              </div>
-            </div>      
-          </div>
-        </div>
-      </div>
-<?php endif?>
-<?php endforeach?>
+
 
     
     <!-- .section -->

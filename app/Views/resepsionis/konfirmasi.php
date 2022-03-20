@@ -18,6 +18,7 @@
                             <th>Check Out</th>
                             <th>Info Pemesan</th>
                             <th>Harga Kamar</th>
+                            <th>Tamu</th>
                             <th>Tipe Kamar</th>
                             <th>Pembayaran</th>
                             <th>Status Kamar</th>
@@ -44,6 +45,7 @@
                               <?php endif;?>
                               </td>
                               <td>Rp <?=number_format($row['harga_kamar'])?></td>
+                              <td><?=$row['jumlah_tamu']?></td>
                               <td><?=$row['tipe_kamar']?></td>
                               <td>Rp <?=number_format($row['pembayaran'])?></td>
                               <td>
