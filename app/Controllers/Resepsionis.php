@@ -77,6 +77,11 @@ class Resepsionis extends BaseController
         return view('resepsionis/pesan_pengunjung' , $data);
     }
 
+    public function hapusPesan($id){
+        $this->pesanModel->delete($id);
+        return redirect()->to('/pesan/pengunjung');
+    }
+
     public function printPesan($id){
         if(session('role_id') != 3){
             session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');

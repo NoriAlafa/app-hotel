@@ -28,7 +28,7 @@
                               <td><?=$row['email']?></td>
                               <td><?=$row['pesan']?></td>
                               <td><?=$row['created_at']?></td>
-                              <td><a href="/hapus/pesan/<?=$row['id_pesan']?>" class="btn btn-danger">DELETE</a></td>
+                              <td><a href="/pesan/hapus/<?=$row['id_pesan']?>" onclick="return confirm('Apakah Anda Yakin')" class="btn btn-danger">DELETE</a></td>
                         </tr>
                         <?php endforeach;?>
                         </tbody>
