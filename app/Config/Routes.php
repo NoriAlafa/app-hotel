@@ -39,6 +39,7 @@ $routes->get('/room/(:any)', 'Hotel::lamanKamar/$1');
 $routes->get('/kamarhotel', 'Hotel::hotelKamar');
 $routes->get('/kontak', 'Hotel::kontak');
 $routes->post('/bayar', 'Hotel::bayar');
+$routes->post('/contact/kirim', 'Hotel::kontakKirim');
 
 
 $routes->group('', ['filter' => 'auth'], function($routes){

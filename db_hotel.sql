@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2022 at 09:28 AM
+-- Generation Time: Mar 21, 2022 at 12:59 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -77,6 +77,28 @@ INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `ha
 (13, '999999', '<p>99999</p>', 'BIASA', 99999, 'Tersedia', 4, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
 (14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 5, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
 (16, 'Test Fasilitas', '<p>test oke</p>', 'VIP', 500000, 'Tersedia', 3, 'template.jpg', '2022-03-08 06:50:12', '2022-03-08 06:50:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_pesan`
+--
+
+CREATE TABLE `tb_pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pesan` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_pesan`
+--
+
+INSERT INTO `tb_pesan` (`id_pesan`, `nama`, `email`, `pesan`, `created_at`, `updated_at`) VALUES
+(2, 'alfa', 'korwil2@gmail.com', '123jduwj', '2022-03-21 06:59:05', '2022-03-21 06:59:05');
 
 -- --------------------------------------------------------
 
@@ -184,6 +206,12 @@ ALTER TABLE `tb_kamar`
   ADD PRIMARY KEY (`id_kamar`);
 
 --
+-- Indexes for table `tb_pesan`
+--
+ALTER TABLE `tb_pesan`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
 -- Indexes for table `tb_reservasion`
 --
 ALTER TABLE `tb_reservasion`
@@ -216,6 +244,12 @@ ALTER TABLE `tb_fasilitas`
 --
 ALTER TABLE `tb_kamar`
   MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `tb_pesan`
+--
+ALTER TABLE `tb_pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`

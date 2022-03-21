@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\KamarModel;
 use App\Models\ReservationModel;
+use App\Models\PesanModel;
 use CodeIgniter\Pager\PagerRenderer;
 
 class Hotel extends BaseController
@@ -15,6 +16,7 @@ class Hotel extends BaseController
         $this->userModel    = new UserModel();
         $this->kamarModel   = new KamarModel();
         $this->resepModel   = new ReservationModel();
+        $this->pesanModel   = new PesanModel();
     }
 
     public function lamanDepan()
@@ -48,6 +50,44 @@ class Hotel extends BaseController
         return view('user/contact');
     }
 
+    public function kontakKirim(){
+        $validate = $this->validate([
+            'nama'  =>[
+                'rules' =>'required|min_length[4]',
+                'errors'=>[
+                    'required'      =>'Nama Tidak Boleh Kosong',
+                    'min_length'    =>'Nama Tidak Boleh Kurang Dari 4'
+                ],
+            ],
+            'email' =>[
+                'rules'=>'required|valid_email',
+                'errors'=>[
+                    'required'      =>'Email Harus Diisi',
+                    'valid_email'   =>'Email Tidak Valid'
+                ],
+            ],
+            'pesan' =>[
+                'rules'=>'required',
+                'errors'=>[
+                    'required'      =>'Pesan Harus Diisi'
+                ],
+            ],
+        ]);
+
+        if(!$validate){
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'id_pesan'  => $this->request->getPost('id_pesan'),
+            'nama'      => $this->request->getPost('nama'),
+            'email'     => $this->request->getPost('email'),
+            'pesan'     => $this->request->getPost('pesan')
+        ];
+
+        $this->pesanModel->insert($data);
+        return redirect()->to('/laman_depan');
+    }
    
 
     public function profile()
