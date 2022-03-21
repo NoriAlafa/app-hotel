@@ -80,6 +80,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/konfirmasi/(:any)/edit', 'Resepsionis::edit/$1');
     $routes->put('/editPesanan/(:any)', 'Resepsionis::update/$1');
     $routes->get('/print/(:any)', 'Resepsionis::printPesan/$1');
+    $routes->get('/pesan/pengunjung', 'Resepsionis::tampilPesan');
 });
 
 //auth

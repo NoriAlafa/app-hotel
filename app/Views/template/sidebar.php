@@ -28,6 +28,7 @@
             </li>
             <li class="menu-header">Resepsionis</li>
             <li><a class="nav-link" href="<?=base_url('/konfirmasiRoom')?>"><i class="fas fa-lock"></i> <span>Konfirmasi</span></a></li>
+            <li><a class="nav-link" href="<?=base_url('/pesan/pengunjung')?>"><i class="fas fa-envelope"></i><span>Pesan Pengunjung</span></a></li>
             <li class="menu-header">Logout</li>
             <li><a class="nav-link" href="<?=base_url('/logout')?>"><i class="fas fa-sign-out-alt"></i> <span>LogOut</span></a></li>
         </aside>

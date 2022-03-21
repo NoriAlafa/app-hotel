@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\ReservationModel;
 use App\Models\KamarModel;
 use App\Models\UserModel;
+use App\Models\PesanModel;
 use Dompdf\Dompdf;
 
 class Resepsionis extends BaseController
@@ -14,11 +15,11 @@ class Resepsionis extends BaseController
         $this->resepModel = new ReservationModel();
         $this->kamarModel = new KamarModel();
         $this->userModel = new UserModel();
+        $this->pesanModel = new PesanModel();
         
     }
 
-    public function konfirKamar()
-    {
+    public function konfirKamar(){
         if(session('role_id') != 3){
             session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
             return redirect()->back();
@@ -61,6 +62,19 @@ class Resepsionis extends BaseController
         $this->kamarModel->update($id_kmr , $data);
         $this->resepModel->update($id,$data);
         return redirect()->to('/konfirmasiRoom');
+    }
+
+    public function tampilPesan(){
+        if(session('role_id') != 3){
+            session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+
+        $data = [
+            'judul'     => 'Pesan Pengunjung',
+            'pesan'     => $this->pesanModel->findAll()
+        ];
+        return view('resepsionis/pesan_pengunjung' , $data);
     }
 
     public function printPesan($id){
