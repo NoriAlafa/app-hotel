@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 01:22 PM
+-- Generation Time: Mar 22, 2022 at 01:40 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -29,19 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
-  `nama_fasilitas` varchar(100) NOT NULL
+  `nama_fasilitas` varchar(100) NOT NULL,
+  `logo` varchar(200) NOT NULL,
+  `fasilitas_hotel` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_fasilitas`
 --
 
-INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`) VALUES
-(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>'),
-(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n'),
-(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n'),
-(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n'),
-(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n');
+INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `logo`, `fasilitas_hotel`) VALUES
+(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>', '<i class=\"fas fa-smoking\" style=\"font-size: 50px;\"></i>', 'RUANG MEROKOK'),
+(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n', '<i class=\"fas fa-dumbbell mb-3\" style=\"font-size: 50px;\"></i>', 'RUANG GYM'),
+(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n', '<i class=\"fas fa-swimming-pool mb-3\" style=\"font-size: 50px;\"></i>', 'KOLAM RENANG'),
+(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n', '<i class=\"fas fa-utensils mb-3\" style=\"font-size: 50px;\"></i>', 'MINI RESTAURANT'),
+(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n', '<i class=\"fas fa-glass-martini-alt  mb-3\" style=\"font-size: 50px;\"></i>', 'BARS'),
+(8, '<li>Dinner</li>\r\n<li>Free Breakfast</li>\r\n<li>AC</li>\r\n<li>WiFi</li>', '<i class=\"fas fa-music\" style=\"font-size: 50px;\"></i>', 'NIGHT MUSIK');
 
 -- --------------------------------------------------------
 
@@ -180,12 +183,12 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`, `gambar`, `bio`, `created_at`, `updated_at`) VALUES
-(5, 'alfaoke', 'alafanori@gmail.com', '23112245', '$2y$10$.2gmrZGP/IL1zuvjBbinCuC1qg6p0kxdCQ7dkWqM1x.iDOIrnfHHW', 2, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Nakamura Alfa', 'alafanori@gmail.com', '2311224589098765', '$2y$10$q7czH9TSN96bj0QYXqm.j.5slr3pgD3Mw0NOFwO10nGJaSqMdly/G', 2, 'card.png', '<p>Halo Saya Alfa</p>', '0000-00-00 00:00:00', '2022-03-22 06:19:25'),
 (6, 'rudy', 'rudy@gmail.com', '2147483647', '$2y$10$lu4tSO/p5dF92AXFDPPQm.r8WCuS1yemwG33cbhWxEEumNXxKTTAi', 2, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (7, 'erin', 'erinrisna1922@gmail.com', '95884883455', '$2y$10$6nY/T55yyHWrPQ/lrCit9uTqqobcItvENDU4afl2Yl5v6fbcHvit2', 3, 'default.jpg', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 'jijutsu', 'jijutsu@gmail.com', '1234567890123452', '$2y$10$.OBO/V2egMB/5WCqC78mzODoF6n10TL.82.fapIZ6cblUqkE/tFxa', 1, 'default.jpg', '', '2022-02-09 04:00:48', '2022-02-09 04:00:48'),
 (10, 'korwil', 'korwil2@gmail.com', '1234567891012135', '$2y$10$DknoztYxnMLybpGEtSNeD.JoBrhhcLUhNo7xTirYYDOKCmlMBc2F.', 1, '1637205760350.jpg', '<p>Bass Klemes</p>', '2022-03-01 06:56:03', '2022-03-17 07:36:59'),
-(11, 'mamank', 'testresep@gmail.com', '1234567890123457', '$2y$10$RbjJFb91ZrveQzFe4Z4p0OEO.B0YSCvjjyGzSz/dVk9e90PjbW632', 3, 'default.jpg', '', '2022-03-02 09:27:41', '2022-03-02 09:27:41'),
+(11, 'Resepsionis Cantik', 'testresep@gmail.com', '1234567890123457', '$2y$10$Ou3mQXmYrXZKL38yN4XY9e9NgxEabPAC4P/1ZldvfAjOXAAKdNxS2', 3, 'smk-ti-pelita-nusantara-kediri.jpg', '<p>Halo Saya Mamank</p>', '2022-03-02 09:27:41', '2022-03-22 06:21:58'),
 (12, 'Nivila Dewi', 'Nivila@gmail.com', '9789879783843212', '$2y$10$cgxJJFa8yeoiYSc3l8Q...ZDIlxphAM3C4vgBUgWSWWDczsObJ2Qm', 1, 'fira.jpg', '<p><b>Saya Nivila</b></p>', '2022-03-17 07:39:54', '2022-03-17 22:10:38'),
 (13, 'Alfa', 'alfasaya@gmail.com', '1112233445555678', '$2y$10$6dNN01VV/m3GOCbjGgS41OjqRd4eVAitMBL.vRMzEM/U9YP1zwdgu', 1, 'default.jpg', '', '2022-03-17 08:14:13', '2022-03-17 08:14:13');
 
@@ -237,7 +240,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`
@@ -249,7 +252,7 @@ ALTER TABLE `tb_kamar`
 -- AUTO_INCREMENT for table `tb_pesan`
 --
 ALTER TABLE `tb_pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasion`
