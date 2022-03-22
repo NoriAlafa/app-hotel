@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
                 <?php $validation = \Config\Services::validation();?>
-                <form action="/profile/update" method="post" class="needs-validation" enctype="multipart/form-data">
+                <form action="/profile/staff/update" method="post" class="needs-validation" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="put">
                 <?php foreach ($profile as $row){?>
                 <?= csrf_field(); ?>
@@ -60,7 +60,7 @@
                 <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Bio</label>
                       <div class="col-sm-12 col-md-7">
-                        <textarea class="summernote-simple" name="bio" ></textarea>
+                        <textarea class="summernote-simple" name="bio" ><?=old('bio',$row['bio'])?></textarea>
                       </div>
                 </div>
 

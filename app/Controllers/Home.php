@@ -77,6 +77,79 @@ class Home extends BaseController
         return view('dashboard/edit_profile_staff' , $data);
     }
 
+    public function profileUpdate(){
+        $validate = $this->validate([
+            'nama'  =>[
+                'rules' =>'required|min_length[4]',
+                'errors'=>[
+                    'required'      =>'Nama Tidak Boleh Kosong',
+                    'min_length'    =>'Nama Tidak Boleh Kurang Dari 4'
+                ],
+            ],
+            'nik'   =>[
+                'rules'=>'required|min_length[16]|integer',
+                'errors'=>[
+                    'required'      =>'NIK Tidak Bolehh Kosong',
+                    'min_length'    =>'Perhatikan Panjang NIK Anda',
+                    'integer'       =>'NIK tidak boleh berisi huruf'
+                ],
+            ],
+            'email' =>[
+                'rules'=>'required|valid_email',
+                'errors'=>[
+                    'required'      =>'Email Harus Diisi',
+                    'valid_email'   =>'Email Tidak Valid'
+                ],
+            ],
+            'password'=>[
+                'rules'=>'required|min_length[8]',
+                'errors'=>[
+                    'required'      =>'Password Harus Diisi',
+                    'min_length'    =>'Password Minimal 8 karakter'
+                ],
+            ],
+            'conf_password'=>[
+                'rules' => 'matches[password]',
+                'errors' => [
+                    'matches' => 'Konfirmasi Password tidak sama'
+                ],
+            ],
+            'gambar'    =>[
+                'rules' =>'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors'=>[
+                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
+                    'is_image'=>'Yang Anda Pilih Bukan Gambar',
+                    'mime_in' =>'Yang Anda Pilih Bukan Gambar'
+                ]
+            ],
+        ]);
+
+        if(!$validate){
+            return redirect()->back()->withInput();
+        }
+        $id = session('id');
+        $gambar = $this->request->getFile('gambar');
+        $pindah = $this->userModel->find($id);
+        if ($gambar->isValid() && ! $gambar->hasMoved()) {
+            if(file_exists('images/profile/'.$pindah['gambar'])){
+                unlink('images/profile/' . $pindah['gambar']);
+            }
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/profile/' , $fileGambar);
+        }
+
+        $data = [
+            'nama'      => $this->request->getPost('nama'),
+            'nik'       => $this->request->getPost('nik'),
+            'email'     => $this->request->getPost('email'),
+            'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
+            'bio'       => $this->request->getPost('bio'),
+            'gambar'    =>$fileGambar
+        ];
+        $this->userModel->update($id,$data);
+        return redirect()->to('/profile/staff');
+    }
+
     public function profile(){
         if(session('role_id') == 1){
             return redirect()->to('/');

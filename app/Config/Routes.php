@@ -55,6 +55,8 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/profile/staff','Home::profile');
     $routes->get('/profile/staff/edit/(:any)','Home::editProfileStaff/$1');
     $routes->get('/user/detail/(:any)','Home::detailUser/$1');
+    $routes->put('/profile/staff/update', 'Home::profileUpdate');
+
 
     //admin
         //kamar
