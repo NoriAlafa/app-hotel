@@ -43,7 +43,7 @@ class Home extends BaseController
             'statusAda'         => $dataStatusAda,
             'statusKosong'      => $dataStatusTdk
         ];
-        return view('dashboard' , $data);
+        return view('dashboard/dashboard' , $data);
         
     }
 
@@ -56,7 +56,7 @@ class Home extends BaseController
             'judul'     => 'Data User',
             'user'      => $this->userModel->where('role_id' , 1)->findAll()
         ];
-        return view('tampil_user' , $data);
+        return view('dashboard/tampil_user' , $data);
     }
 
     public function detailUser($id){
@@ -66,6 +66,29 @@ class Home extends BaseController
 
         $data['judul']  = 'Edit User';
         $data['user'] = $this->userModel->where('id_user',$id)->findAll();
-        return view('detail_user' , $data);
+        return view('dashboard/detail_user' , $data);
+    }
+
+    public function editProfileStaff($id){
+        $data = [
+            'judul'     => 'Edit Profile',
+            'profile'   => $this->userModel->where('id_user',$id)->findAll()
+        ];
+        return view('dashboard/edit_profile_staff' , $data);
+    }
+
+    public function profile(){
+        if(session('role_id') == 1){
+            return redirect()->to('/');
+        }
+
+        $id= session('id');
+
+        $data = [
+            'judul'     => 'PROFILE',
+            'profile'   => $this->userModel->user($id),
+        ];
+
+        return view('dashboard/profile_staff' , $data);
     }
 }

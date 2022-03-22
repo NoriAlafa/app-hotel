@@ -10,6 +10,7 @@
             <li class="menu-header">Dashboard</li>
             <li class="dropdown">
               <a href="<?=base_url('/dashboard')?>" class="dashboard" ><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="<?=base_url('/profile/staff/')?>" class="dashboard" ><i class="fas fa-user"></i><span>Profile</span></a>
             </li>
             <li class="menu-header">Admin</li>
             <li class="dropdown">

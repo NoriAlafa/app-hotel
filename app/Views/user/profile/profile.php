@@ -37,7 +37,7 @@
               <div class="col-sm-5 col-md-5 col-lg-5 ">
                 <div class="card profile-widget">
                   <div class="profile-widget-header">
-                      <img alt="image" src="<?=base_url('images/profile/' . $row['gambar'])?>" height="100px" width="150px" class="rounded-circle profile-widget-picture">
+                      <img alt="image" src="<?=base_url('images/profile/' . $row['gambar'])?>" height="150px" width="150px" class="rounded-circle profile-widget-picture">
                     <div class="profile-widget-items">
                       <div class="profile-widget-item">
                         <div class="profile-widget-item-label">Posts</div>
