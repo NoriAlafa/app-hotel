@@ -165,6 +165,12 @@ class Hotel extends BaseController
                     'min_length'    =>'Password Minimal 8 karakter'
                 ],
             ],
+            'conf_password'=>[
+                'rules' => 'matches[password]',
+                'errors' => [
+                    'matches' => 'Konfirmasi Password tidak sama'
+                ],
+            ],
             'gambar'    =>[
                 'rules' =>'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                 'errors'=>[

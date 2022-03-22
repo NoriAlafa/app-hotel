@@ -97,6 +97,11 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-12">
+            <a href="/" class="form-control text-center btn btn-info" >Kembali</a>
+          </div>
+        </div>
       </div>
     </section>
   </div>
