@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\KamarModel;
 use App\Models\ReservationModel;
 use App\Models\PesanModel;
+use App\Models\FasilitasModel;
 use CodeIgniter\Pager\PagerRenderer;
 
 class Hotel extends BaseController
@@ -17,12 +18,14 @@ class Hotel extends BaseController
         $this->kamarModel   = new KamarModel();
         $this->resepModel   = new ReservationModel();
         $this->pesanModel   = new PesanModel();
+        $this->fasModel     = new FasilitasModel();
     }
 
     public function lamanDepan()
     {
         $data = [
             'profileCount'  => $this->userModel->where('role_id' , 1)->countAllResults(),
+            'fasHotel'      => $this->fasModel->findAll(),
             'kamarCount'    => $this->kamarModel->get()->resultID->num_rows,
             'adminCount'    => $this->userModel->where('role_id' , 2)->countAllResults(),
             'resepCount'    => $this->userModel->where('role_id' , 3)->countAllResults(),

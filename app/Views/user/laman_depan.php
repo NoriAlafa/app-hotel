@@ -65,8 +65,23 @@
 		</section>
 
 		
-
-    
+    <section class=" text-center">
+      <div class="container">
+          <div class="judul">
+              <h4 class=" fw-bold pt-5 pb-5">FASILITAS HOTEL</h4>
+          </div>
+          <div class="row justify-content-center">
+            <?php foreach($fasHotel as $fs):?>
+              <div class="col-md-2 col-4 ">
+                  <div class="isi">
+                      <?=$fs['logo']?>
+                      <h4><?=$fs['fasilitas_hotel']?></h4>
+                  </div>
+              </div>
+            <?php endforeach?>
+          </div>
+      </div>
+    </section>
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
     	<div class="container">
@@ -110,9 +125,6 @@
         </div>
     	</div>
     </section>
-
-
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">

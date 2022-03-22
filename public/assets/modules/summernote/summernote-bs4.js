@@ -1611,7 +1611,7 @@ var dom = {
     /** @property {String} blank */
     blank: blankHTML,
     /** @property {String} emptyPara */
-    emptyPara: "<p>" + blankHTML + "</p>",
+    emptyPara: "<li>"+ blankHTML+"</li>" ,
     makePredByNodeName: makePredByNodeName,
     isEditable: isEditable,
     isControlSizing: isControlSizing,
