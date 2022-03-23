@@ -48,6 +48,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/profile/edit/(:any)', 'Hotel::profileEdit/$1');
     $routes->put('/profile/update', 'Hotel::profileUpdate');
     $routes->get('/profile/pesanan/(:any)', 'Hotel::profilePesanan/$1');
+    $routes->get('/pesanan/print/(:any)', 'Hotel::printPesananSaya/$1');
 
     //staff
     $routes->get('/dashboard', 'Home::index');

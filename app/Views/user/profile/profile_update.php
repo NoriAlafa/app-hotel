@@ -105,16 +105,16 @@
                 </div>
 
                 <div class="form-group row mb-4">
-                    <span class=" text-danger">Note: jika tidak ingin mengubah kata sandi masukan kata sandi yang sama</span>
+                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password</label>
                     <div class="col-sm-12 col-md-7">
-                        <span class=" text-danger">Note: jika tidak ingin mengubah kata sandi masukan kata sandi yang sama</span>
                         <input type="password" name="password" class="form-control inputtags  <?=$validation->hasError('password') ? 'is-invalid' : null ?>">
+                        <span class=" text-danger">Note: jika tidak ingin mengubah kata sandi masukan kata sandi yang sama</span>
+
                         <div class="invalid-feedback">
                             <?=$validation->getError('password');?>
                         </div>
                     </div>
-                </div
-                >
+                </div>
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Confirm Password</label>
                     <div class="col-sm-12 col-md-7">

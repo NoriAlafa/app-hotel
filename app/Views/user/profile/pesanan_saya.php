@@ -37,6 +37,8 @@
                                             <th>Gambar</th>
                                             <th>Nama Kamar</th>
                                             <th>Harga Kamar</th>
+                                            <th>Tamu</th>
+                                            <th>Menginap</th>
                                             <th>pembayaran</th>
                                             <th>Status Pemesanan</th>
                                             <th>Aksi</th>
@@ -49,6 +51,15 @@
                                             <td><img src="<?=base_url('images/'.$pk['gambar'])?>" height="30px"></td>
                                             <td><?=$pk['nama_kamar']?></td>
                                             <td>Rp <?=number_format($pk['harga_kamar'])?></td>
+                                            <td><?=$pk['jumlah_tamu']?></td>
+                                            <td>
+                                                <?php
+                                                $checkIn    = strtotime($pk['tgl_check_in']);
+                                                $checkOut   = strtotime($pk['tgl_check_out']);
+                                                echo abs( $checkIn- $checkOut)/(60*1440);
+                                                ?>
+                                                Hari
+                                            </td>
                                             <td>Rp <?=number_format($pk['pembayaran'])?></td>
                                             <td>
                                             <?php if($pk['status_rev'] == 'booking'):?>
@@ -61,11 +72,7 @@
                                                 <span class="badge badge-danger" style="width:80px;"><?=$pk['status_rev']?></span>
                                             <?php endif;?>
                                             </td>
-                                            <td>
-                                                <?php if($pk['status_rev'] == 'out'):?>
-                                                    <a href="" class="btn btn-danger">Hapus</a>
-                                                <?php endif;?>
-                                            </td>
+                                            <td><a href="/pesanan/print/<?=$pk['id_reservasion']?>" target="_blank" class="btn btn-primary">Print</a></td>
                                         </tr>
                                     </tbody>
                                     <?php endforeach?>

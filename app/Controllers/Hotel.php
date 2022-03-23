@@ -215,4 +215,23 @@ class Hotel extends BaseController
         return view('user/profile/pesanan_saya' , $data);
     }
     
+    public function printPesananSaya($id){
+        $data['judul']      = 'Pesanan Anda';
+        $data['dataRev']    = '';
+        $html = view('user/profile/pembayaran_user',$data);
+
+        // instantiate and use the dompdf class
+        $dompdf = new \Dompdf\Dompdf(['isRemoteEnabled' => true]);
+        
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("data_pembayaran.pdf",["Attachment"=>0]);
+    }
 }
