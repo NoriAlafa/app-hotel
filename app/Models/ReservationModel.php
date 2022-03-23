@@ -67,6 +67,7 @@ class ReservationModel extends Model
     public function getByUser($id){
         $builder = $this->db->table('tb_reservasion');
         $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar');
+        $builder->orderBy('id_reservasion DESC');
         $builder->where('id_user' , $id);
         $query = $builder->get();
         return $query->getResultArray();

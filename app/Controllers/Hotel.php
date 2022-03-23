@@ -8,6 +8,8 @@ use App\Models\ReservationModel;
 use App\Models\PesanModel;
 use App\Models\FasilitasModel;
 use CodeIgniter\Pager\PagerRenderer;
+use Dompdf\Dompdf;
+
 
 class Hotel extends BaseController
 {
@@ -217,7 +219,7 @@ class Hotel extends BaseController
     
     public function printPesananSaya($id){
         $data['judul']      = 'Pesanan Anda';
-        $data['dataRev']    = '';
+        $data['dataRev']    = $this->resepModel->print($id);
         $html = view('user/profile/pembayaran_user',$data);
 
         // instantiate and use the dompdf class
@@ -226,12 +228,12 @@ class Hotel extends BaseController
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper('A4', 'potrait');
 
         // Render the HTML as PDF
         $dompdf->render();
 
         // Output the generated PDF to Browser
-        $dompdf->stream("data_pembayaran.pdf",["Attachment"=>0]);
+        $dompdf->stream("bukti_pembayaran.pdf",["Attachment"=>0]);
     }
 }
