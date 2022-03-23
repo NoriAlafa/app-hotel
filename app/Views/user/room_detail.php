@@ -97,9 +97,9 @@
           </div>
         </div>
 		<?php if($kamarV['tipe_kamar']== 'VIP'):?>
-			<div class="container mt-md-2">
+			<div class="container mt-md-2 shadow-lg p-3 mb-5 bg-white rounded mt-lg-5">
 				<h2 class="text-center " style="font-size:50px; margin-bottom:20px; font-weight:bold; color:#8d703b;">VIP ROOM</h2>
-				<div class="row d-flex shadow-lg p-3 mb-5 bg-white rounded">
+				<div class="row d-flex ">
 				<div class="col-md-3 d-flex align-self-stretch ftco-animate">
 					<div class="media block-6 services py-4 d-block text-center">
 					<div class="d-flex justify-content-center">

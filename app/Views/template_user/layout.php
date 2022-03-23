@@ -22,29 +22,18 @@
     <link rel="stylesheet" href="<?=base_url('css/bootstrap-datepicker.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/jquery.timepicker.css')?>">
 	
-    <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap/css/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/modules/fontawesome/css/all.min.css')?>">
     <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css')?>">
-    <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
-    <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+   
 
     <!-- CSS Libraries -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
-    <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
 
     <link rel="stylesheet" href="<?=base_url('css/flaticon.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/icomoon.css')?>">
     <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-94034622-3');
-    </script>  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script> 
 </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -93,10 +82,7 @@
 <script src="<?=base_url('js/scrollax.min.js')?>"></script>
 <script src="<?=base_url('js/main.js')?>"></script>
 <script src="<?=base_url('assets/modules/jquery.min.js')?>"></script>
-<script src="<?=base_url('assets/modules/popper.js')?>"></script>
-<script src="<?=base_url('assets/modules/tooltip.js')?>"></script>
 <script src="<?=base_url('assets/modules/bootstrap/js/bootstrap.min.js')?>"></script>
-<script src="<?=base_url('assets/modules/nicescroll/jquery.nicescroll.min.js')?>"></script>
 <script src="<?=base_url('assets/modules/moment.min.js')?>"></script>
 <script src="<?=base_url('assets/js/stisla.js')?>"></script>
 <script src="<?=base_url('assets/js/scripts.js')?>"></script>

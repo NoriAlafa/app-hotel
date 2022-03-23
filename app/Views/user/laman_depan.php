@@ -75,7 +75,7 @@
               <div class="col-md-2 col-4 ">
                   <div class="isi">
                       <?=$fs['logo']?>
-                      <h4><?=$fs['fasilitas_hotel']?></h4>
+                      <h6><?=$fs['fasilitas_hotel']?></h6>
                   </div>
               </div>
             <?php endforeach?>
@@ -83,7 +83,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);">
+    <section class="ftco-section ftco-counter img mt-md-5" id="section-counter" style="background-image: url(images/bg_1.jpg);">
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-10">
