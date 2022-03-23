@@ -1,16 +1,2 @@
-Senin Depan Setidaknya selesai
-+(Tambah kamar kurang fasilitas karena baru dijoin[DONE])
-+(Plus Editnya[DONE])
-+(print Pembayaran user[DONE])
-+(resepsionis konfirmasi[DONE])
-+(Search Kamar[DONE])
-+(Tampilan Dashboard Chart[DONE])
-+(form bayar[DONE])
-
-Kamis
-+(Dropdown Fasilitas Dinamis[DONE])
-Mengubah Tampilan Navbar tidak responsive di mobile
-Navbar profile
-+(Update poto profile dan bio user[DONE])
-+(View Fasilitas[DONE])
-Edit dan Tambah Fasilitas
+-generate invoice
+-tambah kolom invoice di database tb reservasi
