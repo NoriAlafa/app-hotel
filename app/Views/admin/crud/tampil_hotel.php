@@ -27,9 +27,9 @@
                           </tr>
                         </thead>
                         <tbody>                                 
-                            <?php foreach($kamar as $kmr):?>
+                            <?php $no=1; foreach($kamar as $kmr):?>
                               <tr>
-                                  <td><?=$kmr['id_kamar']?></td>
+                                  <td><?=$no++?></td>
                                   <td><?=$kmr['nama_kamar']?></td>
                                   <td><?=$kmr['deskripsi']?></td>
                                   <td><?=$kmr['tipe_kamar']?></td>

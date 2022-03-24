@@ -29,6 +29,7 @@ class KamarModel extends Model
     public function fasilitas(){
       $builder = $this->db->table('tb_kamar');
       $builder->join('tb_fasilitas' , 'tb_fasilitas.id_fasilitas = tb_kamar.id_fasilitas');
+      $builder->orderBy('id_kamar DESC');
       $query = $builder->get();
       return $query->getResultArray();
     }
