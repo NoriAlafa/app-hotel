@@ -79,6 +79,7 @@ $routes->group('', ['filter' => 'auth'], function($routes){
         //user
         $routes->get('/user/(:any)/edit', 'Admin::userEdit/$1');
         $routes->put('/user/update', 'Admin::userUpdate');
+        
 
     //resepsionis
     $routes->get('/konfirmasiRoom', 'Resepsionis::konfirKamar');

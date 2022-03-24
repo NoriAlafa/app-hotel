@@ -13,7 +13,7 @@ class ReservationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_reservasion','id_user' ,'id_kamar','tgl_check_in','tgl_check_out' ,'jumlah_tamu' ,'pembayaran' , 'status_rev' , 'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_reservasion','id_user' ,'id_kamar','invoice','tgl_check_in','tgl_check_out' ,'jumlah_tamu' ,'pembayaran' , 'status_rev' , 'created_at' , 'updated_at'];
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
@@ -23,6 +23,7 @@ class ReservationModel extends Model
     public function reservasi(){
         $builder = $this->db->table('tb_reservasion')
         ->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
+        $builder->orderBy('id_reservasion DESC');
         $query = $builder->get();
         return $query->getResultArray();
     }

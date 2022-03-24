@@ -13,6 +13,7 @@
                         <thead>                                 
                           <tr>
                             <th>No</th>
+                            <th>Invoice</th>
                             <th>Pemesan</th>
                             <th>Check In</th>
                             <th>Check Out</th>
@@ -27,9 +28,10 @@
                           </tr>
                         </thead>
                         <tbody>                                 
-                        <?php foreach($dataRev as $row):?>
+                        <?php $no=1; foreach($dataRev as $row):?>
                         <tr>
-                              <td><?=$row['id_reservasion']?></td>
+                              <td><?=$no++?></td>
+                              <td><?=$row['invoice']?></td>
                               <td><?=$row['nama']?></td>
                               <td><?=$row['tgl_check_in']?></td>
                               <td><?=$row['tgl_check_out']?></td>

@@ -115,12 +115,15 @@ class Hotel extends BaseController
         //harga kamar dikali harga sewa permalam dan di kali jumlah tamu
         $bayarMalam = $perMalam * $harga_kamar * $bayarMalamSesTamu;
 
+        $invoice = rand();
+
         
         
         $data = [
             'id_reservasion'            =>$this->request->getPost('id_reservation'),
             'id_kamar'                  =>$this->request->getPost('id_kamar'),
             'id_user'                   =>$user,
+            'invoice'                   =>$invoice,
             'nama'                      =>$this->request->getPost('nama'),
             'tgl_check_in'              =>$this->request->getPost('tgl_check_in'),
             'tgl_check_out'             =>$this->request->getPost('tgl_check_out'),

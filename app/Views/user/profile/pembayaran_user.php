@@ -22,7 +22,7 @@
                     <?php $no=1; foreach ($dataRev as $row) : ?>
                     <div class="invoice-title">
                       <h2>Invoice</h2>
-                      <div class="invoice-number">Order #12345</div>
+                      <div class="invoice-number">Order #<?=$row['invoice']?></div>
                     </div>
                     <hr>
                     <div class="penutup">

@@ -57,6 +57,7 @@
 										<input type="hidden" name="id_reservasion">
 										<input type="hidden" name="id_kamar" value="<?=$kamarV['id_kamar']?>">
 										<input type="hidden" name="id_user">
+										<input type="hidden" name="invoice">
 										<input type="hidden" name="pembayaran">
 										<input type="hidden" name="harga_kamar" value="<?=$kamarV['harga_kamar']?>">
 									</div>
