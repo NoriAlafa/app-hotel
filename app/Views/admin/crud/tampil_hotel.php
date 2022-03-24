@@ -39,7 +39,11 @@
                                   <td><img src="<?=base_url('images/'.$kmr['gambar'])?>" style="height:80px; width:80px;"></td>
                                   <td><?=$kmr['created_at']?></td>
                                   <td><?=$kmr['updated_at']?></td>
-                                  <td><a href="/kamar/<?=$kmr['id_kamar']?>/edit">EDIT</a>|<a href="/kamar/<?=$kmr['id_kamar']?>/delete" class="tombol-hapus">DELETE</a></td>
+                                  <td>
+                                     <a href="/kamar/<?=$kmr['id_kamar']?>/edit">EDIT</a>
+                                     <a href="/kamar/<?=$kmr['id_kamar']?>/delete" class="tombol-hapus">DELETE</a>
+                                     <a href="/kamar/<?=$kmr['id_kamar']?>/detail">DETAIL</a>
+                                  </td>
                               </tr>
                             <?php endforeach?>
                         </tbody>

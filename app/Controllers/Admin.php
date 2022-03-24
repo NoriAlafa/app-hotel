@@ -18,7 +18,18 @@ class Admin extends BaseController{
 
     }
 
-    
+    public function detailKamar($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+
+        $data =[ 
+            'detail'    =>$this->kamarModel->viewFasilitas($id),
+            'judul'     =>'Detail Kamar'    
+        ];
+        return view('admin/crud/detail',$data);
+    }
     
     public function buatKamar(){
         if(session('role_id') != 2){
