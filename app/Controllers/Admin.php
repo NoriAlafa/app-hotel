@@ -15,6 +15,7 @@ class Admin extends BaseController{
         $this->userModel        = new UserModel(); 
         $this->resepModel       = new ReservationModel();
         $this->fasilitasModel   = new FasilitasModel();
+        
 
     }
 
@@ -26,7 +27,9 @@ class Admin extends BaseController{
 
         $data =[ 
             'detail'    =>$this->kamarModel->viewFasilitas($id),
-            'judul'     =>'Detail Kamar'    
+            'judul'     =>'Detail Kamar' ,
+            'User'      => $this->userModel->user(session('id'))
+   
         ];
         return view('admin/crud/detail',$data);
     }
@@ -39,6 +42,8 @@ class Admin extends BaseController{
 
             $data['judul'] = "Tambah Hotel";
             $data['fasilitas']      = $this->fasilitasModel->findAll();
+            $data['User'] = $this->userModel->user(session('id'));
+
             // ini nanti diisi database kamar
             return view('admin/crud/buat_kamar' ,$data);
     }
@@ -52,6 +57,8 @@ class Admin extends BaseController{
 
         $data['judul']          = "CRUD Hotel";
         $data['kamar']          = $this->kamarModel->fasilitas();
+        $data['User'] = $this->userModel->user(session('id'));
+
         // ini nanti diisi database kamar
         return view('admin/crud/tampil_hotel' ,$data);
     }
@@ -133,6 +140,8 @@ class Admin extends BaseController{
         }
         $data['judul']='Edit Kamar'; 
         $data['kamar']=$this->kamarModel->viewFasilitas($id);
+        $data['User'] = $this->userModel->user(session('id'));
+
         $data['fasilitas'] = $this->fasilitasModel->findAll();
         //tampilkan data di view
         return view('admin/crud/edit_kamar',$data);
@@ -192,6 +201,8 @@ class Admin extends BaseController{
         }
         $data['judul']  = 'Edit User';
         $data['user'] = $this->userModel->where('id_user' , $id)->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
+
         return view('admin/user/edit_user' , $data);
     }
 
@@ -243,6 +254,8 @@ class Admin extends BaseController{
         }
         $data['judul']  = 'Fasilitas';
         $data['fasilitas'] = $this->fasilitasModel->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
+
         return view('admin/fasilitas/tampil_fas' , $data);
     }
 
@@ -252,6 +265,8 @@ class Admin extends BaseController{
             return redirect()->back();
         }
         $data['judul'] = 'Tambah Fasilitas';
+        $data['User'] = $this->userModel->user(session('id'));
+
         return view('admin/fasilitas/tambah_fasilitas',$data);
     }
     
@@ -273,6 +288,8 @@ class Admin extends BaseController{
         }
         $data['judul']     = 'Edit Fasilitas';
         $data['fasilitas'] = $this->fasilitasModel->where('id_fasilitas',$id)->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
+
         return view('admin/fasilitas/edit_fasilitas',$data);
     }
 

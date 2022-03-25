@@ -11,7 +11,7 @@
               <a href="/"  class="nav-link has-dropdown"><i class="fas fa-fire"></i> <span>Dashboard</span></a>
               <ul class="dropdown-menu">
                 <li><a href="<?=base_url('/dashboard')?>" class="nav-link" ><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
-                <li><a href="<?=base_url('/profile/staff/')?>" class="nav-link" ><i class="fas fa-user"></i><span>Profile</span></a></li>
+                <li><a href="<?=base_url('/user/view')?>" class="nav-link" ><i class="fas fa-user"></i><span>Check User</span></a></li>
               </ul>
             </li>
             <li class="menu-header">Admin</li>
@@ -32,7 +32,5 @@
             <li class="menu-header">Resepsionis</li>
             <li><a class="nav-link" href="<?=base_url('/konfirmasiRoom')?>"><i class="fas fa-money-bill-wave"></i> <span>Konfirmasi</span></a></li>
             <li><a class="nav-link" href="<?=base_url('/pesan/pengunjung')?>"><i class="fas fa-envelope"></i><span>Pesan Pengunjung</span></a></li>
-            <li class="menu-header">Logout</li>
-            <li><a class="nav-link" href="<?=base_url('/logout')?>"><i class="fas fa-sign-out-alt"></i> <span>LogOut</span></a></li>
-        </aside>
+            </aside>
     

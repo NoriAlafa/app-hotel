@@ -69,14 +69,28 @@ class Auth extends BaseController
                 'errors' => [
                     'matches' => 'Konfirmasi Password tidak sama'
                 ]
-            ]
+            ],
+            'gambar'    =>[
+                'rules' =>'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors'=>[
+                    'uploaded'=>'Gambar Kosong',
+                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
+                    'is_image'=>'Yang Anda Pilih Bukan Gambar',
+                    'mime_in' =>'Yang Anda Pilih Bukan Gambar'
+                ]
+            ],
         ]);
 
         //jika data tidak sesuai kembali dan munculkan pesan error di form register.
         if(!$validasi){
             return redirect()->back()->withInput();
         }
-
+        $gambar = $this->request->getFile('gambar');
+        // $gambar->move('images/');
+        if ($gambar->isValid() && ! $gambar->hasMoved()) {
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/profile/' , $fileGambar);
+        }
         //Jika data sesuai lakukan penyimpanan data
         $data=[
             'nama'      => $this->request->getPost('nama'),
@@ -85,7 +99,7 @@ class Auth extends BaseController
             //enkripsi password dengan bycript
             'password'  => password_hash($this->request->getPost('password'),PASSWORD_BCRYPT),
             'role_id'   =>1,
-            'gambar'    =>'default.jpg'           
+            'gambar'    =>$fileGambar          
         ];
 
         //memasukan data dalam database

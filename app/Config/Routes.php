@@ -51,12 +51,12 @@ $routes->group('', ['filter' => 'auth'], function($routes){
     $routes->get('/pesanan/print/(:any)', 'Hotel::printPesananSaya/$1');
 
     //staff
-    $routes->get('/dashboard', 'Home::index');
-    $routes->get('/user/view','Home::tampilUser');
-    $routes->get('/profile/staff','Home::profile');
-    $routes->get('/profile/staff/edit/(:any)','Home::editProfileStaff/$1');
-    $routes->get('/user/detail/(:any)','Home::detailUser/$1');
-    $routes->put('/profile/staff/update', 'Home::profileUpdate');
+    $routes->get('/dashboard', 'Dashboard::index');
+    $routes->get('/user/view','Dashboard::tampilUser');
+    $routes->get('/profile/staff','Dashboard::profile');
+    $routes->get('/profile/staff/edit/(:any)','Dashboard::editProfileStaff/$1');
+    $routes->get('/user/detail/(:any)','Dashboard::detailUser/$1');
+    $routes->put('/profile/staff/update', 'Dashboard::profileUpdate');
 
 
     //admin

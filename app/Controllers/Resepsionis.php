@@ -28,7 +28,9 @@ class Resepsionis extends BaseController
         $dataPesan          = $this->resepModel->reservasi(); 
         $data     = [
             'judul' =>'Konfirmasi Orderan kamar',
-            'dataRev'   =>$dataPesan
+            'dataRev'   =>$dataPesan,
+            'User' => $this->userModel->user(session('id'))
+
         ];
         // ini nanti diisi database kamar
         return view('resepsionis/konfirmasi' ,$data);
@@ -41,6 +43,8 @@ class Resepsionis extends BaseController
         }
         $data['judul']      = 'Edit Pemesanan';
         $data['dataRev']    = $this->resepModel->edit($id);
+        $data['User'] = $this->userModel->user(session('id'));
+
         return view('resepsionis/edit_konfir',$data);
     }
 
@@ -72,7 +76,9 @@ class Resepsionis extends BaseController
 
         $data = [
             'judul'     => 'Pesan Pengunjung',
-            'pesan'     => $this->pesanModel->findAll()
+            'pesan'     => $this->pesanModel->findAll(),
+            'User'      => $this->userModel->user(session('id'))
+
         ];
         return view('resepsionis/pesan_pengunjung' , $data);
     }

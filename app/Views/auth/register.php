@@ -41,7 +41,7 @@
               <div class="card-body">
               <?php $validation = \Config\Services::validation();?>
 
-                <form method="POST" action="/daftar" autocomplete="off">
+                <form method="POST" action="/daftar" autocomplete="off" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                   <div class="form-group">
                     <label >Nama</label>
@@ -66,6 +66,14 @@
                         <?=$validation->getError('nik');?>
                     </div>
                   </div>
+
+                  <div class="form-group ">
+                      <label\>Gambar</label>
+                      <input type="file"  name="gambar" value="<?=old('gambar')?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
+                      <div class="invalid-feedback">
+                        <?=$validation->getError('gambar');?>
+                      </div>
+                </div>
 
                   <div class="row">
                     <div class="form-group col-6">

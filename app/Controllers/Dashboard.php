@@ -6,7 +6,7 @@ use App\Models\KamarModel;
 use App\Models\UserModel;
 use App\Models\ReservationModel;
 
-class Home extends BaseController
+class Dashboard extends BaseController
 {
     public function __construct(){
         helper('url');
@@ -23,8 +23,10 @@ class Home extends BaseController
             return redirect()->to('/');
         }
 
+        $id = session('id');
         $chart              = $this->resepModel->chart();
         $Barchart           = $this->resepModel->Barchart();
+        $User               = $this->userModel->user($id);
         $dataAllKamar       = $this->kamarModel->get()->resultID->num_rows;
         $dataStatusAda      = $this->kamarModel->where('status_kamar' , 'Tersedia')->countAllResults();
         $dataStatusTdk      = $this->kamarModel->where('status_kamar' , 'Kosong')->countAllResults();
@@ -33,6 +35,7 @@ class Home extends BaseController
         $dataOut            = $this->resepModel->where('status_rev' , 'out')->countAllResults();
         $dataAllUser        = $this->userModel->where('role_id' , 1)->countAllResults();
         $data = [
+            'User'              => $User,
             'barchart'          =>$Barchart,
             'dataChart'         =>$chart,
             'viewKamar'         => $dataAllKamar,
@@ -51,10 +54,13 @@ class Home extends BaseController
         if(session('role_id') == 1){
             return redirect()->to('/');
         }
+        $id=session('id');
+        $User               = $this->userModel->user($id);
 
         $data = [
             'judul'     => 'Data User',
-            'user'      => $this->userModel->where('role_id' , 1)->findAll()
+            'user'      => $this->userModel->where('role_id' , 1)->findAll(),
+            'User'      => $User
         ];
         return view('dashboard/tampil_user' , $data);
     }
@@ -64,15 +70,20 @@ class Home extends BaseController
             return redirect()->to('/');
         }
 
+        
+
         $data['judul']  = 'Edit User';
         $data['user'] = $this->userModel->where('id_user',$id)->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
         return view('dashboard/detail_user' , $data);
     }
 
     public function editProfileStaff($id){
         $data = [
             'judul'     => 'Edit Profile',
-            'profile'   => $this->userModel->where('id_user',$id)->findAll()
+            'profile'   => $this->userModel->where('id_user',$id)->findAll(),
+            'User'      => $this->userModel->user(session('id'))
+
         ];
         return view('dashboard/edit_profile_staff' , $data);
     }
@@ -160,6 +171,8 @@ class Home extends BaseController
         $data = [
             'judul'     => 'PROFILE',
             'profile'   => $this->userModel->user($id),
+            'User'      => $this->userModel->user($id)
+
         ];
 
         return view('dashboard/profile_staff' , $data);
