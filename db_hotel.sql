@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2022 at 04:25 AM
+-- Generation Time: Mar 29, 2022 at 05:41 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -31,20 +31,21 @@ CREATE TABLE `tb_fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
   `nama_fasilitas` varchar(100) NOT NULL,
   `logo` varchar(200) NOT NULL,
-  `fasilitas_hotel` varchar(50) NOT NULL
+  `fasilitas_hotel` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_fasilitas`
 --
 
-INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `logo`, `fasilitas_hotel`) VALUES
-(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>', '<i class=\"fas fa-smoking\" style=\"font-size: 50px;\"></i>', 'RUANG MEROKOK'),
-(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n', '<i class=\"fas fa-dumbbell mb-3\" style=\"font-size: 50px;\"></i>', 'RUANG GYM'),
-(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n', '<i class=\"fas fa-swimming-pool mb-3\" style=\"font-size: 50px;\"></i>', 'KOLAM RENANG'),
-(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n', '<i class=\"fas fa-utensils mb-3\" style=\"font-size: 50px;\"></i>', 'MINI RESTAURANT'),
-(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n', '<i class=\"fas fa-glass-martini-alt  mb-3\" style=\"font-size: 50px;\"></i>', 'BARS'),
-(8, '<li>Dinner</li>\r\n<li>Free Breakfast</li>\r\n<li>AC</li>\r\n<li>WiFi</li>', '<i class=\"fas fa-music\" style=\"font-size: 50px;\"></i>', 'NIGHT MUSIK');
+INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `logo`, `fasilitas_hotel`, `deskripsi`) VALUES
+(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>', '<i class=\"fas fa-smoking\" style=\"font-size: 50px;\"></i>', 'RUANG MEROKOK', 'Ruangan Khusus untuk merokok , sangat ramah untuk orang yang tidak suka asap rokok'),
+(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n', '<i class=\"fas fa-dumbbell mb-3\" style=\"font-size: 50px;\"></i>', 'RUANG GYM', 'Alat Fitnes yang lengkap dan memadahi'),
+(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n', '<i class=\"fas fa-swimming-pool mb-3\" style=\"font-size: 50px;\"></i>', 'KOLAM RENANG', 'Kolam renang yang luas dan air yang bersih'),
+(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n', '<i class=\"fas fa-utensils mb-3\" style=\"font-size: 50px;\"></i>', 'MINI RESTAURANT', 'Mini restaurat dengan berbagai macam masakan chef yang professional'),
+(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n', '<i class=\"fas fa-glass-martini-alt  mb-3\" style=\"font-size: 50px;\"></i>', 'BARS', ''),
+(8, '<li>Dinner</li>\r\n<li>Free Breakfast</li>\r\n<li>AC</li>\r\n<li>WiFi</li>', '<i class=\"fas fa-music\" style=\"font-size: 50px;\"></i>', 'NIGHT MUSIK', '');
 
 -- --------------------------------------------------------
 
@@ -193,7 +194,8 @@ INSERT INTO `tb_user` (`id_user`, `nama`, `email`, `nik`, `password`, `role_id`,
 (10, 'korwil', 'korwil2@gmail.com', '1234567891012135', '$2y$10$DknoztYxnMLybpGEtSNeD.JoBrhhcLUhNo7xTirYYDOKCmlMBc2F.', 1, '1637205760350.jpg', '<p>Bass Klemes</p>', '2022-03-01 06:56:03', '2022-03-17 07:36:59'),
 (11, 'Resepsionis Cantik', 'testresep@gmail.com', '1234567890123457', '$2y$10$Ou3mQXmYrXZKL38yN4XY9e9NgxEabPAC4P/1ZldvfAjOXAAKdNxS2', 3, 'smk-ti-pelita-nusantara-kediri.jpg', '<p>Halo Saya Mamank</p>', '2022-03-02 09:27:41', '2022-03-22 06:21:58'),
 (12, 'Nivila Dewi', 'Nivila@gmail.com', '9789879783843212', '$2y$10$cgxJJFa8yeoiYSc3l8Q...ZDIlxphAM3C4vgBUgWSWWDczsObJ2Qm', 1, 'fira.jpg', '<p><b>Saya Nivila</b></p>', '2022-03-17 07:39:54', '2022-03-17 22:10:38'),
-(13, 'Alfa', 'alfasaya@gmail.com', '1112233445555678', '$2y$10$6dNN01VV/m3GOCbjGgS41OjqRd4eVAitMBL.vRMzEM/U9YP1zwdgu', 1, 'default.jpg', '', '2022-03-17 08:14:13', '2022-03-17 08:14:13');
+(13, 'Alfa', 'alfasaya@gmail.com', '1112233445555678', '$2y$10$6dNN01VV/m3GOCbjGgS41OjqRd4eVAitMBL.vRMzEM/U9YP1zwdgu', 1, 'default.jpg', '', '2022-03-17 08:14:13', '2022-03-17 08:14:13'),
+(14, 'Danes', 'danes@gmail.com', '1234567890123456', '$2y$10$PEw0ZQoo8fEA2uVE/e1tgO/ekU9JjWAy2dShJ.4Zyt/l6FowLrCYK', 3, 'default.jpg', '', '2022-03-24 21:23:58', '2022-03-24 21:23:58');
 
 --
 -- Indexes for dumped tables
@@ -273,7 +275,7 @@ ALTER TABLE `tb_role`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

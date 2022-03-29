@@ -14,7 +14,7 @@ class FasilitasModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_fasilitas','nama_fasilitas','logo','fasilitas_hotel'];
+    protected $allowedFields    = ['id_fasilitas','nama_fasilitas','logo','fasilitas_hotel','deskripsi'];
 
     // Dates
     protected $useTimestamps = false;

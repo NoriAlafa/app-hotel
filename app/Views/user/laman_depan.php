@@ -67,18 +67,27 @@
 		
     <section class=" text-center">
       <div class="container">
-          <div class="judul">
-              <h4 class=" fw-bold pt-5 pb-5">FASILITAS HOTEL</h4>
-          </div>
-          <div class="row justify-content-center">
-            <?php foreach($fasHotel as $fs):?>
-              <div class="col-md-2 col-4 ">
-                  <div class="isi">
-                      <?=$fs['logo']?>
-                      <h6><?=$fs['fasilitas_hotel']?></h6>
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-12 col-sm-6">             
+              <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
+                <div class="work-experience-section">
+                  <h2 class="h2 fw-light mb-4">Fasilitas Hotel</h2>
+                      <?php foreach($fasHotel as $fs):?>
+                      <div class="timeline">
+                        <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
+                          <div class="timeline-head px-4 pt-3">
+                            <div class="h5"><?=$fs['logo']?> <span class="text-muted h6"><?=$fs['fasilitas_hotel']?></span></div>
+                          </div>
+                          <div class="timeline-body px-4 pb-4">
+                            <div class="text-muted text-small mb-3">May, 2015 - Present</div>
+                            <div><?=$fs['deskripsi']?></div>
+                          </div>
+                        </div>
+                      </div>
+                      <?php endforeach?>
+                    </div>
                   </div>
               </div>
-            <?php endforeach?>
           </div>
       </div>
     </section>
