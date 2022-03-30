@@ -33,7 +33,7 @@
                             <?=$row['email']?><br>
                             <?=$row['nik']?><br>
                         </address>
-                        <address style=" margin-left: 300px;">
+                        <address style=" margin-left: 400px;">
                           <strong>PAID To:</strong><br>
                           FAHOTEL<br>
                           1234 Main<br>

@@ -79,7 +79,7 @@
                             <div class="h5"><?=$fs['logo']?> <span class="text-muted h6"><?=$fs['fasilitas_hotel']?></span></div>
                           </div>
                           <div class="timeline-body px-4 pb-4">
-                            <div class="text-muted text-small mb-3">May, 2015 - Present</div>
+                            <div class="text-muted text-small mb-3"><?=date("Y-m-d");?></div>
                             <div><?=$fs['deskripsi']?></div>
                           </div>
                         </div>

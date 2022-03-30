@@ -97,6 +97,9 @@ class Hotel extends BaseController
 
     public function profile()
     {
+        if(session('role_id')!=1){
+            return redirect()->to('/profile/staff');
+        }
         $id = session('id');
         $data['profile'] =$this->userModel->user($id);
         return view('user/profile/profile' ,$data);

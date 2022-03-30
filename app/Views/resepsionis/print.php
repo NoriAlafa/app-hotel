@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Print</title>
   </head>
   <body>
   <div class="container">
@@ -33,7 +33,7 @@
                             <?=$row['email']?><br>
                             <?=$row['nik']?><br>
                         </address>
-                        <address style=" margin-left: 300px;">
+                        <address style=" margin-left: 400px;">
                           <strong>PAID To:</strong><br>
                           FAHOTEL<br>
                           1234 Main<br>
