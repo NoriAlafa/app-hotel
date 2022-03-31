@@ -97,13 +97,18 @@
                 <div class="form-group row mb-4">
                       <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Gambar</label>
                       <div class="col-sm-12 col-md-7">
-                          <input type="file"  name="gambar" value="<?=$row['gambar'] ? $row['gambar'] : 'default.jpg'?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
+                          <input type="file" onchange="previewImg()" name="gambar" value="<?=$row['gambar'] ? $row['gambar'] : 'default.jpg'?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
                           <div class="invalid-feedback">
                             <?=$validation->getError('gambar');?>
                           </div>
                       </div>
                 </div>
-
+                <div class="form-group row mb-4">
+                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Preview</label>
+                    <div class="col-sm-12 col-md-7">
+                        <img src="<?=base_url('images/default.jpg')?>"  class="img-preview" style="height:250px; width:250px;">
+                    </div>
+                </div>
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Password</label>
                     <div class="col-sm-12 col-md-7">
@@ -160,5 +165,18 @@
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>
   <script src="<?=base_url('assets/js/custom.js')?>"></script>
+  <script>
+    function previewImg(){
+      const gambar = document.querySelector('#gambar');
+      const imgPreview = document.querySelector('.img-preview');
+      const fileGambar = new FileReader();
+
+      fileGambar.readAsDataURL(gambar.files[0]);
+
+      fileGambar.onload = function(e){
+        imgPreview.src = e.target.result;
+      }
+    }
+  </script>
 </body>
 </html>
