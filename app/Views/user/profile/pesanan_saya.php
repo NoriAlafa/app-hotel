@@ -38,7 +38,6 @@
                                             <th>Nama Kamar</th>
                                             <th>Harga Kamar</th>
                                             <th>Tamu</th>
-                                            <th>Menginap</th>
                                             <th>pembayaran</th>
                                             <th>Status Pemesanan</th>
                                             <th>Aksi</th>
@@ -52,14 +51,6 @@
                                             <td><?=$pk['nama_kamar']?></td>
                                             <td>Rp <?=number_format($pk['harga_kamar'])?></td>
                                             <td><?=$pk['jumlah_tamu']?></td>
-                                            <td>
-                                                <?php
-                                                $checkIn    = strtotime($pk['tgl_check_in']);
-                                                $checkOut   = strtotime($pk['tgl_check_out']);
-                                                echo abs( $checkIn- $checkOut)/(60*1440);
-                                                ?>
-                                                Hari
-                                            </td>
                                             <td>Rp <?=number_format($pk['pembayaran'])?></td>
                                             <td>
                                             <?php if($pk['status_rev'] == 'booking'):?>

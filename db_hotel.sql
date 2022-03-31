@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2022 at 04:01 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Mar 31, 2022 at 01:48 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,7 +56,6 @@ INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `logo`, `fasilitas
 CREATE TABLE `tb_kamar` (
   `id_kamar` int(11) NOT NULL,
   `nama_kamar` varchar(100) NOT NULL,
-  `deskripsi` text NOT NULL,
   `tipe_kamar` varchar(20) NOT NULL,
   `harga_kamar` int(11) NOT NULL,
   `status_kamar` enum('Tersedia','Kosong') NOT NULL,
@@ -70,17 +69,14 @@ CREATE TABLE `tb_kamar` (
 -- Dumping data for table `tb_kamar`
 --
 
-INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `deskripsi`, `tipe_kamar`, `harga_kamar`, `status_kamar`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
-(4, 'Hotel Fira', 'adalah gwej', 'VIP', 300000, 'Kosong', 1, 'unnamed.jpg', '2022-02-28 06:16:32', '2022-03-04 08:09:54'),
-(6, 'Hotel Murah', '<p>Sangat Murah</p>', 'BIASA', 200000, 'Tersedia', 2, '20220118_145408.jpg', '2022-03-01 09:01:46', '2022-03-23 21:59:57'),
-(7, 'Wow Hotel', '<p>wpoooowww</p>', 'VIP', 300000, 'Tersedia', 3, '257640242_1074716543346452_7841743680110124039_n.jpg', '2022-03-01 09:08:23', '2022-03-01 09:08:23'),
-(8, 'korewa2', '<p>nani kore</p>', 'VIP', 300000, 'Tersedia', 4, 'Screenshot (28).png', '2022-03-01 09:09:45', '2022-03-04 09:54:40'),
-(9, 'Ichikiwir', '<p>Afa Iyah</p>', 'BIASA', 300000, 'Tersedia', 5, 'smk-ti-pelita-nusantara-kediri.jpg', '2022-03-02 10:00:22', '2022-03-02 10:00:22'),
-(10, 'ohayou', '<p>korewa nandesuka</p>', 'VIP', 1000000, 'Tersedia', 2, '92199789_p0_master1200.jpg', '2022-03-02 10:06:25', '2022-03-16 05:31:02'),
-(11, 'eaeaea', '<p>aeaeaea</p>', 'VIP', 3000000, 'Tersedia', 1, '243347566_134201875604595_8760594026456361568_n.jpg', '2022-03-03 03:48:09', '2022-03-03 03:48:09'),
-(13, '999999', '<p>99999</p>', 'BIASA', 99999, 'Tersedia', 4, 'Screenshot (3).png', '2022-03-03 03:50:08', '2022-03-03 03:50:08'),
-(14, '10101010', '<p>10101010</p>', 'BIASA', 40000000, 'Tersedia', 5, 'Screenshot (6).png', '2022-03-03 03:50:54', '2022-03-03 03:50:54'),
-(16, 'Test Fasilitas', '<p>test oke</p>', 'VIP', 500000, 'Tersedia', 3, 'template.jpg', '2022-03-08 06:50:12', '2022-03-08 06:50:12');
+INSERT INTO `tb_kamar` (`id_kamar`, `nama_kamar`, `tipe_kamar`, `harga_kamar`, `status_kamar`, `id_fasilitas`, `gambar`, `created_at`, `updated_at`) VALUES
+(4, 'Kamar Memeng', 'VIP', 300000, 'Kosong', 4, 'chastity-cortijo-M8iGdeTSOkg-unsplash (1).jpg', '2022-02-28 06:16:32', '2022-03-31 06:44:55'),
+(9, 'Kamar Maniez', 'BIASA', 300000, 'Tersedia', 4, 'photo-1578683010236-d716f9a3f461.avif', '2022-03-02 10:00:22', '2022-03-31 06:42:47'),
+(10, 'Kamar Hero', 'BIASA', 200000, 'Tersedia', 8, 'ralph-ravi-kayden-FqqiAvJejto-unsplash.jpg', '2022-03-02 10:06:25', '2022-03-31 06:41:58'),
+(11, 'Kamar Uwow', 'VIP', 3000000, 'Tersedia', 1, 'vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg', '2022-03-03 03:48:09', '2022-03-31 06:38:56'),
+(13, '999999', 'BIASA', 99999, 'Tersedia', 5, 'miami-florida-hotel-room-wallpaper-preview.jpg', '2022-03-03 03:50:08', '2022-03-31 06:35:20'),
+(14, 'Kamar SweetRoom', 'VIP', 40000000, 'Tersedia', 3, 'photo-1611892440504-42a792e24d32.jpg', '2022-03-03 03:50:54', '2022-03-31 06:41:09'),
+(16, 'Kamar Honey', 'VIP', 500000, 'Tersedia', 2, 'download.jpg', '2022-03-08 06:50:12', '2022-03-31 06:40:26');
 
 -- --------------------------------------------------------
 
@@ -251,7 +247,7 @@ ALTER TABLE `tb_fasilitas`
 -- AUTO_INCREMENT for table `tb_kamar`
 --
 ALTER TABLE `tb_kamar`
-  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_kamar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_pesan`

@@ -38,7 +38,7 @@
 			<?php foreach ($kamar as $kmr):?>
 			<div class="col-sm col-md-6 col-lg-4 ftco-animate ">
 				<div class="room">
-					<a href="rooms.html" class="img d-flex justify-content-center align-items-center">
+					<a href="/room/<?=$kmr['id_kamar']?>" class="img d-flex justify-content-center align-items-center">
 					<div class="gambar">
 						<img src="images/<?=$kmr['gambar']?>" style="height:300px; width:350px;margin-top:20px;">
 					</div>

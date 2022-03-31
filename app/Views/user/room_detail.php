@@ -122,8 +122,8 @@
 						</div>
 					</div>
 					<div class="media-body p-2 mt-2">
-						<h3 class="heading mb-3">Restaurant Bar</h3>
-						<p>Restaurant Yang Mewah Dan Berbagai Menu Makanan Exclusive</p>
+						<h3 class="heading mb-3">Request Menu Masakan</h3>
+						<p>Layanan Request Menu Makanan Sesuai Dengan Permintaan Anda</p>
 					</div>
 					</div>    
 				</div>

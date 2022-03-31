@@ -77,12 +77,6 @@ class Admin extends BaseController{
                     'min_length'    =>'Nama Kamar Terlalu Pendek'
                 ]
             ],
-            'deskripsi'    =>[
-                'rules' =>'required',
-                'errors'=>[
-                    'required' =>'Deskripsi Tidak Boleh Kosong'
-                ]
-            ],
             'tipe_kamar'    =>[
                 'rules' =>'required',
                 'errors'=>[
@@ -96,10 +90,10 @@ class Admin extends BaseController{
                 ]
             ],
             'gambar'    =>[
-                'rules' =>'uploaded[gambar]|max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'rules' =>'uploaded[gambar]|max_size[gambar,3072]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
                 'errors'=>[
                     'uploaded'=>'Gambar Belum Dipilih',
-                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 1MB',
+                    'max_size'=>'Ukuran Gambar Tidak Boleh Melebihi 3MB',
                     'is_image'=>'Yang Anda Pilih Bukan Gambar'
                 ]
             ],
@@ -120,7 +114,6 @@ class Admin extends BaseController{
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
-            'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'status_kamar'      => 'Tersedia',
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
@@ -167,7 +160,6 @@ class Admin extends BaseController{
 
         $data = [
             'nama_kamar'        => $this->request->getPost('nama_kamar'),
-            'deskripsi'         => $this->request->getPost('deskripsi'),
             'tipe_kamar'        => $this->request->getPost('tipe_kamar'),
             'harga_kamar'       => $this->request->getPost('harga_kamar'),
             'status_kamar'      => $this->request->getPost('status_kamar'),
@@ -176,6 +168,7 @@ class Admin extends BaseController{
         ];
 
         $this->kamarModel->update($id,$data);
+        session()->setFlashdata('success' , "Berhasil Diupdate");
         return redirect()->to('/dataHotel');
     }
 
