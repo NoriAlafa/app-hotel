@@ -47,6 +47,19 @@ class ReservationModel extends Model
         return $query->getResultArray();
     }
 
+    public function printSemua(){
+        $builder = $this->db->table('tb_reservasion');
+        $builder->join('tb_kamar' , 'tb_kamar.id_kamar = tb_reservasion.id_kamar')
+        ->join('tb_user' , 'tb_user.id_user = tb_reservasion.id_user');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
+    
+    public function get_jumlah(){
+        return $this->db->query("SELECT sum(pembayaran) AS total_bayar FROM tb_reservasion")->getResultArray();
+    }
+
     public function chart(){
         $builder = $this->db->table('tb_reservasion');
         $builder->select('COUNT(tb_reservasion.id_kamar) AS jumlah , tb_kamar.nama_kamar');

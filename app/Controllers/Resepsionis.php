@@ -111,4 +111,29 @@ class Resepsionis extends BaseController
         // Output the generated PDF to Browser
         $dompdf->stream("data_pembayaran.pdf",["Attachment"=>0]);
     }
+
+    public function printSemua(){
+        if(session('role_id') != 3){
+            session()->setFlashdata('resep' , 'Hanya Resepsionis yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['judul']      = 'Pesanan Anda';
+        $data['dataRev']    = $this->resepModel->printSemua();
+        $data['totalBayar']    = $this->resepModel->get_jumlah();
+        $html = view('resepsionis/print_semua',$data);
+
+        // instantiate and use the dompdf class
+        $dompdf = new \Dompdf\Dompdf(['isRemoteEnabled' => true]);
+        
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'potrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("rekap_pemesanan.pdf",["Attachment"=>0]);
+    }
 }
