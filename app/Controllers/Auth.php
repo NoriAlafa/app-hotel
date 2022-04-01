@@ -124,7 +124,9 @@ class Auth extends BaseController
                 session()->set([
                     'id'        =>$dataUser['id_user'],
                     'email'     => $username,
+                    'nama'      => $dataUser['nama'],
                     'role_id'   => $dataUser['role_id'],
+                    'gambar'    => $dataUser['gambar'],
                     'logged_in' =>true
                 ]);
                 if(session('role_id') ==2 OR session('role_id') ==3 ){
