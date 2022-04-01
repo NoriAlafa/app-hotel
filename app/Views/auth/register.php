@@ -68,11 +68,16 @@
                   </div>
 
                   <div class="form-group ">
-                      <label\>Gambar</label>
-                      <input type="file"  name="gambar" value="<?=old('gambar')?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
+                      <label>Foto Profile</label>
+                      <input type="file"  name="gambar"  onchange="previewImg()" value="<?=old('gambar')?>" id="gambar" class="form-control <?=$validation->hasError('gambar') ? 'is-invalid' : null ?>">
                       <div class="invalid-feedback">
                         <?=$validation->getError('gambar');?>
                       </div>
+                </div>
+
+                <div class="form-group ">
+                    <label >Preview</label><br/>
+                        <img src="<?=base_url('images/default.jpg')?>"   class="img-preview" style="height:250px; width:250px;">
                 </div>
 
                   <div class="row">
@@ -133,5 +138,18 @@
   <!-- Template JS File -->
   <script src="<?=base_url('assets/js/scripts.js')?>"></script>
   <script src="<?=base_url('assets/js/custom.js')?>"></script>
+  <script>
+    function previewImg(){
+      const gambar = document.querySelector('#gambar');
+      const imgPreview = document.querySelector('.img-preview');
+      const fileGambar = new FileReader();
+
+      fileGambar.readAsDataURL(gambar.files[0]);
+
+      fileGambar.onload = function(e){
+        imgPreview.src = e.target.result;
+      }
+    }
+  </script>
 </body>
 </html>

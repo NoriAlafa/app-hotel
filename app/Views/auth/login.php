@@ -46,7 +46,7 @@
             <?php } ?>
 
             <div class="card card-primary">
-              <div class="card-header"><h4><?=$judul?></h4></div>
+              <div class="card-header justify-content-center"><h4><?=$judul?></h4></div>
 
               <div class="card-body">
                 <form method="POST" action="/cek_login" class="needs-validation" novalidate="">
@@ -83,7 +83,7 @@
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                      Login
+                    <i class="fas fa-sign-in-alt"></i>
                     </button>
                   </div>
                 </form>
@@ -91,7 +91,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="<?=base_url('/register')?>">Create One</a>
+              Don't have an account? <a href="<?=base_url('/register')?>">Create Account</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; FAHOTEL

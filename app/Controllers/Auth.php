@@ -24,7 +24,7 @@ class Auth extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $data['judul'] = "Login";
+        $data['judul'] = "LOGIN";
         return view('auth/login' , $data);
     }
 
