@@ -14,7 +14,7 @@ class Auth extends BaseController
 
     public function index()
     {
-        $data['judul'] = "Register";
+        $data['judul'] = "REGISTER";
         return view('auth/register' , $data);
     }
 

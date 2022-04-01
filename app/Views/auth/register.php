@@ -36,7 +36,7 @@
               <img src="https://www.svgrepo.com/show/20434/hotel.svg" alt="logo" width="100" class="shadow-light rounded-circle">
             </div>
             <div class="card card-primary">
-              <div class="card-header"><h4><?=$judul?></h4></div>
+              <div class="card-header justify-content-center"><h4><?=$judul?></h4></div>
 
               <div class="card-body">
               <?php $validation = \Config\Services::validation();?>

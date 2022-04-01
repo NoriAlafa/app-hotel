@@ -64,21 +64,26 @@
 									
 									<div class="form-group">
 										<label>Check in</label>
-										<input type="text" name="tgl_check_in" class="form-control datetimepicker">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<i class="fas fa-calendar"></i>
+												</div>
+											</div>
+											<input type="text" name="tgl_check_in" class="form-control  datetimepicker">
+										</div>
 									</div>
 				
 									<div class="form-group">
 										<label>Check Out</label>
-										<input type="text" name="tgl_check_out" class="form-control datetimepicker">
-									</div>
-
-									<div class="form-group">
-										<label>Jumlah Tamu</label>
-										<select class="form-control selectric" name="jumlah_tamu">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-										</select>
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													<i class="fas fa-calendar"></i>
+												</div>
+											</div>
+											<input type="text" name="tgl_check_out" class="form-control  datetimepicker">
+										</div>
 									</div>
 
 									<center>
