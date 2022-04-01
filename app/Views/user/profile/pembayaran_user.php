@@ -55,14 +55,14 @@
                           <th data-width="40">#</th>
                           <th>Kamar</th>
                           <th class="text-center">Price</th>
-                          <th class="text-center">Tamu</th>
+                          <th class="text-center">Tipe</th>
                           <th class="text-right">Pembayaran</th>
                         </tr>
                         <tr>
                           <td><?=$no++?></td>
                           <td><?=$row['nama_kamar']?></td>
                           <td class="text-center">Rp <?=number_format($row['harga_kamar'])?></td>
-                          <td class="text-center"><?=$row['jumlah_tamu']?></td>
+                          <td class="text-center"><?=$row['tipe_kamar']?></td>
                           <td class="text-right">Rp <?=number_format($row['pembayaran'])?></td>
                         </tr>
                       </table>

@@ -37,7 +37,6 @@
                                             <th>Gambar</th>
                                             <th>Nama Kamar</th>
                                             <th>Harga Kamar</th>
-                                            <th>Tamu</th>
                                             <th>pembayaran</th>
                                             <th>Status Pemesanan</th>
                                             <th>Aksi</th>
@@ -50,7 +49,6 @@
                                             <td><img src="<?=base_url('images/'.$pk['gambar'])?>" height="30px"></td>
                                             <td><?=$pk['nama_kamar']?></td>
                                             <td>Rp <?=number_format($pk['harga_kamar'])?></td>
-                                            <td><?=$pk['jumlah_tamu']?></td>
                                             <td>Rp <?=number_format($pk['pembayaran'])?></td>
                                             <td>
                                             <?php if($pk['status_rev'] == 'booking'):?>

@@ -114,9 +114,8 @@ class Hotel extends BaseController
         $check_out = strtotime($this->request->getPost('tgl_check_out'));
         $perMalam = abs($check_out - $check_in)/(60*1440);
         $harga_kamar = $this->request->getPost('harga_kamar');
-        $bayarMalamSesTamu = $this->request->getPost('jumlah_tamu');
         //harga kamar dikali harga sewa permalam dan di kali jumlah tamu
-        $bayarMalam = $perMalam * $harga_kamar * $bayarMalamSesTamu;
+        $bayarMalam = $perMalam * $harga_kamar ;
 
         $invoice = rand();
 
@@ -130,7 +129,6 @@ class Hotel extends BaseController
             'nama'                      =>$this->request->getPost('nama'),
             'tgl_check_in'              =>$this->request->getPost('tgl_check_in'),
             'tgl_check_out'             =>$this->request->getPost('tgl_check_out'),
-            'jumlah_tamu'               =>$bayarMalamSesTamu,
             'pembayaran'                =>$bayarMalam,
             'harga_kamar'               =>$harga_kamar,
             'status_rev'                =>'booking'

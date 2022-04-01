@@ -13,7 +13,7 @@ class ReservationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_reservasion','id_user' ,'id_kamar','invoice','tgl_check_in','tgl_check_out' ,'jumlah_tamu' ,'pembayaran' , 'status_rev' , 'created_at' , 'updated_at'];
+    protected $allowedFields    = ['id_reservasion','id_user' ,'id_kamar','invoice','tgl_check_in','tgl_check_out' ,'pembayaran' , 'status_rev' , 'created_at' , 'updated_at'];
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
