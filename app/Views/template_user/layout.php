@@ -48,7 +48,7 @@
 	          <li class="nav-item"><a href="/kamarhotel" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="/kontak" class="nav-link">Contact</a></li>
             <?php if(session('id')):?>
-              <li class="nav-item"><a href="/profile" class="nav-link"><img src="images/profile/<?=session()->get('gambar')?>" class="rounded-circle" height="30px"><?=' '.session()->get('nama')?></a></li>
+              <li class="nav-item"><a href="/profile" class="nav-link"><i class="fas fa-user"></i> </a></li>
               <li class="nav-item"><a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i></a></li>
             <?php endif;?>
             <?php if(!session('id')){?>
