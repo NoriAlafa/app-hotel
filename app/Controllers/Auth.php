@@ -14,6 +14,10 @@ class Auth extends BaseController
 
     public function index()
     {
+        if(session('id')){
+            return redirect()->to('/dashboard');
+        }
+        
         $data['judul'] = "REGISTER";
         return view('auth/register' , $data);
     }

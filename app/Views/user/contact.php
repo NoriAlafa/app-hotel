@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?=base_url('assets/modules/fontawesome/css/all.min.css')?>">
 
   <!-- CSS Libraries -->
-
+  
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
@@ -25,13 +25,13 @@
 </script>
 <!-- /END GA --></head>
 
-<body>
+<body style="background-color:#212529;">
   <div id="app">
     <section class="section">
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
-            <div class="login-brand">
+            <div class="login-brand" style="font-weight:bold;color:white; text-transform: uppercase;" >
               FAHOTEL
             </div>
 
@@ -83,7 +83,7 @@
                       </div>
 
                       <div class="form-group text-right">
-                        <button type="submit" class="btn btn-round btn-lg btn-primary">
+                        <button type="submit" class="btn btn-round btn-lg " style="background-color:#8d703b;">
                           Send Message
                         </button>
                       </div>

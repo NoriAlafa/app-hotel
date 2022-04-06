@@ -15,6 +15,11 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+  <style>
+    body{
+      background-color:#212529;
+    }
+  </style>
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -33,7 +38,7 @@
         <div class="row">
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
             <div class="login-brand">
-              <img src="https://www.svgrepo.com/show/20434/hotel.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="https://www.svgrepo.com/show/20434/hotel.svg" alt="logo" width="100" style="background-color:#8d703b;" class="shadow-light rounded-circle">
             </div>
             <div class="card card-primary">
               <div class="card-header justify-content-center"><h4><?=$judul?></h4></div>
@@ -105,7 +110,7 @@
                   </div> -->
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    <button type="submit" class="btn btn-lg btn-block" style="background-color:#8d703b;">
                       Register
                     </button>
                   </div>

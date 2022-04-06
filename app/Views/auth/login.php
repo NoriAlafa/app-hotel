@@ -15,6 +15,11 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
+  <style>
+    body{
+      background-color:#212529;
+    }
+  </style>
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -33,7 +38,7 @@
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
             <div class="login-brand">
-              <img src="https://www.svgrepo.com/show/20434/hotel.svg" alt="logo" width="100" class="shadow-light rounded-circle">
+              <img src="https://www.svgrepo.com/show/20434/hotel.svg" alt="logo" width="100" style="background-color:#8d703b;"class="shadow-light  rounded-circle">
             </div>
 
             <?php if (!empty(session()->getFlashdata('error'))) { ?>         
@@ -82,8 +87,8 @@
                   </div> -->
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                    <i class="fas fa-sign-in-alt"></i>
+                    <button type="submit" class="btn btn-lg btn-block" style="background-color:#8d703b;" tabindex="4">
+                    LOGIN
                     </button>
                   </div>
                 </form>

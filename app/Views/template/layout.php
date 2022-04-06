@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="<?=base_url('assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/modules/bootstrap-daterangepicker/daterangepicker.css')?>">
-
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url('assets/css/style.css')?>">
   <link rel="stylesheet" href="<?=base_url('assets/css/components.css')?>">
@@ -37,9 +36,9 @@
 <body>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
-      <div class="navbar-bg"></div>
+      <div class="navbar-bg" style="background-color:#8d703b;"></div>
 
-      <nav class="navbar navbar-expand-lg main-navbar">
+      <nav class="navbar navbar-expand-lg main-navbar" style="background-color:#8d703b;">
          <?=$this->include('template/header')?>
       </nav>
       
