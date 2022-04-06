@@ -128,7 +128,7 @@ class Resepsionis extends BaseController
         $dompdf->loadHtml($html);
 
         // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->setPaper('A5', 'potrait');
 
         // Render the HTML as PDF
         $dompdf->render();
