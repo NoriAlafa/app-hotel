@@ -61,7 +61,7 @@
                                                 <span class="badge badge-danger" style="width:80px;"><?=$pk['status_rev']?></span>
                                             <?php endif;?>
                                             </td>
-                                            <td><a href="/pesanan/print/<?=$pk['id_reservasion']?>" target="_blank" class="btn btn-primary">Print</a></td>
+                                            <td><a href="/pesanan/print/<?=$pk['id_reservasion']?>" target="_blank" class="btn btn-primary">download</a></td>
                                         </tr>
                                     </tbody>
                                     <?php endforeach?>

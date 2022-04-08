@@ -13,18 +13,18 @@
       <p>Tanggal:<?=date('d F, Y')?></p>
       <p></p>
 
-      <div class="item" style="float:left">
+      <div class="item" style="float:left;font-size:11px;">
         <p >ITEM</p>
         <p><?=$row['nama_kamar'].'-'.$row['tipe_kamar']?></p>
       </div>
 
-      <div class="item" style="float:left;margin-left: 15px;">
+      <div class="item" style="float:left;margin-left: 10px;font-size:11px;">
         <p >HARGA</p>
         <p><?=number_format($row['harga_kamar'])?></p>
 
       </div>
 
-      <div class="item" style="float:left;margin-left: 15px;">
+      <div class="item" style="float:left;margin-left: 10px;font-size:11px;">
         <p >PEMBAYARAN</p>
         <p ><?=number_format($row['pembayaran'])?></p>
       </div>

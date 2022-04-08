@@ -238,6 +238,6 @@ class Hotel extends BaseController
         $dompdf->render();
 
         // Output the generated PDF to Browser
-        $dompdf->stream("bukti_pembayaran.pdf",["Attachment"=>0]);
+        $dompdf->stream("bukti_pembayaran.pdf");
     }
 }
