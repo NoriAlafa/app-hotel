@@ -53,4 +53,11 @@ class KamarModel extends Model
       ];
     }
 
+    public function vipKamar(){
+      $builder = $this->db->table('tb_kamar');
+      $builder->select('tipe_kamar');
+      $query = $builder->get();
+      return $query->getResultArray();
+    }
+
 }

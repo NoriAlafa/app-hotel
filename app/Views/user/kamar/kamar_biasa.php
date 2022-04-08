@@ -1,7 +1,7 @@
 <?=$this->extend('template_user/layout')?>
 
 <?=$this->section('content')?>
-    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+    <div class="hero-wrap" style="background-image: url(<?=base_url('images/bg_1.jpg')?>);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
@@ -40,7 +40,7 @@
 				<div class="room">
 					<a href="/room/<?=$kmr['id_kamar']?>" class="img d-flex justify-content-center align-items-center">
 					<div class="gambar">
-						<img src="images/<?=$kmr['gambar']?>" style="height:300px; width:350px;margin-top:20px;">
+						<img src="<?=base_url('images/'.$kmr['gambar'])?>" style="height:300px; width:350px;margin-top:20px;">
 					</div>
 					</a>
 					<div class="text p-3 text-center">

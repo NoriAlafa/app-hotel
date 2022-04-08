@@ -45,7 +45,7 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item" ><a href="/" style="font-weight:bold;color:white; text-transform: uppercase;" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="/kamarhotel" style="font-weight:bold;color:white; text-transform: uppercase;" class="nav-link">Rooms</a></li>
+	          <li class="nav-item"><a href="/kamar/tipe" style="font-weight:bold;color:white; text-transform: uppercase;" class="nav-link">Rooms</a></li>
 	          <li class="nav-item"><a href="/kontak" style="font-weight:bold;color:white; text-transform: uppercase;" class="nav-link">Contact</a></li>
             <?php if(session('id')):?>
               <li class="nav-item"><a href="/profile" style="font-weight:bold;color:white; text-transform: uppercase;" class="nav-link"><i class="fas fa-user"></i> </a></li>

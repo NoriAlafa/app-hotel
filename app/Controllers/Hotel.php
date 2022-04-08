@@ -35,19 +35,34 @@ class Hotel extends BaseController
         return view('user/laman_depan' , $data);
     }
 
+    public function vipKamar(){
+        $keyword            = $this->request->getGet('keyword');
+        $data['judul']      = 'List VIP Room';
+        $data ['kamar'] = $this->kamarModel->where('tipe_kamar','VIP')->vipKamar();
+        $data               = $this->kamarModel->getPaginate(3 , $keyword);
+        
+        return view('user/kamar/kamar_vip',$data);
+    }
+
+    public function biasaKamar(){
+        $keyword            = $this->request->getGet('keyword');
+        $data['judul']      = 'List VIP Room';
+        $data ['kamar'] = $this->kamarModel->where('tipe_kamar','BIASA')->vipKamar();
+        $data               = $this->kamarModel->getPaginate(3 , $keyword);
+        
+        return view('user/kamar/kamar_vip',$data);
+    }
+
     public function lamanKamar($id)
     {
         $data['judul']      ='Kamar';
         $data['viewKamar']  =$this->kamarModel->viewFasilitas($id);
-        return view('user/room_detail' , $data);
+        return view('user/kamar/room_detail' , $data);
     }
 
-    public function hotelKamar(){
-        $keyword            = $this->request->getGet('keyword');
-        $data['judul']      = 'Kamar';
-        $data['kamar']      = $this->kamarModel->findAll();
-        $data               = $this->kamarModel->getPaginate(9 , $keyword);
-        return view('user/room' , $data);
+
+    public function tipeKamar(){
+        return view('user/kamar/room_tipe');
     }
 
     public function kontak()
@@ -95,8 +110,7 @@ class Hotel extends BaseController
     }
    
 
-    public function profile()
-    {
+    public function profile(){
         if(session('role_id')!=1){
             return redirect()->to('/profile/staff');
         }
