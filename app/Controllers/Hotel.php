@@ -254,4 +254,8 @@ class Hotel extends BaseController
         // Output the generated PDF to Browser
         $dompdf->stream("bukti_pembayaran.pdf");
     }
+
+    public function services(){
+        return view('user/services');
+    }
 }

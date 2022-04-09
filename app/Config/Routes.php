@@ -40,6 +40,7 @@ $routes->get('/kamar/tipe', 'Hotel::tipeKamar');
 $routes->get('/kamar/tipe/vip', 'Hotel::vipKamar');
 $routes->get('/kamar/tipe/biasa', 'Hotel::biasaKamar');
 $routes->get('/kontak', 'Hotel::kontak');
+$routes->get('/services', 'Hotel::services');
 $routes->post('/bayar', 'Hotel::bayar');
 $routes->post('/contact/kirim', 'Hotel::kontakKirim');
 
