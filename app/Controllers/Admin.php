@@ -267,8 +267,6 @@ class Admin extends BaseController{
         $data = [
             'id_fasilitas'      => $this->request->getPost('id_fasilitas'),
             'nama_fasilitas'    => $this->request->getPost('nama_fasilitas'),
-            'logo'              => $this->request->getPost('logo'),
-            'fasilitas_hotel'   => $this->request->getPost('fasilitas_hotel'),
         ];
         session()->setFlashdata('fasilitas' , "Data Fasilitas Di Trima");
         $this->fasilitasModel->insert($data);
@@ -293,8 +291,6 @@ class Admin extends BaseController{
         }
         $data = [
             'nama_fasilitas'        => $this->request->getPost('nama_fasilitas'),
-            'logo'                  => $this->request->getPost('logo'),
-            'fasilitas_hotel'       => $this->request->getPost('fasilitas_hotel'),
         ];
         session()->setFlashdata('fasilitas' , "Data Fasilitas Di Trima");
         $this->fasilitasModel->update(['id_fasilitas'   => $this->request->getPost('id_fasilitas')] , $data);

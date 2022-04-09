@@ -17,18 +17,14 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Fasilitas Kamar</th>
-                                <th>Fasilitas Hotel</th>
-                                <th>LOGO</th>
-                                <th></th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody> 
-                            <?php foreach ($fasilitas as $fslts):?>                                
+                            <?php $no=1; foreach ($fasilitas as $fslts):?>                                
                                 <tr>
-                                    <td><?=$fslts['id_fasilitas']?></td>
+                                    <td><?=$no++?></td>
                                     <td style="list-style: none;"><?=$fslts['nama_fasilitas']?></td>
-                                    <td ><?=$fslts['fasilitas_hotel']?></td>
-                                    <td ><?=$fslts['logo']?></td>
                                     <td><a href="/fasilitas/<?=$fslts['id_fasilitas']?>/edit" class="btn btn-info">EDIT</a> | <a href="/fasilitas/<?=$fslts['id_fasilitas']?>/delete"  class="fas-hapus btn btn-danger">HAPUS</a></td>
                                 </tr>
                             <?php endforeach?>

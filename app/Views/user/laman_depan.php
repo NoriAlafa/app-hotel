@@ -64,34 +64,6 @@
 			</div>
 		</section>
 
-		
-    <section class=" text-center">
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 col-lg-12 col-sm-6">             
-              <div class="shadow-1-strong bg-white my-5 p-5" id="experience">
-                <div class="work-experience-section">
-                  <h2 class="h2 fw-light mb-4">Fasilitas Hotel</h2>
-                      <?php foreach($fasHotel as $fs):?>
-                      <div class="timeline">
-                        <div class="timeline-card timeline-card-info" data-aos="fade-in" data-aos-delay="0">
-                          <div class="timeline-head px-4 pt-3">
-                            <div class="h5"><?=$fs['logo']?> <span class="text-muted h6"><?=$fs['fasilitas_hotel']?></span></div>
-                          </div>
-                          <div class="timeline-body px-4 pb-4">
-                            <div class="text-muted text-small mb-3"><?=date("Y-m-d");?></div>
-                            <div><?=$fs['deskripsi']?></div>
-                          </div>
-                        </div>
-                      </div>
-                      <?php endforeach?>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </section>
-
     <section class="ftco-section ftco-counter img mt-md-5" id="section-counter" style="background-image: url(images/bg_1.jpg);">
     	<div class="container">
     		<div class="row justify-content-center">

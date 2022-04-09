@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2022 at 05:37 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Apr 09, 2022 at 07:25 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,23 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tb_fasilitas` (
   `id_fasilitas` int(11) NOT NULL,
-  `nama_fasilitas` varchar(100) NOT NULL,
-  `logo` varchar(200) NOT NULL,
-  `fasilitas_hotel` varchar(50) NOT NULL,
-  `deskripsi` text NOT NULL
+  `nama_fasilitas` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_fasilitas`
 --
 
-INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `logo`, `fasilitas_hotel`, `deskripsi`) VALUES
-(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>', '<i class=\"fas fa-smoking\" style=\"font-size: 50px;\"></i>', 'RUANG MEROKOK', 'Ruangan Khusus untuk merokok , sangat ramah untuk orang yang tidak suka asap rokok'),
-(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n', '<i class=\"fas fa-dumbbell mb-3\" style=\"font-size: 50px;\"></i>', 'RUANG GYM', 'Alat Fitnes yang lengkap dan memadahi'),
-(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n', '<i class=\"fas fa-swimming-pool mb-3\" style=\"font-size: 50px;\"></i>', 'KOLAM RENANG', 'Kolam renang yang luas dan air yang bersih'),
-(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n', '<i class=\"fas fa-utensils mb-3\" style=\"font-size: 50px;\"></i>', 'MINI RESTAURANT', 'Mini restaurat dengan berbagai macam masakan chef yang professional'),
-(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n', '<i class=\"fas fa-glass-martini-alt  mb-3\" style=\"font-size: 50px;\"></i>', 'BARS', 'Bar dengan berbagai minuman yang nikmat'),
-(8, '<li>Dinner</li>\r\n<li>Free Breakfast</li>\r\n<li>AC</li>\r\n<li>WiFi</li>', '<i class=\"fas fa-music\" style=\"font-size: 50px;\"></i>', 'NIGHT MUSIK', 'Night musik conser penghilang penat');
+INSERT INTO `tb_fasilitas` (`id_fasilitas`, `nama_fasilitas`) VALUES
+(1, '<li>WiFi</li>\r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>'),
+(2, '<li>WiFi</li> \r\n<li>Karaoke</li>\r\n<li>Smart Tv</li>\r\n<li>Kolam Renang</li> \r\n<li>Gym</li>\r\n'),
+(3, '<li>WiFi</li>\r\n<li>Pemandangan Aesthetic</li>\r\n<li>Kolam Renang</li> \r\n<li>Dinner</liv>\r\n'),
+(4, '<li>SoftDrink Lobby</li>\r\n<li>Kolam Renang</li>\r\n<li>Sprei Premium</li>\r\n<li>Bar</li>\r\n'),
+(5, '<li>AC</li>\r\n<li>Gym</li>\r\n<li>Lunch</li>\r\n'),
+(8, '<li>Dinner</li>\r\n<li>Free Breakfast</li>\r\n<li>AC</li>\r\n<li>WiFi</li>');
 
 -- --------------------------------------------------------
 
@@ -127,7 +124,9 @@ INSERT INTO `tb_reservasion` (`id_reservasion`, `id_user`, `id_kamar`, `invoice`
 (1, 5, 4, 182346586, '2022-02-28 04:05:36', '2022-03-17 12:00:00', 500000, 'bayar', '2022-02-28 04:05:36', '2022-03-12 01:49:37'),
 (18, 10, 9, 98787985, '2022-03-17 12:00:00', '2022-03-19 12:00:00', 600000, 'booking', '2022-03-17 11:39:55', '2022-03-17 11:39:55'),
 (24, 10, 13, 1355100189, '2022-04-01 12:00:00', '2022-04-03 12:00:00', 199998, 'booking', '2022-04-01 01:35:08', '2022-04-01 01:35:08'),
-(31, 10, 10, 657134179, '2022-04-03 12:00:00', '2022-04-04 12:00:00', 200000, 'booking', '2022-04-03 09:09:25', '2022-04-03 09:09:25');
+(31, 10, 10, 657134179, '2022-04-03 12:00:00', '2022-04-04 12:00:00', 200000, 'booking', '2022-04-03 09:09:25', '2022-04-03 09:09:25'),
+(33, 10, 11, 2077464034, '2022-04-08 12:00:00', '2022-04-09 12:00:00', 3000000, 'booking', '2022-04-07 23:53:59', '2022-04-07 23:53:59'),
+(34, 10, 13, 717987679, '2022-04-08 12:00:00', '2022-04-09 12:00:00', 99999, 'booking', '2022-04-07 23:55:47', '2022-04-07 23:55:47');
 
 -- --------------------------------------------------------
 
@@ -148,6 +147,18 @@ INSERT INTO `tb_role` (`role_id`, `role`) VALUES
 (1, 'user'),
 (2, 'admin'),
 (3, 'resepsionis');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_services`
+--
+
+CREATE TABLE `tb_services` (
+  `id_services` int(11) NOT NULL,
+  `detail_services` text NOT NULL,
+  `img` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -218,6 +229,12 @@ ALTER TABLE `tb_role`
   ADD PRIMARY KEY (`role_id`);
 
 --
+-- Indexes for table `tb_services`
+--
+ALTER TABLE `tb_services`
+  ADD PRIMARY KEY (`id_services`);
+
+--
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
@@ -231,7 +248,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_fasilitas`
 --
 ALTER TABLE `tb_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tb_kamar`
@@ -249,13 +266,19 @@ ALTER TABLE `tb_pesan`
 -- AUTO_INCREMENT for table `tb_reservasion`
 --
 ALTER TABLE `tb_reservasion`
-  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_reservasion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tb_role`
 --
 ALTER TABLE `tb_role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_services`
+--
+ALTER TABLE `tb_services`
+  MODIFY `id_services` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

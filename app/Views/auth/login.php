@@ -82,7 +82,7 @@
                   </div> -->
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-lg btn-block"  tabindex="4">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block"  tabindex="4">
                     LOGIN
                     </button>
                   </div>
