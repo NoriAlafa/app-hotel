@@ -80,6 +80,14 @@ $routes->group('', ['filter' => 'auth'], function($routes){
         $routes->put('/fasilitas/update' , 'Admin::updateFasilitas');
         $routes->get('/fasilitas/(:any)/delete' , 'Admin::deleteFasilitas/$1');
 
+        //services
+        $routes->get('/list/services' , 'Admin::listServices');
+        $routes->get('/services/tambah' , 'Admin::tambahServices');
+        $routes->get('/services/hapus/(:any)' , 'Admin::hapusServices/$1');
+        $routes->get('/services/edit/(:any)' , 'Admin::editServices/$1');
+        $routes->post('/insert/services' , 'Admin::insertServices');
+        $routes->put('/update/services/(:any)' , 'Admin::updateServices/$1');
+
         //user
         $routes->get('/user/(:any)/edit', 'Admin::userEdit/$1');
         $routes->put('/user/update', 'Admin::userUpdate');

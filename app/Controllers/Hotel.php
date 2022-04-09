@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\KamarModel;
 use App\Models\ReservationModel;
+use App\Models\ServiceModel;
 use App\Models\PesanModel;
 use App\Models\FasilitasModel;
 use CodeIgniter\Pager\PagerRenderer;
@@ -256,6 +257,8 @@ class Hotel extends BaseController
     }
 
     public function services(){
-        return view('user/services');
+        $service=new ServiceModel();
+        $data['service'] = $service->findAll();
+        return view('user/services',$data);
     }
 }

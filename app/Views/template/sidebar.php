@@ -29,6 +29,13 @@
                 <li><a class="nav-link" href="<?=base_url('/fasilitas/tambah')?>"><i class="fas fa-plus"></i><span>Tambah Fasilitas</span></a></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#"  class="nav-link has-dropdown"><i class="fas fa-bell"></i> <span>Services</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="<?=base_url('/list/services')?>"><i class="fas fa-clipboard-list"></i><span>Services</span></a></li>
+                <li><a class="nav-link" href="<?=base_url('/services/tambah')?>"><i class="fas fa-plus"></i><span>Tambah Services</span></a></li>
+              </ul>
+            </li>
             <li class="menu-header">Resepsionis</li>
             <li><a class="nav-link" href="<?=base_url('/konfirmasiRoom')?>"><i class="fas fa-money-bill-wave"></i> <span>Konfirmasi</span></a></li>
             <li><a class="nav-link" href="<?=base_url('/pesan/pengunjung')?>"><i class="fas fa-envelope"></i><span>Pesan Pengunjung</span></a></li>

@@ -6,6 +6,7 @@ use App\Models\KamarModel;
 use App\Models\UserModel;
 use App\Models\ReservationModel;
 use App\Models\FasilitasModel;
+use App\Models\ServiceModel;
 
 class Admin extends BaseController{
 
@@ -48,8 +49,7 @@ class Admin extends BaseController{
             return view('admin/crud/buat_kamar' ,$data);
     }
 
-    public function tampilHotel()
-    {
+    public function tampilHotel(){
         if(session('role_id') != 2){
             session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
             return redirect()->back();
@@ -303,5 +303,109 @@ class Admin extends BaseController{
         }
         $this->fasilitasModel->delete($id);
         return redirect()->to('/fasilitas/kamar');
+    }
+
+    public function listServices(){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $service = new ServiceModel();
+        $data['service'] = $service->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
+        return view('admin/services/list_services',$data);
+    }
+
+    public function tambahServices(){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $data['User'] = $this->userModel->user(session('id'));
+        return view('admin/services/tambah_services',$data);
+    }
+
+
+    public function insertServices(){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+
+        $service = new ServiceModel();
+
+        $gambar = $this->request->getFile('img');
+        // $gambar->move('images/');
+        if ($gambar->isValid() && ! $gambar->hasMoved()) {
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/services' , $fileGambar);
+        }
+
+        $data = [
+            'id_services'           => $this->request->getPost('id_services'),
+            'services'              => $this->request->getPost('services'),
+            'detail_services'       => $this->request->getPost('detail_services'),
+            'img'                   =>$fileGambar
+        ];
+
+        session()->setFlashdata('services' , 'berhasil ditambah');
+        $service->insert($data);
+        return redirect()->to('/list/services');
+    }
+
+    public function hapusServices($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $service = new ServiceModel();
+        $gambar = $service->find($id);
+        $fileGambar = $gambar['img'];
+        if(file_exists("images/services/" . $fileGambar)){
+            unlink("images/services/" . $fileGambar);
+        }
+        $service->delete($id);
+        return redirect()->to('/list/services');
+    }
+
+    public function editServices($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+        $services = new ServiceModel();
+        $data['service']    = $services->where('id_services',$id)->findAll();
+        $data['User'] = $this->userModel->user(session('id'));
+        return view('admin/services/edit_services',$data);
+    }
+
+    public function updateServices($id){
+        if(session('role_id') != 2){
+            session()->setFlashdata('admin' , 'Hanya Admin yang bisa mengakses halaman ini');
+            return redirect()->back();
+        }
+
+        $services = new ServiceModel();
+
+        $gambar = $this->request->getFile('img');
+        $pindah = $services->find($id);
+        if($gambar->isValid() && !$gambar->hasMoved()){
+            $old_image_file = $pindah['img'];
+            if(file_exists("images/services/".$old_image_file)){
+                unlink("images/services/".$old_image_file);
+            }
+            $fileGambar = $gambar->getName();
+            $gambar->move('images/services/' , $fileGambar);
+        }
+
+        $data = [
+            'services'              => $this->request->getPost('services'),
+            'detail_services'       => $this->request->getPost('detail_services'),
+            'img'                   =>$fileGambar
+        ];
+
+        $services->update($id,$data);
+        session()->setFlashdata('services' , "Berhasil Diupdate");
+        return redirect()->to('/list/services');
     }
 }

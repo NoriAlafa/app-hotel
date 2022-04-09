@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 07:25 AM
+-- Generation Time: Apr 09, 2022 at 02:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -156,9 +156,22 @@ INSERT INTO `tb_role` (`role_id`, `role`) VALUES
 
 CREATE TABLE `tb_services` (
   `id_services` int(11) NOT NULL,
+  `services` varchar(20) NOT NULL,
   `detail_services` text NOT NULL,
   `img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_services`
+--
+
+INSERT INTO `tb_services` (`id_services`, `services`, `detail_services`, `img`) VALUES
+(1, 'Concierge Services', '<li>melayani permintaan dan pertanyaan dari tamu, terutama yang tidak bisa dijawab oleh staf hotel lain</li>', 'Concierge.jpg'),
+(3, 'Driver', '<li>Melayani anda ketika ingin menggunakan sopir pribadi untuk pergi berbelanja , jalan-jalan , dll</li>', 'driver-Service.jpg'),
+(4, 'Dry Cleaning', '<li> mencuci pakaian dengan menggunakan cairan pelarut kotoran yang aman , dan dengan cepat baju langsung bisa dipakai kembali</li>', 'dry-cleaning.jpg'),
+(5, 'Room Service', '<li>Menerima pembersihan kamar kembali , serta kebutuhan yang anda inginkan seperti menambah bantal&nbsp;</li>', 'room-services.jpg'),
+(6, 'Turndown', '<li>Melayani customisasi kamar sesuai dengan yang anda inginkan</li>', 'turndown-service.jpg'),
+(7, 'Outdoor', '<li>Nikmati perjalanan outdoor mu dengan menyenangkan</li>', 'hotel.jpg');
 
 -- --------------------------------------------------------
 
@@ -278,7 +291,7 @@ ALTER TABLE `tb_role`
 -- AUTO_INCREMENT for table `tb_services`
 --
 ALTER TABLE `tb_services`
-  MODIFY `id_services` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_services` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

@@ -5,6 +5,7 @@ const flashDataAdmin = $('.flash-data-admin').data('flashdata');
 const flashDataRes = $('.flash-data-resep').data('flashdata');
 const flashDataKamar = $('.flash-data-kamar').data('flashdata');
 const flashDataFas = $('.flash-data-fasilitas').data('flashdata');
+const flashDataSrc = $('.flash-data-services').data('flashdata');
 
 
 if(flashData){
@@ -19,6 +20,14 @@ if(flashDataFas){
   swal({
     title:'Berhasil' ,
     text:'Fasilitas.....' + flashDataFas,
+    icon:'success'
+  });
+}
+
+if(flashDataSrc){
+  swal({
+    title:'Berhasil' ,
+    text:'Services.....' + flashDataSrc,
     icon:'success'
   });
 }
@@ -129,4 +138,26 @@ $('.fas-hapus').click(function(e){
       swal('Fasilitas tidak jadi terhapus');
       }
     });
+});
+
+$('.delete-services').click(function(e){
+  e.preventDefault();
+  const href = $(this).attr('href');
+  swal({
+    title: 'Are you sure?',
+    text: 'Once deleted, you will not be able to recover this imaginary file!',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+    document.location.href=href;
+    swal('Poof! Berhasil dihapus', {
+      icon: 'success',
+    });
+    } else {
+    swal('Services tidak jadi terhapus');
+    }
+  });
 });

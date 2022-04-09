@@ -13,4 +13,25 @@
         </div>
       </div>
     </div>
+<div class="container">
+  <div class="card border-0">
+    <div class="card-body">
+      <div class="row">
+        <?php foreach($service as $svc):?>
+          <div class="col-md-4 col-sm-4 col-lg-4 ">
+            <div class="image mt-md-5">
+              <img src="<?=base_url('images/services/'.$svc['img'])?>" style="height:300px; width:350px;"><br/>
+            </div>
+            <div class="services mt-md-3">
+              <?=$svc['services']?>
+            </div>
+            <div class="detail" style="list-style:none;">
+              <?=$svc['detail_services']?>
+            </div>
+          </div>
+        <?php endforeach?>
+      </div>
+    </div>
+  </div>
+</div>
 <?=$this->endSection()?>
